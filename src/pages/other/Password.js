@@ -20,18 +20,16 @@ export default class Password extends Component {
   };
   submitHandler = e => {
     e.preventDefault();
-    let obj = {
-      mobile: parseInt(this.state.mobile),
-    };
+
     console.log("dddddhh", this.state);
 
     axios
       .post(
-        `http://13.234.48.35:8000/user/loginWithPassword`,
-        obj
+        `http://13.234.48.35:8000/user/loginWithPassword`
+
         // {
-        // mobile: parseInt(this.state.mobile),
-        // password: parseInt(this.state.password),
+        //   mobile: parseInt(this.state.mobile),
+        //   password: parseInt(this.state.password),
         // }
       )
       .then(response => {
@@ -64,27 +62,7 @@ export default class Password extends Component {
         //this.setState({ errormsg: error });
       });
   };
-  loginHandler = e => {
-    e.preventDefault();
-    let obj = {
-      mobile: parseInt(this.state.mobile),
-    };
-    axios
-      .post(`http://13.234.48.35:8000/user/userlogin`, obj)
-      .then(response => {
-        console.log("@@@####", response.data);
-        this.setState({ otpMsg: response.data.msg });
-        if (response.data.msg === "otp Send Successfully") {
-          swal("otp Send Successfully");
-          // this.props.history.push('/')
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        console.log(error.response);
-        swal("Error!", "User doesn't Exist", "error");
-      });
-  };
+
   render() {
     // console.log(this.state.otp);
     return (

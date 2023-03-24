@@ -5,12 +5,13 @@ import Nav from "react-bootstrap/Nav";
 import axios from "axios";
 import LayoutOne from "../../layouts/LayoutOne";
 import { Label, Input, Form, Button, Row, Col } from "reactstrap";
-import PhoneInput from "react-phone-number-input/react-hook-form-input";
 
-// import PhoneInput from "react-phone-input-2";
-// import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import { width } from "@mui/system";
 
 export default class LoginRegister extends Component {
   constructor(props) {
@@ -78,27 +79,46 @@ export default class LoginRegister extends Component {
         //this.setState({ errormsg: error });
       });
   };
-  loginpassHandler = e => {
-    e.preventDefault();
-    let obj = {
-      mobile: parseInt(this.state.mobile),
-    };
-    axios
-      .post(`http://13.234.48.35:8000/user/loginWithPassword`, obj)
-      .then(response => {
-        console.log("@@@####", response.data);
-        this.setState({ passMsg: response.data.msg });
-        if (response.data.msg === "Success") {
-          swal("Successfully");
-          // this.props.history.push('/')
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        console.log(error.response);
-        swal("Error!", "User doesn't Exist", "error");
-      });
-  };
+  // loginpassHandler = e => {
+  //   e.preventDefault();
+  //   console.log("dddddddddhh", this.state);
+
+  //   axios
+  //     .post(`http://13.234.48.35:8000/user/loginWithPassword`, {
+  //       mobile: parseInt(this.state.mobile),
+  //       otp: parseInt(this.state.otp),
+  //     })
+  //     .then(response => {
+  //       console.log("@@@####", response.data);
+  //       // let id = response.data.user;
+  //       if (response.data.status === true) {
+  //         this.setState({ otpMsg: response.data.msg });
+  //         localStorage.setItem(
+  //           "userData",
+  //           JSON.stringify(response?.data?.data)
+  //         );
+  //         localStorage.setItem("token", JSON.stringify(response?.data?.token));
+  //         localStorage.setItem(
+  //           "user_id",
+  //           JSON.stringify(response?.data?.data?._id)
+  //         );
+  //         localStorage.setItem(
+  //           "user_mobile_no",
+  //           JSON.stringify(response?.data?.data?.mobile)
+  //         );
+  //         if (response.data.msg === "otp verified") {
+  //           swal("otp verified");
+  //           // window.location.replace('/')
+  //           this.props.history.push("/");
+  //         }
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //       console.log(error.response);
+  //       // swal("Error!", "User doesn't Exist", "error");
+  //     });
+  // };
   loginHandler = e => {
     e.preventDefault();
     let obj = {
@@ -232,7 +252,20 @@ export default class LoginRegister extends Component {
                             ) : (
                               <div className="login-register-form">
                                 <Form onSubmit={this.loginHandler}>
-                                  {/* <PhoneInput
+                                  <Row>
+                                    <Col md="12">
+                                      <PhoneInput
+                                        country={"us"}
+                                        value={this.state.mobile}
+                                        onChange={mobile =>
+                                          this.setState({ mobile })
+                                        }
+                                        width="100%"
+                                      />
+                                    </Col>
+                                  </Row>
+
+                                  {/* <Input
                                     type="number"
                                     name="mobile"
                                     maxLength="12"
@@ -240,17 +273,7 @@ export default class LoginRegister extends Component {
                                     placeholder="Enter Your Mobile No."
                                     value={this.state.mobile}
                                     onChange={this.changeHandler}
-                                    // rules={{ required: true }}
                                   /> */}
-                                  <Input
-                                    type="number"
-                                    name="mobile"
-                                    maxLength="12"
-                                    required
-                                    placeholder="Enter Your Mobile No."
-                                    value={this.state.mobile}
-                                    onChange={this.changeHandler}
-                                  />
                                   {/* <Input
                                     type="password"
                                     name="password"
@@ -305,6 +328,7 @@ export default class LoginRegister extends Component {
                                       type="file"
                                       name="userimg"
                                       onChange={this.onChangeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -315,6 +339,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter Your Fullname"
                                       value={this.state.fullname}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -325,17 +350,18 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter Your Email"
                                       value={this.state.email}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
-                                    <Input
-                                      type="number"
-                                      name="mobile"
-                                      maxLength="12"
-                                      required
-                                      placeholder="Enter Your Mobile No."
+                                    <PhoneInput
+                                      country={"us"}
                                       value={this.state.mobile}
-                                      onChange={this.changeHandler}
+                                      onChange={mobile =>
+                                        this.setState({ mobile })
+                                      }
+                                      width="80%"
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -347,6 +373,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter Your password"
                                       value={this.state.password}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -359,6 +386,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter Your Confirm password"
                                       value={this.state.cnfmPassword}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
 
@@ -370,6 +398,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Date of birth"
                                       value={this.state.dob}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -380,6 +409,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Time of birth "
                                       // value={this.state.dob}
                                       // onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -390,6 +420,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Place of birth "
                                       // value={this.state.dob}
                                       // onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -400,6 +431,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter Country"
                                       // value={this.state.city}
                                       // onChange={this.changeHandler}
+                                      className="form-controller"
                                     />{" "}
                                   </Col>
                                   <Col md="6">
@@ -410,6 +442,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter city"
                                       value={this.state.city}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     />{" "}
                                   </Col>
                                   <Col md="6">
@@ -420,6 +453,7 @@ export default class LoginRegister extends Component {
                                       placeholder="Enter state"
                                       // value={this.state.city}
                                       // onChange={this.changeHandler}
+                                      className="form-controller"
                                     />
                                   </Col>
                                   <Col md="6">
@@ -429,6 +463,7 @@ export default class LoginRegister extends Component {
                                       placeholder=""
                                       value={this.state.gender}
                                       onChange={this.changeHandler}
+                                      className="form-controller"
                                     >
                                       <option>Select Gender</option>
                                       <option>Male</option>
