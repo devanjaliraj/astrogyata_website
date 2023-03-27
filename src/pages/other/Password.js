@@ -9,8 +9,9 @@ import swal from "sweetalert";
 export default class Password extends Component {
   constructor(props) {
     super(props);
+    var mobileNumber = localStorage.getItem("mobileNumber");
     this.state = {
-      mobile: "",
+      mobile: mobileNumber ? mobileNumber : "",
       password: "",
     };
   }
@@ -20,17 +21,16 @@ export default class Password extends Component {
   };
   submitHandler = e => {
     e.preventDefault();
-
     console.log("dddddhh", this.state);
 
     axios
       .post(
-        `http://13.234.48.35:8000/user/loginWithPassword`
+        `http://13.234.48.35:8000/user/loginWithPassword`,
 
-        // {
-        //   mobile: parseInt(this.state.mobile),
-        //   password: parseInt(this.state.password),
-        // }
+        {
+          mobile: parseInt(this.state.mobile),
+          password: this.state.password,
+        }
       )
       .then(response => {
         console.log("@@@####", response.data);
@@ -39,16 +39,16 @@ export default class Password extends Component {
           //   this.setState({ otpMsg: response.data.msg });
           localStorage.setItem(
             "userData",
-            JSON.stringify(response?.data?.data)
+            JSON.stringify(response?.data?.user)
           );
           localStorage.setItem("token", JSON.stringify(response?.data?.token));
           localStorage.setItem(
             "user_id",
-            JSON.stringify(response?.data?.data?._id)
+            JSON.stringify(response?.data?.user?._id)
           );
           localStorage.setItem(
             "user_mobile_no",
-            JSON.stringify(response?.data?.data?.mobile)
+            JSON.stringify(response?.data?.user?.mobile)
           );
           if (response.data.msg === "success") {
             swal("success");
@@ -100,7 +100,7 @@ export default class Password extends Component {
                                   //   required
                                   placeholder="Enter Your password"
                                   value={this.state.password}
-                                  onChange={this.changeHandler}
+                                  onChange={(e) => this.changeHandler(e)}
                                 />
 
                                 <div className="button-box">

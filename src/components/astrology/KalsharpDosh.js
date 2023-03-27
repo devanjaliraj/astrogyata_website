@@ -1,20 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Input,
-  Form,
-  Button,
-} from "reactstrap";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
+import { Container, Row, Col, Card, Input, Form, Button } from "reactstrap";
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 
 import "../../assets/scss/astropooja.css";
 import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
+// import { Select } from "@mui/material";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
 class KalsharpDosh extends React.Component {
@@ -30,30 +23,22 @@ class KalsharpDosh extends React.Component {
       lon: "",
       tzone: "",
       data: {},
-      place: "",
-      searchQuery: "",
       state: [],
       city: [],
       country: [],
+      // SelectedCountry: "Country",
+      // SelectedState: "State",
       selectedCountry: null,
       selectedState: null,
-      selectedCity: null
+      selectedCity: null,
+      timezone: null,
+      latitude: "",
+      longitude: "",
     };
+    // this.changeCountry = this.changeCountry.bind(this);
+    // this.changeState = this.changeState.bind(this);
   }
-  changeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-  handleInputChanged(event) {
-    this.setState({
-      searchQuery: event.target.value
-    });
-    axiosConfig.post(`/user/geo_detail`, {
-      "place": this.state.searchQuery
-    }).then(response => { console.log(response.data) }).catch(error => { console.log(error) })
-    console.log(this.state.searchQuery)
-
-  }
-  changeHandler1 = (e) => {
+  changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   componentDidMount() {
@@ -68,14 +53,111 @@ class KalsharpDosh extends React.Component {
     //     console.log("PitriDosh", response.data.data);
     //     this.setState({ PitriDosh: response.data.what_is_pitri_dosha });
     //   })
-
     //   .catch((error) => {
     //     // swal("Error!", "You clicked the button!", "error");
     //     console.log(error);
     //   });
   }
-  submitHandler = (e) => {
+  handleInputChanged(event) {
+    this.setState({
+      searchQuery: event.target.value,
+    });
+    axiosConfig
+      .post(`/user/geo_detail`, {
+        place: this.state.searchQuery,
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    console.log(this.state.searchQuery);
+  }
+
+  changeCountry = item => {
+    this.setState({ selectedCountry: item });
+
+    axiosConfig
+      .post(`http://13.234.48.35:8000/user/time_zone`, {
+        country_code: item?.timezones[0].zoneName,
+      })
+      .then(response => {
+        this.setState({ timezone: response?.data?.data?.timezone });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  changeCity = item => {
+    console.log("item", item);
+    this.setState({
+      submitPlaceHandler: item,
+    });
+
+    axiosConfig
+      .post(`http://13.234.48.35:8000/user/geo_detail`, {
+        place: item?.name,
+      })
+      .then(response => {
+        this.setState({
+          latitude: response?.data?.data?.geonames[0].latitude,
+          longitude: response?.data?.data?.geonames[0].longitude,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  submitCountryHandler = e => {
     e.preventDefault();
+
+    let payload = {
+      // data: this.state.data
+      country_code: this.state.country_code,
+    };
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/time_zone`, payload)
+      .then(response => {
+        this.setState({ data: response.data });
+        console.log("country_code", response.data.timezone);
+
+        swal("Success!", "Submitted SuccessFull!", "success");
+      })
+
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
+  submitPlaceHandler = e => {
+    e.preventDefault();
+
+    let payload = {
+      // data: this.state.data
+      place: this.state.place,
+    };
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/geo_detail`, payload)
+      .then(response => {
+        this.setState({ data: response.data });
+        console.log("place", response.data.geonames?.place_name);
+
+        swal("Success!", "Submitted SuccessFull!", "success");
+      })
+
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
+  submitHandler = e => {
+    e.preventDefault();
+
     let payload = {
       // data: this.state.data
       day: this.state.day,
@@ -83,48 +165,28 @@ class KalsharpDosh extends React.Component {
       year: this.state.year,
       hour: this.state.hour,
       min: this.state.min,
-      lat: this.state.lat,
-      lon: this.state.lon,
-      tzone: this.state.tzone,
+      lat: this.state.latitude,
+      lon: this.state.longitude,
+      tzone: this.state.timezone,
     };
-    console.log("shgdjhg", payload)
-    axiosConfig.post(`/user/kalsharpDosh`, payload)
-      .then((response) => {
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/kalsharpDosh`, payload)
+      .then(response => {
         console.log("data1", response.data.data);
-        this.setState({ data: response.data.data });
-        console.log("data11", response.data);
+        this.setState({
+          data: response.data.data,
+        });
+        console.log("data11", response.data.data);
         swal("Success!", "Submitted SuccessFull!", "success");
+        // this.props.history.push("/manglikDoshDetail");
       })
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
-  submitPlaceHandler = (e) => {
-    e.preventDefault();
 
-    let payload = {
-      // data: this.state.data
-      place: this.state.place,
-
-
-    };
-    console.log("shgdjhg", payload)
-    axiosConfig.post(`/user/geo_detail`, payload)
-      .then((response) => {
-
-        this.setState({ data: response.data });
-        console.log("place", response.data.geonames?.place_name);
-
-
-        swal("Success!", "Submitted SuccessFull!", "success");
-      })
-
-      .catch((error) => {
-        swal("Error!", "You clicked the button!", "error");
-        console.log(error);
-      });
-  };
   render() {
     return (
       <LayoutOne headerTop="visible">
@@ -199,7 +261,7 @@ class KalsharpDosh extends React.Component {
                   <Row>
                     <Col md="8">
                       <h3> KALSHARP DOSH</h3>
-                      <Form onSubmit={this.submitHandler} >
+                      <Form onSubmit={this.submitHandler}>
                         <div className="form-m">
                           <Row>
                             {/* <Col md="12">
@@ -214,13 +276,15 @@ class KalsharpDosh extends React.Component {
                                 <option>Female</option>
                               </select>
                             </Col> */}
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Day</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="day"
                                 value={this.state.day}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>0</option>
                                 <option>1</option>
@@ -255,13 +319,15 @@ class KalsharpDosh extends React.Component {
                                 <option>31</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Month</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="month"
                                 value={this.state.month}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -277,13 +343,15 @@ class KalsharpDosh extends React.Component {
                                 <option>12</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Year</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="year"
                                 value={this.state.year}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option value="1942">1942</option>
                                 <option value="1943">1943</option>
@@ -377,13 +445,15 @@ class KalsharpDosh extends React.Component {
                                 <option value="2011">2030</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Hour</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="hour"
                                 value={this.state.hour}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -411,13 +481,15 @@ class KalsharpDosh extends React.Component {
                                 <option>24</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Minute</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="min"
                                 value={this.state.min}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -480,20 +552,22 @@ class KalsharpDosh extends React.Component {
                                 <option>59</option> <option>60</option>
                               </Input>
                             </Col>
+                          </Row>
+                          <Row>
                             <Col md="4">
                               <label>Country</label>
                               <Select
                                 options={Country.getAllCountries()}
-                                getOptionLabel={(options) => {
+                                getOptionLabel={options => {
                                   return options["name"];
                                 }}
-                                getOptionValue={(options) => {
+                                getOptionValue={options => {
                                   return options["name"];
                                 }}
                                 value={this.state.selectedCountry}
-                                onChange={(item) => {
+                                onChange={item => {
                                   //setSelectedCountry(item);
-                                  this.setState({ selectedCountry: item })
+                                  this.changeCountry(item);
                                 }}
                               />
                             </Col>
@@ -501,71 +575,83 @@ class KalsharpDosh extends React.Component {
                             <Col md="4">
                               <label>State</label>
                               <Select
-                                options={State?.getStatesOfCountry(this.state.selectedCountry?.isoCode)}
-                                getOptionLabel={(options) => {
+                                options={State?.getStatesOfCountry(
+                                  this.state.selectedCountry?.isoCode
+                                )}
+                                getOptionLabel={options => {
                                   return options["name"];
                                 }}
-                                getOptionValue={(options) => {
+                                getOptionValue={options => {
                                   return options["name"];
                                 }}
                                 value={this.state.selectedState}
-                                onChange={(item) => {
+                                onChange={item => {
                                   //setSelectedState(item);
-                                  this.setState({ selectedState: item })
+                                  this.setState({ selectedState: item });
                                 }}
                               />
                             </Col>
 
                             <Col md="4">
-                              <label>state</label>
+                              <label>City</label>
                               <Select
                                 options={City.getCitiesOfState(
                                   this.state.selectedState?.countryCode,
                                   this.state.selectedState?.isoCode
                                 )}
-                                getOptionLabel={(options) => {
+                                getOptionLabel={options => {
                                   return options["name"];
                                 }}
-                                getOptionValue={(options) => {
+                                getOptionValue={options => {
                                   return options["name"];
                                 }}
-                                value={this.state.selectedCity}
-                                onChange={(item) => {
+                                // value={this.state.selectedCity}
+                                value={this.state.submitPlaceHandler}
+                                // onClick={this.submitPlaceHandler}
+                                onChange={item => {
                                   //setSelectedCity(item);
-                                  this.setState({ selectedCity: item })
+                                  this.changeCity(item);
                                 }}
                               />
                             </Col>
+
                             <Col md="4">
                               <label>Birth Place Latitude</label>
                               <Input
+                                className="form-control"
+                                // name="f_lat"
                                 placeholder="00.00"
                                 maxLength={7}
                                 type="text"
-                                name="lat"
-                                value={this.state.lat}
+                                name="latitude"
+                                value={this.state.latitude}
                                 onChange={this.changeHandler}
                               />
                             </Col>
                             <Col md="4">
                               <label>Birth Place Longitude</label>
                               <Input
+                                className="form-control"
+                                // name="f_lon"
                                 placeholder="00.000"
                                 maxLength={7}
                                 type="text"
-                                name="lon"
-                                value={this.state.lon}
+                                name="longitude"
+                                value={this.state.longitude}
                                 onChange={this.changeHandler}
                               />
                             </Col>
                             <Col md="4">
                               <label>Birth Place Time Zone</label>
                               <input
+                                className="form-control"
                                 type="text"
+                                // name="f_tzone"
                                 placeholder="00.00"
                                 maxLength={5}
-                                name="tzone"
-                                value={this.state.tzone}
+                                // type="select"
+                                name="timezone"
+                                value={this.state.timezone}
                                 onChange={this.changeHandler}
                               />
                             </Col>
@@ -573,12 +659,16 @@ class KalsharpDosh extends React.Component {
                           <Button className="btn btn-warning">submit</Button>
                         </div>
                       </Form>
+                      {/* <Link to="/kundalimatchlist"> */}
+                      {/* <Button className="mt-25">Submit</Button> */}
+                      {/* </Link> */}
                     </Col>
                     <Col md="4">
                       <h3>Saved Kalsharp Dosh Matches</h3>
                       <div className="form-m">
                         <Row>
                           <Col>
+                            {/* <MatchSearch /> */}
                             <h4 className="mt-3">Recent Views</h4>
                             <hr></hr>
                             <div className="mtkun-box">
@@ -593,7 +683,10 @@ class KalsharpDosh extends React.Component {
                                 </div>
                                 <div className="k-dlt">
                                   <Link className="Tansdel">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    <i
+                                      class="fa fa-trash-o"
+                                      aria-hidden="true"
+                                    ></i>
                                   </Link>
                                 </div>
                               </Link>
@@ -610,7 +703,10 @@ class KalsharpDosh extends React.Component {
                                 </div>
                                 <div className="k-dlt">
                                   <Link className="Tansdel">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    <i
+                                      class="fa fa-trash-o"
+                                      aria-hidden="true"
+                                    ></i>
                                   </Link>
                                 </div>
                               </Link>

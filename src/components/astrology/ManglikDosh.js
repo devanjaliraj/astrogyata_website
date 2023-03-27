@@ -1,28 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Input,
-  Form,
-  Button,
-} from "reactstrap";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
-
+import { Container, Row, Col, Card, Input, Form, Button } from "reactstrap";
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import "../../assets/scss/astropooja.css";
 import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
-// import { Select } from "@mui/material";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
 class ManglikDosh extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       day: "",
       month: "",
       year: "",
@@ -35,140 +24,147 @@ class ManglikDosh extends React.Component {
       state: [],
       city: [],
       country: [],
-      // SelectedCountry: "Country",
-      // SelectedState: "State",
       selectedCountry: null,
       selectedState: null,
-      selectedCity: null
-
+      selectedCity: null,
+      timezone: null,
+      latitude: "",
+      longitude: "",
+      // dosh: {}
     };
-    // this.changeCountry = this.changeCountry.bind(this);
-    // this.changeState = this.changeState.bind(this);
   }
-  changeHandler = (e) => {
+  changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  componentDidMount() {
-    // let { id } = this.props.match.params;
-    // this.setState({ day: id })
-    // let payload = {
-    //   day: id
-    // };
-    // axiosConfig
-    //   .post(`/user/PitriDosh`)
-    //   .then((response) => {
-    //     console.log("PitriDosh", response.data.data);
-    //     this.setState({ PitriDosh: response.data.what_is_pitri_dosha });
-    //   })
 
-    //   .catch((error) => {
-    //     // swal("Error!", "You clicked the button!", "error");
-    //     console.log(error);
-    //   });
-
-  }
   handleInputChanged(event) {
     this.setState({
-      searchQuery: event.target.value
+      searchQuery: event.target.value,
     });
-    axiosConfig.post(`/user/geo_detail`, {
-      "place": this.state.searchQuery
-    }).then(response => { console.log(response.data) }).catch(error => { console.log(error) })
-    console.log(this.state.searchQuery)
-
+    axiosConfig
+      .post(`/user/geo_detail`, {
+        place: this.state.searchQuery,
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    console.log(this.state.searchQuery);
   }
 
-  submitCountryHandler = (e) => {
+  changeCountry = item => {
+    this.setState({ selectedCountry: item });
+    axiosConfig
+      .post(`/user/time_zone`, {
+        country_code: item?.timezones[0].zoneName,
+      })
+      .then(response => {
+        this.setState({ timezone: response?.data?.data?.timezone });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  changeCity = item => {
+    console.log("item", item);
+    this.setState({
+      submitPlaceHandler: item,
+    });
+    axiosConfig
+      .post(`/user/geo_detail`, {
+        place: item?.name,
+      })
+      .then(response => {
+        this.setState({
+          latitude: response?.data?.data?.geonames[0].latitude,
+          longitude: response?.data?.data?.geonames[0].longitude,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  submitCountryHandler = e => {
     e.preventDefault();
-
     let payload = {
-      // data: this.state.data
       country_code: this.state.country_code,
-
-
     };
-    console.log("shgdjhg", payload)
-    axiosConfig.post(`/user/time_zone`, payload)
-      .then((response) => {
-
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/time_zone`, payload)
+      .then(response => {
         this.setState({ data: response.data });
         console.log("country_code", response.data.timezone);
-
-
         swal("Success!", "Submitted SuccessFull!", "success");
       })
-
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
-  submitPlaceHandler = (e) => {
+  submitPlaceHandler = e => {
     e.preventDefault();
-
     let payload = {
-      // data: this.state.data
       place: this.state.place,
-
-
     };
-    console.log("shgdjhg", payload)
-    axiosConfig.post(`/user/geo_detail`, payload)
-      .then((response) => {
-
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/geo_detail`, payload)
+      .then(response => {
         this.setState({ data: response.data });
         console.log("place", response.data.geonames?.place_name);
-
-
         swal("Success!", "Submitted SuccessFull!", "success");
       })
-
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
-  submitHandler = (e) => {
-    e.preventDefault();
 
+
+  submitHandler = e => {
+    e.preventDefault();
     let payload = {
-      // data: this.state.data
       day: this.state.day,
       month: this.state.month,
       year: this.state.year,
       hour: this.state.hour,
       min: this.state.min,
-      lat: this.state.lat,
-      lon: this.state.lon,
-      tzone: this.state.tzone,
+      lat: this.state.latitude,
+      lon: this.state.longitude,
+      tzone: this.state.timezone,
     };
-    console.log("shgdjhg", payload)
-    axiosConfig.post(`/user/ManglikDosh`, payload)
-      .then((response) => {
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/ManglikDosh`, payload)
+      .then(response => {
         console.log("data1", response.data.data?.manglik_present_rule);
         this.setState({
           data: response.data.data?.manglik_present_rule,
         });
         console.log("data11", response.data.data);
         swal("Success!", "Submitted SuccessFull!", "success");
+        // this.props.history.push("/manglikDoshDetail");
       })
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
 
   render() {
+    const { data } = this.state;
+    console.log("gdfjsgj", data);
     return (
       <LayoutOne headerTop="visible">
         <section className="pt-0 pb-0">
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
-              // width: "100%",
-              // padding: "70px 0px",
-              // backgroundSize: "cover",
               float: "left",
               width: "100%",
               backgroundColor: "#272727",
@@ -232,28 +228,18 @@ class ManglikDosh extends React.Component {
                   <Row>
                     <Col md="8">
                       <h3> MANGLIK DOSH</h3>
-                      <Form onSubmit={this.submitHandler} >
+                      <Form onSubmit={this.submitHandler}>
                         <div className="form-m">
                           <Row>
-                            {/* <Col md="12">
-                              <label>Name</label>
-                              <input type="text" name="" placeholder="Name" />
-                            </Col>
-                            <Col md="12">
-                              <label>Gender</label>
-                              <select className="form-control">
-                                <option>--Select--</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </Col> */}
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Day</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="day"
                                 value={this.state.day}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>0</option>
                                 <option>1</option>
@@ -288,13 +274,15 @@ class ManglikDosh extends React.Component {
                                 <option>31</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Month</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="month"
                                 value={this.state.month}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -310,13 +298,15 @@ class ManglikDosh extends React.Component {
                                 <option>12</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Year</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="year"
                                 value={this.state.year}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option value="1942">1942</option>
                                 <option value="1943">1943</option>
@@ -410,13 +400,15 @@ class ManglikDosh extends React.Component {
                                 <option value="2011">2030</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Hour</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="hour"
                                 value={this.state.hour}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -444,13 +436,15 @@ class ManglikDosh extends React.Component {
                                 <option>24</option>
                               </Input>
                             </Col>
-                            <Col md="4">
+                            <Col md="2">
                               <label>Birth Minute</label>
-                              <Input className="form-control"
+                              <Input
+                                className="form-control"
                                 type="select"
                                 name="min"
                                 value={this.state.min}
-                                onChange={this.changeHandler}>
+                                onChange={this.changeHandler}
+                              >
                                 <option>--Select--</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -510,139 +504,25 @@ class ManglikDosh extends React.Component {
                                 <option>56</option>
                                 <option>57</option>
                                 <option>58</option>
-                                <option>59</option> <option>60</option>
+                                <option>59</option>
+                                <option>60</option>
                               </Input>
                             </Col>
-                            {/* <Col md="4">
-                              <label>Birth Second</label>
-                              <Input className="form-control" type="select"
-                                name="year"
-                                value={this.state.s}
-                                onChange={this.changeHandler}>
-                                <option>--Select--</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                                <option>13</option>
-                                <option>14</option>
-                                <option>15</option>
-                                <option>16</option>
-                                <option>17</option>
-                                <option>18</option>
-                                <option>19</option>
-                                <option>20</option>
-                                <option>21</option>
-                                <option>22</option>
-                                <option>23</option>
-                                <option>24</option>
-                                <option>25</option>
-                                <option>26</option>
-                                <option>27</option>
-                                <option>28</option>
-                                <option>29</option>
-                                <option>30</option>
-                                <option>31</option>
-                                <option>32</option>
-                                <option>33</option>
-                                <option>34</option>
-                                <option>35</option>
-                                <option>36</option>
-                                <option>37</option>
-                                <option>38</option>
-                                <option>39</option>
-                                <option>40</option>
-                                <option>41</option>
-                                <option>42</option>
-                                <option>43</option>
-                                <option>44</option>
-                                <option>45</option>
-                                <option>46</option>
-                                <option>47</option>
-                                <option>48</option>
-                                <option>49</option>
-                                <option>50</option>
-                                <option>51</option>
-                                <option>52</option>
-                                <option>53</option>
-                                <option>54</option>
-                                <option>55</option>
-                                <option>56</option>
-                                <option>57</option>
-                                <option>58</option>
-                                <option>59</option> <option>60</option>
-                              </Input>
-                            </Col> */}
-
-                            {/* <label>Gender</label>
-                            <select
-                              type="select"
-                              className="form-control"
-                              value={this.state.gender}
-                              onChange={this.changeHandler}
-                              name="gender"
-                            >
-                              <option selected>--select--</option>
-                              <option value="Male">Male</option>
-                              <option value="Female">Female</option>
-                            </select> */}
-
-                            {/* <Col md="4">
-                              <label>Country</label>
-                              <Select
-                                className="form-control"
-
-                                placeholder="Country"
-                                type="select"
-                              // name="lat"
-                              // value={this.state.SelectedCountry}
-                              // onChange={this.changeHandler}
-                              />
-                            </Col>
-
-                            <Col md="4">
-                              <label>State</label>
-                              <Select
-                                placeholder="State"
-                                type="text"
-                              // name="lat"
-                              // value={this.state.lat}
-                              // onChange={this.changeHandler}
-                              />
-                            </Col>
-                            <Col md="4">
-                              <label>City</label>
-                              <Select
-                                placeholder="City"
-                                type="text"
-                              // name="lat"
-                              // value={this.state.lat}
-                              // onChange={this.changeHandler}
-                              />
-                            </Col> */}
-
+                          </Row>
+                          <Row>
                             <Col md="4">
                               <label>Country</label>
                               <Select
                                 options={Country.getAllCountries()}
-                                getOptionLabel={(options) => {
+                                getOptionLabel={options => {
                                   return options["name"];
                                 }}
-                                getOptionValue={(options) => {
+                                getOptionValue={options => {
                                   return options["name"];
                                 }}
                                 value={this.state.selectedCountry}
-                                onChange={(item) => {
-                                  //setSelectedCountry(item);
-                                  this.setState({ selectedCountry: item })
+                                onChange={item => {
+                                  this.changeCountry(item);
                                 }}
                               />
                             </Col>
@@ -650,17 +530,18 @@ class ManglikDosh extends React.Component {
                             <Col md="4">
                               <label>State</label>
                               <Select
-                                options={State?.getStatesOfCountry(this.state.selectedCountry?.isoCode)}
-                                getOptionLabel={(options) => {
+                                options={State?.getStatesOfCountry(
+                                  this.state.selectedCountry?.isoCode
+                                )}
+                                getOptionLabel={options => {
                                   return options["name"];
                                 }}
-                                getOptionValue={(options) => {
+                                getOptionValue={options => {
                                   return options["name"];
                                 }}
                                 value={this.state.selectedState}
-                                onChange={(item) => {
-                                  //setSelectedState(item);
-                                  this.setState({ selectedState: item })
+                                onChange={item => {
+                                  this.setState({ selectedState: item });
                                 }}
                               />
                             </Col>
@@ -672,59 +553,52 @@ class ManglikDosh extends React.Component {
                                   this.state.selectedState?.countryCode,
                                   this.state.selectedState?.isoCode
                                 )}
-                                getOptionLabel={(options) => {
+                                getOptionLabel={options => {
                                   return options["name"];
                                 }}
-                                getOptionValue={(options) => {
+                                getOptionValue={options => {
                                   return options["name"];
                                 }}
-                                // value={this.state.selectedCity}
                                 value={this.state.submitPlaceHandler}
-                                // onClick={this.submitPlaceHandler}
-                                onChange={(item) => {
-                                  //setSelectedCity(item);
-                                  this.setState({ submitPlaceHandler: item })
+                                onChange={item => {
+                                  this.changeCity(item);
                                 }}
-
                               />
                             </Col>
-
-
 
                             <Col md="4">
                               <label>Birth Place Latitude</label>
                               <Input
-                                // name="f_lat"
+                                className="form-control"
                                 placeholder="00.00"
                                 maxLength={7}
                                 type="text"
-                                name="lat"
-                                value={this.state.lat}
+                                name="latitude"
+                                value={this.state.latitude}
                                 onChange={this.changeHandler}
                               />
                             </Col>
                             <Col md="4">
                               <label>Birth Place Longitude</label>
                               <Input
-                                // name="f_lon"
+                                className="form-control"
                                 placeholder="00.000"
                                 maxLength={7}
                                 type="text"
-                                name="lon"
-                                value={this.state.lon}
+                                name="longitude"
+                                value={this.state.longitude}
                                 onChange={this.changeHandler}
                               />
                             </Col>
                             <Col md="4">
                               <label>Birth Place Time Zone</label>
                               <input
+                                className="form-control"
                                 type="text"
-                                // name="f_tzone"
                                 placeholder="00.00"
                                 maxLength={5}
-                                // type="select"
-                                name="tzone"
-                                value={this.state.tzone}
+                                name="timezone"
+                                value={this.state.timezone}
                                 onChange={this.changeHandler}
                               />
                             </Col>
@@ -732,9 +606,6 @@ class ManglikDosh extends React.Component {
                           <Button className="btn btn-warning">submit</Button>
                         </div>
                       </Form>
-                      {/* <Link to="/kundalimatchlist"> */}
-                      {/* <Button className="mt-25">Submit</Button> */}
-                      {/* </Link> */}
                     </Col>
                     <Col md="4">
                       <h3>Saved Manglik Dosh Matches</h3>
@@ -793,6 +664,37 @@ class ManglikDosh extends React.Component {
               </Card>
             </Col>
           </Row>
+        </Container>
+        <Container>
+          {/* <form onSubmit={this.submitHandler}> */}
+          <Row>
+
+            <Col lg="12">
+              <div className="scope-1">
+                <h3>Rashi Name</h3>
+                <p>{data.percentage_manglik_after_cancellation}</p>
+
+                <h3>personal life</h3>
+                <p>{data.manglik_present_rule?.based_on_aspect}</p>
+
+                {/* <h3>Profession</h3>
+                    <p>{manglikDosh?.prediction?.profession}</p>
+
+                    <h3>Health</h3>
+                    <p>{manglikDosh?.prediction?.health}</p>
+
+                    <h3>Travel</h3>
+                    <p>{manglikDosh?.prediction?.travel}</p>
+
+                    <h3>Luck</h3>
+                    <p>{manglikDosh?.prediction?.luck}</p>
+
+                    <h3>Emotions</h3>
+                    <p>{manglikDosh?.prediction?.emotions}</p> */}
+              </div>
+            </Col>
+          </Row>
+
         </Container>
       </LayoutOne>
     );

@@ -143,7 +143,7 @@ class UserRequestForm extends React.Component {
                         <div class="form-group mtb-10">
                           <label>Mobile Number*</label>
                           <input
-                            type="number"
+                            type="text"
                             name="mobile"
                             value={this.state.mobile}
                             onChange={this.changeHandler}
@@ -339,7 +339,7 @@ class UserRequestForm extends React.Component {
                           />
                         </div>
                       </Col>
-                      <Col lg="6" md="6" className="mb-2">
+                      <Col lg="4">
                         <label>Gender*</label>
                         <Input
                           id="exampleSelect"

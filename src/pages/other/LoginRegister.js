@@ -32,6 +32,7 @@ export default class LoginRegister extends Component {
       passMsg: "",
       cnfmPassword: "",
       password: "",
+      mobileError: ""
     };
   }
 
@@ -121,24 +122,30 @@ export default class LoginRegister extends Component {
   // };
   loginHandler = e => {
     e.preventDefault();
-    let obj = {
-      mobile: parseInt(this.state.mobile),
-    };
-    axios
-      .post(`http://13.234.48.35:8000/user/userlogin`, obj)
-      .then(response => {
-        console.log("@@@####", response.data);
-        this.setState({ otpMsg: response.data.msg });
-        if (response.data.msg === "otp Send Successfully") {
-          swal("otp Send Successfully");
-          // this.props.history.push('/')
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        console.log(error.response);
-        swal("Error!", "User doesn't Exist", "error");
-      });
+    if (this.state.mobile !== "") {
+      let obj = {
+        mobile: parseInt(this.state.mobile),
+      };
+      axios
+        .post(`http://13.234.48.35:8000/user/userlogin`, obj)
+        .then(response => {
+          console.log("@@@####", response.data);
+          this.setState({ otpMsg: response.data.msg });
+          if (response.data.msg === "otp Send Successfully") {
+            localStorage.setItem("mobileNumber", this.state.mobile);
+            swal("otp Send Successfully");
+            // this.props.history.push('/')
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          console.log(error.response);
+          swal("Error!", "User doesn't Exist", "error");
+        });
+    } else {
+      this.setState({ mobileError: "Please enter mobile number" });
+    }
+
   };
   // otp = true;
   changeHandler = e => {
@@ -222,7 +229,7 @@ export default class LoginRegister extends Component {
                               <div className="login-register-form">
                                 <Form onSubmit={this.otpHandler}>
                                   <Input
-                                    type="number"
+                                    type="otp"
                                     name="otp"
                                     required
                                     placeholder="Enter otp"
@@ -262,6 +269,7 @@ export default class LoginRegister extends Component {
                                         }
                                         width="100%"
                                       />
+                                      {this.state.mobileError !== "" ? <span style={{ color: 'red' }}>{this.state.mobileError}</span> : null}
                                     </Col>
                                   </Row>
 
