@@ -232,7 +232,7 @@ export default class LoginRegister extends Component {
                                     type="otp"
                                     name="otp"
                                     required
-                                    placeholder="Enter otp"
+                                    placeholder="Enter OTP"
                                     value={this.state.otp}
                                     onChange={this.changeHandler}
                                   />
@@ -251,7 +251,7 @@ export default class LoginRegister extends Component {
                                       </Link>
                                     </div>
                                     <button type="submit">
-                                      <span>Otp Verify</span>
+                                      <span>OTP Verify</span>
                                     </button>
                                   </div>
                                 </Form>

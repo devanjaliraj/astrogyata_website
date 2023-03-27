@@ -312,11 +312,11 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/"}
                     component={HomeFurnitureTwo}
                   />
-                  <Route
+                  {/* <Route
                     exact
                     path={process.env.PUBLIC_URL + "/"}
                     component={HomeFurnitureTwo}
-                  />
+                  /> */}
                   {/* astologo route  */}
                   <Route
                     path={process.env.PUBLIC_URL + "/homecategory"}
