@@ -26,8 +26,6 @@ class KalsharpDosh extends React.Component {
       state: [],
       city: [],
       country: [],
-      // SelectedCountry: "Country",
-      // SelectedState: "State",
       selectedCountry: null,
       selectedState: null,
       selectedCity: null,
@@ -35,29 +33,11 @@ class KalsharpDosh extends React.Component {
       latitude: "",
       longitude: "",
     };
-    // this.changeCountry = this.changeCountry.bind(this);
-    // this.changeState = this.changeState.bind(this);
   }
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  componentDidMount() {
-    // let { id } = this.props.match.params;
-    // this.setState({ day: id })
-    // let payload = {
-    //   day: id
-    // };
-    // axiosConfig
-    //   .post(`/user/PitriDosh`)
-    //   .then((response) => {
-    //     console.log("PitriDosh", response.data.data);
-    //     this.setState({ PitriDosh: response.data.what_is_pitri_dosha });
-    //   })
-    //   .catch((error) => {
-    //     // swal("Error!", "You clicked the button!", "error");
-    //     console.log(error);
-    //   });
-  }
+
   handleInputChanged(event) {
     this.setState({
       searchQuery: event.target.value,
@@ -115,7 +95,6 @@ class KalsharpDosh extends React.Component {
     e.preventDefault();
 
     let payload = {
-      // data: this.state.data
       country_code: this.state.country_code,
     };
     console.log("shgdjhg", payload);
@@ -124,7 +103,6 @@ class KalsharpDosh extends React.Component {
       .then(response => {
         this.setState({ data: response.data });
         console.log("country_code", response.data.timezone);
-
         swal("Success!", "Submitted SuccessFull!", "success");
       })
 
@@ -146,10 +124,8 @@ class KalsharpDosh extends React.Component {
       .then(response => {
         this.setState({ data: response.data });
         console.log("place", response.data.geonames?.place_name);
-
         swal("Success!", "Submitted SuccessFull!", "success");
       })
-
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
@@ -159,7 +135,6 @@ class KalsharpDosh extends React.Component {
     e.preventDefault();
 
     let payload = {
-      // data: this.state.data
       day: this.state.day,
       month: this.state.month,
       year: this.state.year,
@@ -194,10 +169,6 @@ class KalsharpDosh extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#ffcc01",
-              // width: "100%",
-              // padding: "70px 0px",
-              // backgroundSize: "cover",
               float: "left",
               width: "100%",
               backgroundColor: "#272727",
@@ -264,18 +235,6 @@ class KalsharpDosh extends React.Component {
                       <Form onSubmit={this.submitHandler}>
                         <div className="form-m">
                           <Row>
-                            {/* <Col md="12">
-                              <label>Name</label>
-                              <input type="text" name="" placeholder="Name" />
-                            </Col>
-                            <Col md="12">
-                              <label>Gender</label>
-                              <select className="form-control">
-                                <option>--Select--</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </Col> */}
                             <Col md="2">
                               <label>Birth Day</label>
                               <Input
@@ -566,7 +525,6 @@ class KalsharpDosh extends React.Component {
                                 }}
                                 value={this.state.selectedCountry}
                                 onChange={item => {
-                                  //setSelectedCountry(item);
                                   this.changeCountry(item);
                                 }}
                               />
@@ -586,7 +544,6 @@ class KalsharpDosh extends React.Component {
                                 }}
                                 value={this.state.selectedState}
                                 onChange={item => {
-                                  //setSelectedState(item);
                                   this.setState({ selectedState: item });
                                 }}
                               />
@@ -605,11 +562,8 @@ class KalsharpDosh extends React.Component {
                                 getOptionValue={options => {
                                   return options["name"];
                                 }}
-                                // value={this.state.selectedCity}
                                 value={this.state.submitPlaceHandler}
-                                // onClick={this.submitPlaceHandler}
                                 onChange={item => {
-                                  //setSelectedCity(item);
                                   this.changeCity(item);
                                 }}
                               />
@@ -619,7 +573,6 @@ class KalsharpDosh extends React.Component {
                               <label>Birth Place Latitude</label>
                               <Input
                                 className="form-control"
-                                // name="f_lat"
                                 placeholder="00.00"
                                 maxLength={7}
                                 type="text"
@@ -632,7 +585,6 @@ class KalsharpDosh extends React.Component {
                               <label>Birth Place Longitude</label>
                               <Input
                                 className="form-control"
-                                // name="f_lon"
                                 placeholder="00.000"
                                 maxLength={7}
                                 type="text"
@@ -646,22 +598,17 @@ class KalsharpDosh extends React.Component {
                               <input
                                 className="form-control"
                                 type="text"
-                                // name="f_tzone"
                                 placeholder="00.00"
                                 maxLength={5}
-                                // type="select"
                                 name="timezone"
                                 value={this.state.timezone}
                                 onChange={this.changeHandler}
                               />
                             </Col>
                           </Row>
-                          <Button className="btn btn-warning">submit</Button>
+                          <Button className="btn btn-primary">submit</Button>
                         </div>
                       </Form>
-                      {/* <Link to="/kundalimatchlist"> */}
-                      {/* <Button className="mt-25">Submit</Button> */}
-                      {/* </Link> */}
                     </Col>
                     <Col md="4">
                       <h3>Saved Kalsharp Dosh Matches</h3>

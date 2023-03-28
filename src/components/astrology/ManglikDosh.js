@@ -125,7 +125,6 @@ class ManglikDosh extends React.Component {
       });
   };
 
-
   submitHandler = e => {
     e.preventDefault();
     let payload = {
@@ -603,7 +602,7 @@ class ManglikDosh extends React.Component {
                               />
                             </Col>
                           </Row>
-                          <Button className="btn btn-warning">submit</Button>
+                          <Button className="btn btn-primary">submit</Button>
                         </div>
                       </Form>
                     </Col>
@@ -668,7 +667,6 @@ class ManglikDosh extends React.Component {
         <Container>
           {/* <form onSubmit={this.submitHandler}> */}
           <Row>
-
             <Col lg="12">
               <div className="scope-1">
                 <h3>Rashi Name</h3>
@@ -694,7 +692,6 @@ class ManglikDosh extends React.Component {
               </div>
             </Col>
           </Row>
-
         </Container>
       </LayoutOne>
     );

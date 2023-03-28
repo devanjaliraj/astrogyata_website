@@ -3,21 +3,37 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 import astro3 from "../../assets/img/team/astro3.jpg";
-
+import axiosConfig from "../../axiosConfig";
 const SliderDemo = ({ data, sliderClass, sliderdemoClass }) => {
   const [userId, setUserId] = useState("");
   const [bestAstrology, setBestAstrology] = useState(data);
 
-  // useEffect(() => {
-  //   var user_id = localStorage.getItem("user_id");
-  //   setUserId(user_id);
-  // });
+  const handleCalltogyta = data => {
+    console.log(data);
 
+    let mobileNo = localStorage.getItem("user_mobile_no");
+    let userId = JSON.parse(localStorage.getItem("user_id"));
+
+    let obj = {
+      userid: userId,
+      astroid: data._id,
+      From: data.mobile, //astrologer no
+      To: mobileNo, //parseInt(this.state.number) user no
+    };
+    axiosConfig
+      .post(`/user/make_call`, obj)
+
+      .then(response => {
+        console.log(response);
+      })
+
+      .catch(error => {
+        console.log(error);
+      });
+  };
   useEffect(() => {
     setBestAstrology(data);
   }, [data]);
-
-  // console.log('@@@',data)
 
   return (
     <div
@@ -25,14 +41,6 @@ const SliderDemo = ({ data, sliderClass, sliderdemoClass }) => {
         sliderdemoClass ? sliderdemoClass : " slider-demo"
       } text-center ${sliderClass ? sliderClass : ""} st-hit`}
     >
-      {/* <img src={process.env.PUBLIC_URL + data.image} alt="" />
-      <p className="st-testmonial">{data.content}</p>
-      <div className="client-info">
-        <i className="fa fa-map-signs" />
-        <h5>{data.customerName}</h5>
-        <span>{data.title}</span>
-      </div> */}
-
       <div className="image-flip">
         <div className="mainflip flip-0">
           <div className="frontside">
@@ -63,7 +71,10 @@ const SliderDemo = ({ data, sliderClass, sliderdemoClass }) => {
                   <Link className="btn btn-primary btn-sm st-d">
                     {data?.status}
                   </Link>
-                  <Link className="btn btn-primary btn-sm">
+                  <Link
+                    onClick={() => handleCalltogyta(data)}
+                    className="btn btn-primary btn-sm"
+                  >
                     <i class="fa fa-phone"></i> Call Now
                     <small>
                       {/* / 20{" "}

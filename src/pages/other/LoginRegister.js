@@ -32,7 +32,7 @@ export default class LoginRegister extends Component {
       passMsg: "",
       cnfmPassword: "",
       password: "",
-      mobileError: ""
+      mobileError: "",
     };
   }
 
@@ -145,7 +145,6 @@ export default class LoginRegister extends Component {
     } else {
       this.setState({ mobileError: "Please enter mobile number" });
     }
-
   };
   // otp = true;
   changeHandler = e => {
@@ -262,14 +261,18 @@ export default class LoginRegister extends Component {
                                   <Row>
                                     <Col md="12">
                                       <PhoneInput
-                                        country={"us"}
+                                        country={"in"}
                                         value={this.state.mobile}
                                         onChange={mobile =>
                                           this.setState({ mobile })
                                         }
                                         width="100%"
                                       />
-                                      {this.state.mobileError !== "" ? <span style={{ color: 'red' }}>{this.state.mobileError}</span> : null}
+                                      {this.state.mobileError !== "" ? (
+                                        <span style={{ color: "red" }}>
+                                          {this.state.mobileError}
+                                        </span>
+                                      ) : null}
                                     </Col>
                                   </Row>
 
@@ -363,7 +366,7 @@ export default class LoginRegister extends Component {
                                   </Col>
                                   <Col md="6">
                                     <PhoneInput
-                                      country={"us"}
+                                      country={"in"}
                                       value={this.state.mobile}
                                       onChange={mobile =>
                                         this.setState({ mobile })

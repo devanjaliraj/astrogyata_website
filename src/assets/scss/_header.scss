@@ -2494,3 +2494,53 @@ span.username {
   color: #000;
   font-weight: 600;
 }
+
+// csss for dropdown hover
+* {
+  box-sizing: border-box;
+}
+
+.dropbtn {
+  background: #04aa6d00;
+  border: none;
+  font-size: 16px;
+  padding: 0 6px;
+  color: #fff;
+}
+
+.drobdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  background: #f1f1f1;
+  min-width: 250px;
+  position: absolute;
+  right: 20px;
+  z-index: 9999999;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 4px 15px;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background: #04aa6d00;
+}
+
+// csss for dropdown hover close

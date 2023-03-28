@@ -116,11 +116,19 @@ const IconGroup = ({
           </form>
         </div>
       </div> */}
-      <div className="same-style account-setting  d-lg-block">
-        <button
-          className="account-setting-active"
-          onClick={e => handleClick(e)}
-        >
+
+      {/* <div className="dropdown">
+        <button className="dropbtn">Dropdown</button>
+        <div className="dropdown-content">
+          <a href="#home">Link1</a>
+          <a href="#home">Link2</a>
+          <a href="#home">Link3</a>
+          <a href="#home">Link4</a>
+        </div>
+      </div> */}
+
+      <div className="dropdown">
+        <button className="dropbtn">
           {customer?.userimg ? (
             <>
               <span className="username">{customer?.fullname}</span>
@@ -138,7 +146,8 @@ const IconGroup = ({
             <span className="username btn btn-primary">Login</span>
           )}
         </button>
-        <div className="account-dropdown">
+
+        <div className="dropdown-content">
           <ul>
             {!localStorage.getItem("token") ? (
               <>
@@ -230,6 +239,9 @@ const IconGroup = ({
             )}
           </ul>
         </div>
+        {/* <div className="account-dropdown">
+         
+        </div> */}
       </div>
       {/* <div className="same-style header-compare">
         <Link to={process.env.PUBLIC_URL + "/compare"}>

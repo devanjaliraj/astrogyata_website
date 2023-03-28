@@ -46,7 +46,7 @@ class AstrologerSignup extends React.Component {
       min_earning_expe: "",
       max_earning_expe: "",
       long_bio: "",
-      status: "",
+      status: "Active",
       callCharge: "",
       img: "",
       selectedName: "",

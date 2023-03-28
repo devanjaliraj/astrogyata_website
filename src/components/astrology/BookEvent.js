@@ -123,7 +123,7 @@ class BookEvent extends React.Component {
           <Container>
             <div className="multi-address"></div>
             <Row>
-              <Col lg="12">
+              <Col lg="12 mt-12">
                 <div className="wal-amt">
                   <h3>Event Booking Form </h3>
                   <hr></hr>
@@ -282,7 +282,7 @@ class BookEvent extends React.Component {
                       </Col>
 
                       <Col md="12" className="mt-3">
-                        <Button className="btn btn-warning">Book Event</Button>
+                        <Button className="btn btn-primary">Book Event</Button>
                       </Col>
                     </Row>
                   </form>

@@ -1085,7 +1085,8 @@ class KundaliForm extends React.Component {
                         </div>
                       </Col>
                     </Row>
-                    <Button className="btn btn-warning">Match Horoscope</Button>
+
+                    <Button className="btn btn-primary">Match Horoscope</Button>
 
                     <Row> </Row>
                   </form>

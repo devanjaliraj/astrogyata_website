@@ -656,7 +656,7 @@ class PitraDosh extends React.Component {
                               />
                             </Col>
                           </Row>
-                          <Button className="btn btn-warning">submit</Button>
+                          <Button className="btn btn-primary">submit</Button>
                         </div>
                       </Form>
                       {/* <Link to="/kundalimatchlist"> */}

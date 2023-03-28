@@ -42,15 +42,15 @@
 
 // rohit css
 
-iframe css iframe {
-  // position: fixed;
-  top: 0px;
-  left: 0px;
-  width: unset !important;
-  height: unset !important;
-  border: none;
-  z-index: 2147483647;
-}
+// iframe css iframe {
+//   // position: fixed;
+//   top: 0px;
+//   left: 0px;
+//   width: unset !important;
+//   height: unset !important;
+//   border: none;
+//   z-index: 2147483647;
+// }
 
 // liveastropage css
 .liveimg img {
@@ -386,6 +386,7 @@ section.dt-astro {
 }
 .btn-primary {
   color: #fff;
+  margin-top: 12px;
   background-color: FFcc01 !important;
   border-color: #ffcc01 !important;
 }
@@ -1320,6 +1321,7 @@ textarea.form-control.stp {
 
 .btn-warning {
   color: #fff;
+  margin-top: 12px;
   background-color: #ffcc01 !important;
   border-color: #ffcc01 !important;
 }
