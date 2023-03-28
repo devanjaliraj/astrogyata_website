@@ -135,7 +135,7 @@ const IconGroup = ({
               </span>
             </>
           ) : (
-            <span className="username">Login</span>
+            <span className="username btn btn-primary">Login</span>
           )}
         </button>
         <div className="account-dropdown">

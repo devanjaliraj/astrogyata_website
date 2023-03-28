@@ -1,6 +1,6 @@
 import React from "react";
 // import ReactDOM from "react-dom";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import StarRatingComponent from "react-star-rating-component";
 import { Col, Container, Row } from "reactstrap";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -20,7 +20,6 @@ class AstroRating extends React.Component {
       // question: "",
       // rating: "",
       comment: "",
-
     };
   }
 
@@ -30,7 +29,6 @@ class AstroRating extends React.Component {
       name,
       nextValue,
       prevValue
-
     );
 
     // this.setState({rating: target.value});
@@ -89,30 +87,29 @@ class AstroRating extends React.Component {
       rating: this.state.rating,
       comment: this.state.comment,
       type: this.state.type,
-
     };
 
     axiosConfig
       .post(`/user/addChatReview`, obj)
       // 13.234.48.35:8000/user/addChatReview
-      .then((response) => {
+      .then(response => {
         console.log("@@@@@", response.data.data);
         this.setState({
           comment: "",
-          rating: ""
+          rating: "",
         });
         // this.getQuestionList(id)
         // swal("Success!", "Submitted SuccessFull!", "success");
         //window.location.reload('/askQuestion')
       })
 
-      .catch((error) => {
+      .catch(error => {
         // swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       // rating: e.target.value,
       comment: e.target.value,
@@ -126,7 +123,7 @@ class AstroRating extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",
@@ -172,7 +169,6 @@ class AstroRating extends React.Component {
                               name="app2"
                               starCount={8}
                               value={this.state.rating}
-
                               onStarClick={this.onStarClick.bind(this)}
                             />
                           </div>
@@ -185,17 +181,22 @@ class AstroRating extends React.Component {
                             name="comment"
                             placeholder="Your Message*"
                             maxLength={150}
-                            onChange={(e) => {
+                            onChange={e => {
                               this.handleChange(e);
-                            }}></textarea>
-                          <button className="stb-btn"
-                            onClick={(e) =>
+                            }}
+                          ></textarea>
+                          <button
+                            className="stb-btn"
+                            onClick={e =>
                               this.submitHandler(
                                 e,
                                 this.state.astroId,
                                 this.state.userId
                               )
-                            }>Submit</button>
+                            }
+                          >
+                            Submit
+                          </button>
                         </div>
                       </Col>
                     </Row>

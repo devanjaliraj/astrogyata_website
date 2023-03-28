@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect,useState  } from "react";
+import React, { useEffect, useState } from "react";
 import Swiper from "react-id-swiper";
 //import testimonialData from "../../data/testimonial/testimonial-one.json";
 // import TestimonialOneSingle from "../../components/testimonial/TestimonialOneSingle.js";
@@ -21,31 +21,30 @@ const SliderList = ({
     slidesPerView: 4,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 1000,
       disableOnInteraction: false,
     },
     breakpoints: {
-     
       768: {
         slidesPerView: 4,
         direction: "horizontal",
-        spaceBetween: 20,
+        spaceBetween: 15,
       },
       640: {
         slidesPerView: 2,
         direction: "horizontal",
-        spaceBetween: 20,
+        spaceBetween: 15,
       },
       320: {
         slidesPerView: 2,
         direction: "horizontal",
-        spaceBetween: 20,
+        spaceBetween: 15,
       },
     },
-    
+
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
+      prevEl: ".swiper-button-prev",
     },
     renderPrevButton: () => (
       <button className="swiper-button-prev ht-swiper-button-nav">
@@ -56,27 +55,24 @@ const SliderList = ({
       <button className="swiper-button-next ht-swiper-button-nav">
         <i className="pe-7s-angle-right" />
       </button>
-    )
-  
+    ),
   };
 
   const [testimonialData, setTestimonialData] = useState([]);
 
   useEffect(() => {
     axiosConfig
-  .get(`/admin/allAstro`)
-  .then((response) => {
-    console.log(response.data.data);
-    if(response.data.status === true){
-      setTestimonialData(response.data.data)
-    }
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+      .get(`/admin/allAstro`)
+      .then(response => {
+        console.log(response.data.data);
+        if (response.data.status === true) {
+          setTestimonialData(response.data.data);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }, []);
-
-  
 
   return (
     <div

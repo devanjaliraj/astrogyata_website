@@ -24,7 +24,7 @@ class HeroscopesTwo extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: '#FFD59E',
+              // backgroundColor: '#ffcc01',
               // width: '100%',
               // padding: '70px 0px',
               // backgroundSize: 'cover',
@@ -61,13 +61,16 @@ class HeroscopesTwo extends React.Component {
                 <div className="scope-1">
                   <h3>DAILY HOROSCOPE</h3>
                   <p>
-                    Astrogyata brings together astrologers and their boundless
-                    knowledge about the occult science of Astrology on one
-                    platform and lets you connect with them 24*7. Apart from the
-                    best future predictions that help you get through the
-                    difficult phase of life, Astrogyata also offers Free Live
-                    astrology sessions, Daily horoscope, Free kundli matching
-                    service, Spiritual store and much more.
+                    A horoscope is a forecast of a person's future, typically
+                    including predictions about personality, relationships, and
+                    events, based on the positions of celestial bodies such as
+                    the sun, moon, and planets at the time of their birth.
+                    Horoscopes are typically created by astrologers and are
+                    specific to an individual's birth date, time, and place.
+                    Astrologers use astrological symbols and systems to
+                    interpret the positions of celestial bodies and make
+                    predictions about an individual's life. Our online horoscope
+                    software developed in consultation of our astrologers.
                   </p>
                   <Row>
                     <Col md="2">

@@ -25,7 +25,7 @@ class ChatList extends React.Component {
     // console.log(id);
     axiosConfig
       .get(`/admin/getoneAstro/${astroid}`)
-      .then((response) => {
+      .then(response => {
         console.log(response.data);
         this.setState({
           fullname: response.data.data.fullname,
@@ -43,7 +43,7 @@ class ChatList extends React.Component {
           astroId: response?.data?.data?._id,
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };
@@ -63,33 +63,33 @@ class ChatList extends React.Component {
 
     axiosConfig
       .post(`/user/addchat/${user_id}`, obj)
-      .then((response) => {
+      .then(response => {
         console.log("@@@@@", response?.data?.data?.roomid);
         this.setState({ msg: "" });
         this.setState({ roomid: response?.data?.data?.roomid });
         if (response?.data?.data?.roomid !== undefined) {
           axiosConfig
             .get(`/user/allchatwithuser/` + response?.data?.data?.roomid)
-            .then((response) => {
+            .then(response => {
               console.log("ROOMID", response.data.data);
               this.setState({
                 msg: "",
                 chatMsgList: response?.data?.data,
               });
             })
-            .catch((error) => {
+            .catch(error => {
               console.log(error);
             });
         }
         swal("Success!", "Submitted SuccessFull!", "success");
         //window.location.reload('/askQuestion')
       })
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       msg: e.target.value,
     });
@@ -103,7 +103,7 @@ class ChatList extends React.Component {
           <div
             className=""
             style={{
-              backgroundColor: "#FFD59E",
+              backgroundColor: "#ffcc01",
               width: "100%",
               padding: "70px 0px",
               backgroundSize: "cover",
@@ -196,7 +196,7 @@ class ChatList extends React.Component {
                           name
                           className="form-control type_msg"
                           placeholder="Type your message..."
-                          onChange={(e) => {
+                          onChange={e => {
                             this.handleChange(e);
                           }}
                           value={this.state.msg}
@@ -205,7 +205,7 @@ class ChatList extends React.Component {
                         <div className="input-group-append">
                           <span
                             className="input-group-text send_btn"
-                            onClick={(e) =>
+                            onClick={e =>
                               this.submitHandler(
                                 e,
                                 this.state.astroId,

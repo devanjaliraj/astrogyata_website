@@ -26,7 +26,7 @@ class BlogDetailsStandard extends React.Component {
     console.log(id);
     axiosConfig
       .get(`/admin/viewoneBlog/${id}`)
-      .then((response) => {
+      .then(response => {
         console.log(response.data.data);
         this.setState({
           // data: response.data.data,
@@ -38,7 +38,7 @@ class BlogDetailsStandard extends React.Component {
           // name: response.data.data.name,
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -53,7 +53,7 @@ class BlogDetailsStandard extends React.Component {
             <div
               className=""
               style={{
-                backgroundColor: "#FFD59E",
+                backgroundColor: "#ffcc01",
                 width: "100%",
                 padding: "70px 0px",
                 backgroundSize: "cover",

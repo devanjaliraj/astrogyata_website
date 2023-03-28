@@ -10,7 +10,7 @@ import {
   Form,
   Button,
 } from "reactstrap";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 
 import Pj from "../../assets/img/Pj.jpg";
 import "../../assets/scss/astropooja.css";
@@ -32,14 +32,14 @@ class PoojaDetail extends React.Component {
     localStorage.setItem("product_id", id);
     axiosConfig
       .get(`/admin/viewoneProduct/${id}`)
-      .then((response) => {
+      .then(response => {
         console.log(response.data.data);
         this.setState({
           data: response.data.data,
           image: response.data.data.image[0],
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -51,7 +51,7 @@ class PoojaDetail extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",

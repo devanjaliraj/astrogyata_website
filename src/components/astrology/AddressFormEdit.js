@@ -1,38 +1,38 @@
-import React from 'react'
+import React from "react";
 // import { Link } from 'react-router-dom'
-import { Container, Row, Col, Button } from 'reactstrap'
-import LayoutOne from '../../layouts/LayoutOne'
+import { Container, Row, Col, Button } from "reactstrap";
+import LayoutOne from "../../layouts/LayoutOne";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 // import AutoSearch from './autosearch'
-import axiosConfig from '../../axiosConfig'
-import swal from 'sweetalert'
+import axiosConfig from "../../axiosConfig";
+import swal from "sweetalert";
 class AddressFormEdit extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      alt_mobile: '',
-      flat_no: '',
-      locality: '',
-      city: '',
-      state: '',
-      country: '',
-      pincode: '',
-      landmark: '',
-      name: '',
-      mobile: '',
+      alt_mobile: "",
+      flat_no: "",
+      locality: "",
+      city: "",
+      state: "",
+      country: "",
+      pincode: "",
+      landmark: "",
+      name: "",
+      mobile: "",
       data: [],
-    }
+    };
   }
-  changeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   componentDidMount() {
-    let userId = JSON.parse(localStorage.getItem('user_id'))
+    let userId = JSON.parse(localStorage.getItem("user_id"));
     axiosConfig
       .get(`/user/getone_address/${userId}`)
-      .then((response) => {
-        console.log(response.data.data)
+      .then(response => {
+        console.log(response.data.data);
         this.setState({
           data: response.data.data,
           name: response.data.data.name,
@@ -48,29 +48,29 @@ class AddressFormEdit extends React.Component {
           state: response.data.data.state,
           country: response.data.data.country,
           landmark: response.data.data.landmark,
-        })
+        });
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch(error => {
+        console.log(error);
+      });
   }
-  submitHandler = (e) => {
-    e.preventDefault()
-    let { id } = this.props.match.params
-    console.log(id)
+  submitHandler = e => {
+    e.preventDefault();
+    let { id } = this.props.match.params;
+    console.log(id);
     axiosConfig
       .post(`/user/edit_address/${id}`, this.state)
-      .then((response) => {
-        console.log(response.data)
-        swal('Success!', 'Submitted SuccessFull!', 'success')
+      .then(response => {
+        console.log(response.data);
+        swal("Success!", "Submitted SuccessFull!", "success");
         // this.props.history.push('/addressform/'+userid)
       })
 
-      .catch((error) => {
-        swal('Error!', 'You clicked the button!', 'error')
-        console.log(error.response)
-      })
-  }
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error.response);
+      });
+  };
 
   render() {
     return (
@@ -79,7 +79,7 @@ class AddressFormEdit extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: '#FFD59E',
+              // backgroundColor: '#ffcc01',
               // width: '100%',
               // padding: '70px 0px',
               // backgroundSize: 'cover',
@@ -278,8 +278,8 @@ class AddressFormEdit extends React.Component {
           </Container>
         </section>
       </LayoutOne>
-    )
+    );
   }
 }
 
-export default AddressFormEdit
+export default AddressFormEdit;

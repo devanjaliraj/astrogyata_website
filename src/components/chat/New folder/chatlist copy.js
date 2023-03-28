@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   Container,
   Row,
@@ -8,104 +8,99 @@ import {
   InputGroup,
   Form,
   Button,
-} from 'reactstrap'
-import tilak from '../../assets/img/tilak.png'
-import '../../assets/scss/chat.scss'
-import LayoutOne from '../../layouts/LayoutOne'
-import { useState } from 'react'
-import swal from 'sweetalert'
-import axiosConfig from '../../axiosConfig'
+} from "reactstrap";
+import tilak from "../../assets/img/tilak.png";
+import "../../assets/scss/chat.scss";
+import LayoutOne from "../../layouts/LayoutOne";
+import { useState } from "react";
+import swal from "sweetalert";
+import axiosConfig from "../../axiosConfig";
 class ChatList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      astroid: '',
-      msg: '',
+      astroid: "",
+      msg: "",
       chatMsgList: [],
-      userId: '',
-      roomid:''
-    }
+      userId: "",
+      roomid: "",
+    };
   }
   componentDidMount() {
-  //  let roomid = localStorage.getItem('roomid')
-  //  let { roomid } = this.props.match.params
-   
-  //   axiosConfig
-  //     .get(`/user/allchatwithuser/6389e6a56177eda17f4e78f0`)
-  //     .then((response) => {
-  //       console.log('ROOMID', response.data.data)
-  //       this.setState({
-  //         chatMsgList: response?.data?.data,
-  //       })
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
+    //  let roomid = localStorage.getItem('roomid')
+    //  let { roomid } = this.props.match.params
+    //   axiosConfig
+    //     .get(`/user/allchatwithuser/6389e6a56177eda17f4e78f0`)
+    //     .then((response) => {
+    //       console.log('ROOMID', response.data.data)
+    //       this.setState({
+    //         chatMsgList: response?.data?.data,
+    //       })
+    //     })
+    //     .catch((error) => {
+    //       console.log(error)
+    //     })
   }
 
-  submitHandler = (e, astroid, userId,roomid) => {
-    e.preventDefault()
-    let { id } = this.props.match.params
+  submitHandler = (e, astroid, userId, roomid) => {
+    e.preventDefault();
+    let { id } = this.props.match.params;
     // console.log(id)
     // let astroid = JSON.parse(localStorage.getItem('astroId'))
 
     // let userid = JSON.parse(localStorage.getItem('userId'))
-    let user_id = JSON.parse(localStorage.getItem('user_id'))
+    let user_id = JSON.parse(localStorage.getItem("user_id"));
     let obj = {
       astroId: id,
       astroid: astroid,
-      roomId:id,
-      roomid:roomid,
+      roomId: id,
+      roomid: roomid,
       userid: user_id,
       msg: this.state.msg,
       //  roomid:this.state.roomid
-    }
+    };
 
     axiosConfig
       .post(`/user/addchat/${user_id}`, obj)
 
-      .then((response) => {
-        console.log('@@@@@',response?.data?.data?.roomid)
-        this.setState({ msg: '' })
-        this.setState({ roomid: response?.data?.data?.roomid })
+      .then(response => {
+        console.log("@@@@@", response?.data?.data?.roomid);
+        this.setState({ msg: "" });
+        this.setState({ roomid: response?.data?.data?.roomid });
         // this.getQuestionList(id)
-       if(response?.data?.data?.roomid !==undefined){
+        if (response?.data?.data?.roomid !== undefined) {
+          axiosConfig
+            .get(`/user/allchatwithuser/` + response?.data?.data?.roomid)
+            .then(response => {
+              console.log("ROOMID", response.data.data);
+              this.setState({
+                msg: "",
+                chatMsgList: response?.data?.data,
+              });
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
 
-        axiosConfig
-        .get(`/user/allchatwithuser/`+response?.data?.data?.roomid)
-        .then((response) => {
-          console.log('ROOMID', response.data.data)
-          this.setState({
-            msg:'',
-            chatMsgList: response?.data?.data,
-          })
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-
-       }
-      
-
-        swal('Success!', 'Submitted SuccessFull!', 'success')
+        swal("Success!", "Submitted SuccessFull!", "success");
         //window.location.reload('/askQuestion')
       })
 
-      .catch((error) => {
-        swal('Error!', 'You clicked the button!', 'error')
-        console.log(error)
-      })
-  }
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       msg: e.target.value,
-      
-    })
-  }
+    });
+  };
 
   render() {
-    const { chatMsgList } = this.state
+    const { chatMsgList } = this.state;
 
     return (
       <LayoutOne headerTop="visible">
@@ -113,10 +108,10 @@ class ChatList extends React.Component {
           <div
             className=""
             style={{
-              backgroundColor: '#FFD59E',
-              width: '100%',
-              padding: '70px 0px',
-              backgroundSize: 'cover',
+              backgroundColor: "#ffcc01",
+              width: "100%",
+              padding: "70px 0px",
+              backgroundSize: "cover",
             }}
           >
             <Container>
@@ -168,8 +163,8 @@ class ChatList extends React.Component {
                   <div
                     className="card cardchat"
                     style={{
-                      backgroundColor: '#f0f0f0',
-                      width: '100%',
+                      backgroundColor: "#f0f0f0",
+                      width: "100%",
                     }}
                   >
                     <div className="card-header msg_head">
@@ -211,9 +206,9 @@ class ChatList extends React.Component {
                                   </div>
                                 </div>
                               </div>
-                            )
+                            );
                           })
-                        : ''}
+                        : ""}
                     </div>
                     <div className="card-footer">
                       <div className="input-group">
@@ -226,22 +221,21 @@ class ChatList extends React.Component {
                           name
                           className="form-control type_msg"
                           placeholder="Type your message..."
-                          onChange={(e) => {
-                            this.handleChange(e)
+                          onChange={e => {
+                            this.handleChange(e);
                           }}
                           value={this.state.msg}
-                          defaultValue={''}
+                          defaultValue={""}
                         />
                         <div className="input-group-append">
                           <span
                             className="input-group-text send_btn"
-                            onClick={(e) =>
+                            onClick={e =>
                               this.submitHandler(
                                 e,
                                 this.state.astroId,
                                 this.state.userId,
-                                  this.state.roomid
-                               
+                                this.state.roomid
                               )
                             }
                           >
@@ -260,8 +254,8 @@ class ChatList extends React.Component {
           </Container>
         </section>
       </LayoutOne>
-    )
+    );
   }
 }
 
-export default ChatList
+export default ChatList;

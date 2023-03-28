@@ -204,7 +204,7 @@ class KundaliForm extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",
@@ -244,27 +244,28 @@ class KundaliForm extends React.Component {
                   Possibilities of Marriage
                 </h3>
                 <p>
-                  Kundli milan or kundali matching is an important consideration
-                  to make when you decide to get married. Kundli matching, also
-                  called Gun matching or Horoscope matching is the first step
-                  towards marriage when the parents decide to match the kundlis
-                  of the girl and the boy to ensure the couple is compatible.The
-                  gun milan exercise has been a part of India's culture for
-                  1000s of years now and continues to be so. So, if you too are
-                  the lucky one who is planning to get married, and hence
-                  looking for a horoscope matching with someone you have started
-                  liking, then Astrotalk can help you. The Kundali milan online
-                  software on Astrotalk has been prepared by the top astrologers
-                  of Astrotalk. The software caters to the free Kundli milan
-                  needs of the individuals and gives you insights; such as the
-                  number of guns matching for the girl and the boy, what they
-                  are compatible in, what their future would be like if they get
-                  married, and so much more. The online gun milan software can
-                  save you time and the hassle of going out to look for an
-                  astrologer to get the gun milan exercise done. Also, in case
-                  you have any doubts about the free kundali milan offered by
-                  Astrotalk, you can always connect with the astrologers on
-                  board and get those doubts sorted for yourself.
+                  Kundali Match Making is an important consideration to get
+                  married. Under Kundli Match (Kundali/ Gunas Milan) Making with
+                  the help of comparing birth charts of individuals find
+                  compatibility for the purpose of marriage. This involves
+                  analyzing the positions of the stars and planets at the time
+                  of birth and comparing them between two individuals to see how
+                  well their astrological profiles match by looking for specific
+                  astrological compatibility factors, such as mutual planetary
+                  aspects, the presence of beneficial yogas, and compatibility
+                  in various life areas, such as wealth, health, and children.
+                </p>
+                <p>
+                  You are planning to get married, and need help in Kundali
+                  Match Making, then you are at right place, we can match the
+                  Kundali for you. The Kundali Match Making software developed
+                  by us in consultation of top astrologers. Kundali Match Making
+                  gives you insights; such as the number of guns matching for
+                  the girl and the boy, what they are compatible in, what their
+                  future would be like if they get married, and so much more.
+                  Online software can save you time and get the accurate result
+                  without consulting any astrologer. Further, for detail
+                  consultation or any doubt, you may connect our astrologer.
                 </p>
                 <div className="match-bx">
                   <form onSubmit={this.submitHandler}>

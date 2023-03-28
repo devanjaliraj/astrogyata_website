@@ -27,7 +27,6 @@ import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import AstroProfileVideo from "./AstroProfileVideo";
 
-
 const colors = {
   star: ["#d9ad26", "#d9ad26", "#434b4d"],
   // heart: ['#9b111e', '#a83f39'],
@@ -150,7 +149,7 @@ class AstrologerDetail extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",
@@ -201,7 +200,7 @@ class AstrologerDetail extends React.Component {
                             value={this.state.avg_rating}
                             icons={icons.star}
                             setColors={["#d9ad26", "#d9ad26", "#434b4d"]}
-                          // colors={["#d9ad26", "#d9ad26", "#434b4d"]}
+                            // colors={["#d9ad26", "#d9ad26", "#434b4d"]}
                           />
                           {/* {this.state.avg_rating && this.state.avg_rating > 0 ? ( */}
                           {/* <div className="review-rating"> */}
@@ -264,13 +263,13 @@ class AstrologerDetail extends React.Component {
                             <Button
                               className="btn-as st"
                               onClick={this.toggle}
-                            // onClick={(e) =>
-                            //   this.submitHandler(
-                            //     e,
-                            //     this.state.astroId,
-                            //     this.state.astroMobile
-                            //   )
-                            // }
+                              // onClick={(e) =>
+                              //   this.submitHandler(
+                              //     e,
+                              //     this.state.astroId,
+                              //     this.state.astroMobile
+                              //   )
+                              // }
                             >
                               <i className="fa fa-phone" aria-hidden="true"></i>
                               Start Call

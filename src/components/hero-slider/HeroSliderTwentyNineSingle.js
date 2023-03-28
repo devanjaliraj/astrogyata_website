@@ -56,8 +56,8 @@ const HeroSliderTwentyNineSingle = ({ data, sliderClass }) => {
             </div>
           </div>
           <div className="col-xl-6 col-lg-7 col-md-8 col-12">
-            <img src={handbgone} className="st-1" alt="" />
-            <img src={handbgtwo} className="st-2" alt="" />
+            {/* <img src={handbgone} className="st-1" alt="" />
+            <img src={handbgtwo} className="st-2" alt="" /> */}
           </div>
         </div>
       </div>

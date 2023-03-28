@@ -1,104 +1,103 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Row, Col } from 'reactstrap'
-import LayoutOne from '../../layouts/LayoutOne'
-import '../../assets/scss/astroteam.scss'
-import { Table } from 'reactstrap'
-import pay1 from '../../assets/img/icon-img/pay-1.png'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Container, Row, Col } from "reactstrap";
+import LayoutOne from "../../layouts/LayoutOne";
+import "../../assets/scss/astroteam.scss";
+import { Table } from "reactstrap";
+import pay1 from "../../assets/img/icon-img/pay-1.png";
 // import pay2 from '../../assets/img/icon-img/pay-2.png'
-import pay3 from '../../assets/img/icon-img/pay-3.png'
-import pay4 from '../../assets/img/icon-img/pay-4.png'
-import pay5 from '../../assets/img/icon-img/pay-5.png'
-import pay6 from '../../assets/img/icon-img/pay-6.png'
+import pay3 from "../../assets/img/icon-img/pay-3.png";
+import pay4 from "../../assets/img/icon-img/pay-4.png";
+import pay5 from "../../assets/img/icon-img/pay-5.png";
+import pay6 from "../../assets/img/icon-img/pay-6.png";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 
-import swal from 'sweetalert'
-import axiosConfig from '../../axiosConfig'
-import ReactHtmlParser from 'react-html-parser'
+import swal from "sweetalert";
+import axiosConfig from "../../axiosConfig";
+import ReactHtmlParser from "react-html-parser";
 
 class CartList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      astroId: '',
-      userId: '',
-      productid: '',
-      shipping_address: '',
-      gstotal: '',
-      total_amt: '',
+      astroId: "",
+      userId: "",
+      productid: "",
+      shipping_address: "",
+      gstotal: "",
+      total_amt: "",
       data: {},
       addtoCart: [],
       dataCart: [],
-      shippingId: '',
-      gst: '',
+      shippingId: "",
+      gst: "",
       cartdata: {},
-    }
+    };
   }
   componentDidMount() {
-    let { id } = this.props.match.params
-    let productId = localStorage.getItem('product_id')
-    let astroId = localStorage.getItem('astro_id')
-    let userId = localStorage.getItem('user_id')
-    let shippingId = localStorage.getItem('shipping_id')
+    let { id } = this.props.match.params;
+    let productId = localStorage.getItem("product_id");
+    let astroId = localStorage.getItem("astro_id");
+    let userId = localStorage.getItem("user_id");
+    let shippingId = localStorage.getItem("shipping_id");
     // let { shippingId } = this.props.match.params
     axiosConfig
       .get(`/user/product_consltnt_list/` + productId)
-      .then((response) => {
-        console.log('sdfhshgfsghhghggjghggjgjgg', response.data?.data)
+      .then(response => {
+        console.log("sdfhshgfsghhghggjghggjgjgg", response.data?.data);
         this.setState({
           data: response.data.data,
 
           price: response.data?.price,
-        })
+        });
       })
-      .catch((error) => {
-        console.log(error.response.data)
-      })
+      .catch(error => {
+        console.log(error.response.data);
+      });
 
     // let { id } = this.props.match.params
     // console.log('sghedgjghjk', id)
 
     axiosConfig
       .get(`/user/getoneCart/${id}`)
-      .then((response) => {
-        console.log(response.data.data)
+      .then(response => {
+        console.log(response.data.data);
         this.setState({
           dataCart: response.data.data,
           fullname: response.data.data.fullname,
           // image: response.data.data.image[0],
           // gst: response.data.data.gst,
-        })
+        });
       })
-      .catch((error) => {
-        console.log(error.response.data.data)
-      })
+      .catch(error => {
+        console.log(error.response.data.data);
+      });
     localStorage.setItem("shipping_id", id);
-
 
     axiosConfig
       .get(`/user/getone_address/${shippingId}`)
-      .then((response) => {
+      .then(response => {
         //console.log('@@@@new', response?.data?.data[0]?.userid?._id)
         // localStorage.setItem(
         //   'shipping_id',
         //   response?.data?.data[0]?.userid?._id,
         // )
-        alert(response?.data?.data[0]?.userid?._id)
+        alert(response?.data?.data[0]?.userid?._id);
         this.setState({
           shippingId: response?.data?.data[0]?.userid?._id,
-        })
+        });
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch(error => {
+        console.log(error);
+      });
 
     // let { productId } = this.props.match.params;
 
     //shippingId = this.state.shippingId //localStorage.getItem('shipping_id')
-    console.log(productId)
+    console.log(productId);
     axiosConfig
       .get(`/admin/viewoneProduct/` + productId)
-      .then((response) => {
+      .then(response => {
         //console.log(response.data.data)
         this.setState({
           productname: response.data.data.productname,
@@ -106,11 +105,11 @@ class CartList extends React.Component {
           image: response.data.data.image[0],
           gst: response.data.data.gst,
           price: response.data?.data?.price,
-        })
+        });
       })
-      .catch((error) => {
-        console.log(error.response.data.data)
-      })
+      .catch(error => {
+        console.log(error.response.data.data);
+      });
 
     // new work
 
@@ -121,28 +120,28 @@ class CartList extends React.Component {
       shippingId: shippingId,
       // orderId: this.state.orderId,
       price: this.state.price,
-    }
+    };
 
     axiosConfig
       .post(`/user/addtoCart`, obj)
-      .then((response) => {
-        console.log('addtoCart', response.data.data)
+      .then(response => {
+        console.log("addtoCart", response.data.data);
         this.setState({
           addtoCart: response.data.data,
-        })
+        });
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch(error => {
+        console.log(error);
+      });
   }
-  submitHandler = (e) => {
-    e.preventDefault()
+  submitHandler = e => {
+    e.preventDefault();
     // let { id } = this.props.match.params
     // console.log(id)
-    let astroid = JSON.parse(localStorage.getItem('astro_id'))
-    let userid = JSON.parse(localStorage.getItem('user_id'))
-    let shippingid = JSON.parse(localStorage.getItem('shipping_id'))
-    let productId = localStorage.getItem('product_id')
+    let astroid = JSON.parse(localStorage.getItem("astro_id"));
+    let userid = JSON.parse(localStorage.getItem("user_id"));
+    let shippingid = JSON.parse(localStorage.getItem("shipping_id"));
+    let productId = localStorage.getItem("product_id");
     let obj = {
       astroId: astroid,
       userId: userid,
@@ -154,21 +153,21 @@ class CartList extends React.Component {
       // total_amt: this.state.total_amt,
       // fullname: this.state.fullname,
       // gst: this.state.gst,
-    }
+    };
 
     axiosConfig
       .post(`/user/addtoCart`, obj)
-      .then((response) => {
-        console.log('@@@@@', response.data.data.data)
-        swal('Success!', 'Submitted SuccessFull!', 'success')
-        window.location.reload('/addressForm')
+      .then(response => {
+        console.log("@@@@@", response.data.data.data);
+        swal("Success!", "Submitted SuccessFull!", "success");
+        window.location.reload("/addressForm");
       })
 
-      .catch((error) => {
-        swal('Error!', 'You clicked the button!', 'error')
-        console.log(error)
-      })
-  }
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
   render() {
     const { data } = this.state;
 
@@ -178,7 +177,7 @@ class CartList extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: '#FFD59E',
+              // backgroundColor: '#ffcc01',
               // width: '100%',
               // padding: '70px 0px',
               // backgroundSize: 'cover',
@@ -229,7 +228,7 @@ class CartList extends React.Component {
                       <tr>
                         {/* <th scope="row">1</th> */}
                         <td>
-                          {' '}
+                          {" "}
                           <img src={this.state?.image} alt="" width="40%" />
                           <br />
                           {/* <span>{this.state.price}</span> */}
@@ -242,12 +241,12 @@ class CartList extends React.Component {
                         {/* <td>Rajverdhan Shastriji</td>
                         <td>indore</td> */}
                         <td>
-                          {' '}
+                          {" "}
                           <p></p>
                         </td>
                         <td>
                           <Link className="Tansdel">
-                            {' '}
+                            {" "}
                             {this.state.addtoCart.total_amt -
                               this.state.addtoCart.gst}
                           </Link>
@@ -265,7 +264,7 @@ class CartList extends React.Component {
                     <li>
                       Order Subtotal
                       <span>
-                        {' '}
+                        {" "}
                         {this.state.addtoCart.total_amt -
                           this.state.addtoCart.gst}
                       </span>
@@ -344,8 +343,8 @@ class CartList extends React.Component {
           </Container>
         </section>
       </LayoutOne>
-    )
+    );
   }
 }
 
-export default CartList
+export default CartList;

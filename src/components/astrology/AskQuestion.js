@@ -6,7 +6,7 @@ import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
 import Ansicon from "../../assets/img/ansicon.png";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 class AskQuestion extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ class AskQuestion extends React.Component {
     // console.log('jdhgkfjgkjd', astroId)
     axiosConfig
       .get(`/admin/getoneAstro/${id}`)
-      .then((response) => {
+      .then(response => {
         console.log(response.data);
         this.setState({
           fullname: response.data.data.fullname,
@@ -44,7 +44,7 @@ class AskQuestion extends React.Component {
           createdAt: response?.data?.data?.createdAt,
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
 
@@ -52,13 +52,13 @@ class AskQuestion extends React.Component {
     let user_id = localStorage.getItem("user_id");
     axiosConfig
       .get(`/user/list_ask_qus/${id}/${JSON.parse(user_id)}`)
-      .then((response) => {
+      .then(response => {
         console.log("fgshdfhsdfhs", response.data.data);
         this.setState({
           astroQuesList: response?.data?.data,
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
@@ -92,7 +92,7 @@ class AskQuestion extends React.Component {
     axiosConfig
       .post(`/user/user_ask_qus`, obj)
 
-      .then((response) => {
+      .then(response => {
         console.log("@@@@@", response.data.data);
         this.setState({ question: "" });
         // this.getQuestionList(id)
@@ -100,13 +100,13 @@ class AskQuestion extends React.Component {
         //window.location.reload('/askQuestion')
       })
 
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       question: e.target.value,
     });
@@ -120,7 +120,7 @@ class AskQuestion extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",
@@ -176,27 +176,27 @@ class AskQuestion extends React.Component {
                             <ul className="ask-ques">
                               {astroQuesList.length > 0
                                 ? astroQuesList.map((astro, index) => {
-                                  return (
-                                    <li>
-                                      <i
-                                        class="fa fa-quora"
-                                        aria-hidden="true"
-                                        style={{ marginRight: 6 }}
-                                      >
-                                        {index + 1 + "."}
-                                      </i>
+                                    return (
+                                      <li>
+                                        <i
+                                          class="fa fa-quora"
+                                          aria-hidden="true"
+                                          style={{ marginRight: 6 }}
+                                        >
+                                          {index + 1 + "."}
+                                        </i>
 
-                                      {astro.question}
+                                        {astro.question}
 
-                                      {astro?.answer ? (
-                                        <p>
-                                          <img src={Ansicon} alt="" />
-                                          {astro?.answer}
-                                        </p>
-                                      ) : null}
-                                    </li>
-                                  );
-                                })
+                                        {astro?.answer ? (
+                                          <p>
+                                            <img src={Ansicon} alt="" />
+                                            {astro?.answer}
+                                          </p>
+                                        ) : null}
+                                      </li>
+                                    );
+                                  })
                                 : "No question available"}
                             </ul>
                           </li>
@@ -211,7 +211,7 @@ class AskQuestion extends React.Component {
                                   className="form-control stp"
                                   placeholder="Ask ypur question here..."
                                   maxLength={150}
-                                  onChange={(e) => {
+                                  onChange={e => {
                                     this.handleChange(e);
                                   }}
                                 ></textarea>
@@ -222,7 +222,7 @@ class AskQuestion extends React.Component {
                             </Col>
                             <Button
                               className="btn btn-primary"
-                              onClick={(e) =>
+                              onClick={e =>
                                 this.submitHandler(
                                   e,
                                   this.state.astroId,

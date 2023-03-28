@@ -18,8 +18,9 @@ class AstrologerSignup extends React.Component {
       fullname: "",
       email: "",
       mobile: "",
-      gender: "",
       otp: "",
+
+      gender: "",
       dob: "",
       primary_skills: "",
       all_skills: "",
@@ -45,7 +46,7 @@ class AstrologerSignup extends React.Component {
       min_earning_expe: "",
       max_earning_expe: "",
       long_bio: "",
-      status: "Active",
+      status: "",
       callCharge: "",
       img: "",
       selectedName: "",
@@ -107,7 +108,7 @@ class AstrologerSignup extends React.Component {
       email: this.state.email,
       mobile: this.state.mobile,
       otpverify: this.state.otpverify,
-      approvedstatus: this.state.approvedstatus,
+      // approvedstatus: this.state.approvedstatus,
       all_skills: this.state.all_skills,
       anybody_prefer: this.state.anybody_prefer,
       callCharge: this.state.callCharge,
@@ -348,7 +349,7 @@ class AstrologerSignup extends React.Component {
                       <Row>
                         <Col md="6">
                           <div className="form-group mtb-10">
-                            <Label>Otp*</Label>
+                            <Label>OTP*</Label>
                             <Input
                               type="text"
                               required

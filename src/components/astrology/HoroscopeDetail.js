@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Input,
-  Button
-} from "reactstrap";
+import { Container, Row, Col, Input, Button } from "reactstrap";
 import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 
 class HoroscopeDetail extends React.Component {
   constructor(props) {
@@ -21,41 +15,41 @@ class HoroscopeDetail extends React.Component {
       dailyHoroscope: {},
     };
   }
-  changeHandler = (e) => {
+  changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   componentDidMount() {
     let { id } = this.props.match.params;
-    this.setState({ zodiacName: id })
+    this.setState({ zodiacName: id });
     let payload = {
-      zodiacName: id
+      zodiacName: id,
     };
     axiosConfig
       .post(`/user/dailyhoroscope`, payload)
-      .then((response) => {
+      .then(response => {
         console.log("dailyHoroscope", response.data.data.prediction);
         this.setState({ dailyHoroscope: response.data.data });
       })
 
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   }
-  submitHandler = (e) => {
+  submitHandler = e => {
     e.preventDefault();
 
     let payload = { zodiacName: this.state.zodiacName };
     axiosConfig
       .post(`/user/dailyhoroscope`, payload)
-      .then((response) => {
+      .then(response => {
         console.log("dailyHoroscope", response.data.data.prediction);
         this.setState({ dailyHoroscope: response.data.data });
         console.log("dailyHoroscope1", response.data);
         swal("Success!", "Submitted SuccessFull!", "success");
       })
 
-      .catch((error) => {
+      .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
@@ -69,7 +63,7 @@ class HoroscopeDetail extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",
@@ -106,12 +100,19 @@ class HoroscopeDetail extends React.Component {
                 <Col lg="4">
                   <div className="scope-st">
                     <h3>SELECT OTHER SIGN</h3>
-                    <Input className="form-control"
+                    <p>
+                      Zodiac signs refer to the 12 astrological signs that are
+                      based on the position of the sun at the time of a person's
+                      birth. The 12 zodiac signs are:
+                    </p>
+                    <Input
+                      className="form-control"
                       type="select"
                       name="zodiacName"
                       placeholder="Enter rashi"
                       value={this.state.zodiacName}
-                      onChange={this.changeHandler}>
+                      onChange={this.changeHandler}
+                    >
                       <option value="select">---Select---</option>
                       <option value="aries">Aries</option>
                       <option value="taurus">Taurus</option>

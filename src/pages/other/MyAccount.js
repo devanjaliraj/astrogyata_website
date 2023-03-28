@@ -30,7 +30,7 @@ export default class MyAccount extends Component {
       data: {},
     };
   }
-  onChangeHandler = (event) => {
+  onChangeHandler = event => {
     this.setState({ selectedFile: event.target.files[0] });
     this.setState({ selectedName: event.target.files[0].name });
     console.log(event.target.files[0]);
@@ -40,7 +40,7 @@ export default class MyAccount extends Component {
     let user_id = JSON.parse(localStorage.getItem("user_id"));
     axiosConfig
       .get(`/user/viewoneuser/${user_id}`)
-      .then((response) => {
+      .then(response => {
         console.log(response.data.data);
         this.setState({
           fullname: response.data.data.fullname,
@@ -58,18 +58,18 @@ export default class MyAccount extends Component {
           country: response.data.data.country,
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   }
-  changeHandler1 = (e) => {
+  changeHandler1 = e => {
     this.setState({ status: e.target.value });
   };
-  changeHandler = (e) => {
+  changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitHandler = (e) => {
+  submitHandler = e => {
     e.preventDefault();
     console.log(this.state.data);
     const data = new FormData();
@@ -99,12 +99,12 @@ export default class MyAccount extends Component {
     let user_id = JSON.parse(localStorage.getItem("user_id"));
     axiosConfig
       .post(`/user/edit_myprofile/${user_id}`, data)
-      .then((response) => {
+      .then(response => {
         console.log(response.data);
         // swal("Success!", "Submitted SuccessFull!", "success");
         // this.props.history.push("/app/user/userList");
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };
@@ -117,7 +117,7 @@ export default class MyAccount extends Component {
             <div
               className=""
               style={{
-                backgroundColor: "#FFD59E",
+                backgroundColor: "#ffcc01",
                 width: "100%",
                 padding: "70px 0px",
                 backgroundSize: "cover",
@@ -144,20 +144,45 @@ export default class MyAccount extends Component {
                         src={this.state.userimg}
                         alt="userimg"
                         className="img-fluid img-border rounded-circle box-shadow-1"
-                        width="150" />
+                        width="150"
+                      />
                       <ul>
-                        <li>Name : <span>{this.state.fullname}</span></li>
-                        <li>Email : <span>{this.state.email}</span></li>
-                        <li>Mobile : <span>{this.state.mobile}</span></li>
-                        <li>Gender : <span>{this.state.gender}</span></li>
-                        <li>DOB : <span>{this.state.dob}</span></li>
-                        <li>Address : <span>{this.state.address}</span></li>
-                        <li>Bith Place : <span>{this.state.bithplace}</span></li>
-                        <li>Birth Time : <span>{this.state.birth_tym}</span></li>
-                        <li>Pin Code : <span>{this.state.pincode}</span></li>
-                        <li>State : <span>{this.state.state}</span></li>
-                        <li>City : <span>{this.state.city}</span></li>
-                        <li>Country : <span>{this.state.country}</span></li>
+                        <li>
+                          Name : <span>{this.state.fullname}</span>
+                        </li>
+                        <li>
+                          Email : <span>{this.state.email}</span>
+                        </li>
+                        <li>
+                          Mobile : <span>{this.state.mobile}</span>
+                        </li>
+                        <li>
+                          Gender : <span>{this.state.gender}</span>
+                        </li>
+                        <li>
+                          DOB : <span>{this.state.dob}</span>
+                        </li>
+                        <li>
+                          Address : <span>{this.state.address}</span>
+                        </li>
+                        <li>
+                          Bith Place : <span>{this.state.bithplace}</span>
+                        </li>
+                        <li>
+                          Birth Time : <span>{this.state.birth_tym}</span>
+                        </li>
+                        <li>
+                          Pin Code : <span>{this.state.pincode}</span>
+                        </li>
+                        <li>
+                          State : <span>{this.state.state}</span>
+                        </li>
+                        <li>
+                          City : <span>{this.state.city}</span>
+                        </li>
+                        <li>
+                          Country : <span>{this.state.country}</span>
+                        </li>
                       </ul>
                     </div>
                   </Card.Body>
@@ -165,8 +190,7 @@ export default class MyAccount extends Component {
                 <div className="col-lg-8">
                   <div className="myaccount-wrapper">
                     <Card className="single-my-account mb-20">
-                      <Card.Header className="panel-heading">
-                      </Card.Header>
+                      <Card.Header className="panel-heading"></Card.Header>
                       <Card.Body className="usr-1">
                         <Form onSubmit={this.submitHandler}>
                           <div className="myaccount-info-wrapper">

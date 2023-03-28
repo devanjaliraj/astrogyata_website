@@ -44,12 +44,12 @@ const SliderDemo = ({ data, sliderClass, sliderdemoClass }) => {
                   </p>
                   <h4 className="card-title">{data?.fullname}</h4>
                   <ul className="mb-3">
-                    <li>
+                    {/* <li>
                       Specility: <span>{data?.all_skills}</span>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       Language: <span>{data?.language}</span>
-                    </li>
+                    </li> */}
                     <li>
                       Experience: <span>{data?.exp_in_years}</span>
                     </li>

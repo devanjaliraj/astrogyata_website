@@ -16,8 +16,8 @@
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #108d6f;
-  border-color: #108d6f;
+  background-color: #0a58ca;
+  border-color: #0a58ca;
   box-shadow: none;
   outline: none;
 }
@@ -445,7 +445,7 @@ a.btn.btn-primary.btn-sm.st-d {
 .promoBox.success-box {
   width: 100%;
   padding: 25px;
-  background: #ffd59e;
+  background: #ffcc01;
   // background: -moz-linear-gradient(-45deg, #9dd53a 0%, #a1d54f 50%, #80c217 51%, #7cbc0a 100%);
   // background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#9dd53a), color-stop(50%,#a1d54f), color-stop(51%,#80c217), color-stop(100%,#7cbc0a));
   // background: -webkit-linear-gradient(-45deg, #9dd53a 0%,#a1d54f 50%,#80c217 51%,#7cbc0a 100%);
@@ -453,7 +453,7 @@ a.btn.btn-primary.btn-sm.st-d {
   // background: -ms-linear-gradient(-45deg, #9dd53a 0%,#a1d54f 50%,#80c217 51%,#7cbc0a 100%);
   // background: linear-gradient(135deg, #9dd53a 0%,#a1d54f 50%,#80c217 51%,#7cbc0a 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=1 );
-  border-color: #ffd59e;
+  border-color: #ffcc01;
   color: #fff;
 }
 .promoBox.success-box h4 {
@@ -489,5 +489,5 @@ li.btt {
   border-radius: 10px !important;
 }
 .image-flip {
-  margin: 0 10px;
+  margin: 0 8px;
 }

@@ -9,7 +9,7 @@ import {
   Form,
   Button,
 } from "reactstrap";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg"
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 
 import LayoutOne from "../../layouts/LayoutOne";
 import "../../assets/scss/astroteam.scss";
@@ -38,25 +38,25 @@ class WalletMoney extends React.Component {
     console.log("first", user_id);
     axiosConfig
       .get(`/user/viewoneuser/${user_id}`)
-      .then((response) => {
+      .then(response => {
         console.log("sjdfjdfg", response.data.data);
         this.setState({
           amount: response.data.data.amount,
         });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
 
     axiosConfig
       .get("/user/active_plans")
-      .then((response) => {
+      .then(response => {
         console.log(response.data);
         if (response.data.status === true) {
           this.setState({ planList: response.data.data });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
         console.log(error.response.data.data);
       });
@@ -70,7 +70,7 @@ class WalletMoney extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#FFD59E",
+              // backgroundColor: "#ffcc01",
               // width: "100%",
               // padding: "70px 0px",
               // backgroundSize: "cover",
@@ -119,19 +119,19 @@ class WalletMoney extends React.Component {
               </Col>
               {planList.length
                 ? planList.map((plan, index) => {
-                  return (
-                    <Col xl="3" lg="3" md="3" sm="6" xs="6" key={index}>
-                      <Link to="/paymentdetail">
-                        <div className="promoBox success-box info-ribbon">
-                          <aside>
-                            <p>{plan.title}</p>
-                          </aside>
-                          <h4>INR {plan.amount}</h4>
-                        </div>
-                      </Link>
-                    </Col>
-                  );
-                })
+                    return (
+                      <Col xl="3" lg="3" md="3" sm="6" xs="6" key={index}>
+                        <Link to="/paymentdetail">
+                          <div className="promoBox success-box info-ribbon">
+                            <aside>
+                              <p>{plan.title}</p>
+                            </aside>
+                            <h4>INR {plan.amount}</h4>
+                          </div>
+                        </Link>
+                      </Col>
+                    );
+                  })
                 : null}
 
               {/*    <Col xl="3" lg="3" md="3" sm="6" xs="6">
