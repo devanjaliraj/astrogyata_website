@@ -75,7 +75,8 @@ class BookEvent extends React.Component {
         console.log("@@@@@", response.data);
         //localStorage.setItem('shipping_id', response?.data?.data[0]?._id)
         swal("Success!", "Submitted SuccessFull!", "success");
-        // window.location.reload('/addEvent')
+        // window.location.reload("/astromallList");
+        this.props.history.push("/astromallList");
       })
 
       .catch(error => {
@@ -112,7 +113,7 @@ class BookEvent extends React.Component {
                     {/* <h1>
                         Astromall Shop/ Product Detail/ Consultant List/ Address
                     </h1> */}
-                    <h3>Book Event</h3>
+                    <h3>Book Pooja</h3>
                   </div>
                 </Col>
               </Row>
@@ -125,7 +126,7 @@ class BookEvent extends React.Component {
             <Row>
               <Col lg="12 mt-12">
                 <div className="wal-amt">
-                  <h3>Event Booking Form </h3>
+                  <h3>Pooja Booking</h3>
                   <hr></hr>
                   <form onSubmit={this.submitHandler}>
                     <Row>
@@ -282,7 +283,7 @@ class BookEvent extends React.Component {
                       </Col>
 
                       <Col md="12" className="mt-3">
-                        <Button className="btn btn-primary">Book Event</Button>
+                        <Button className="btn btn-primary">Submit</Button>
                       </Col>
                     </Row>
                   </form>

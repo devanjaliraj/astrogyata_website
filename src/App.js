@@ -87,24 +87,24 @@ const CompleteProAstro = lazy(() =>
   import("./components/astrology/astrologerpages/CompleteProAstro")
 );
 
-const DemoVideoCall = lazy(() =>
-  import("./components/astrology/DemoVideoCall")
-);
+// const DemoVideoCall = lazy(() =>
+//   import("./components/astrology/DemoVideoCall")
+// );
 
 const DemoCall = lazy(() => import("./components/astrology/DemoCall"));
 
-// zegocloud //
-const Room = lazy(() => import("./components/astrology/zegocloud/Room"));
-const LiveVideo = lazy(() =>
-  import("./components/astrology/zegocloud/LiveVideo")
-);
-const VideoCall = lazy(() =>
-  import("./components/astrology/zegocloud/VideoCall")
-);
-const VideoCall2 = lazy(() =>
-  import("./components/astrology/zegocloud/VideoCall2")
-);
-const Call = lazy(() => import("./components/astrology/zegocloud/Call"));
+// // zegocloud //
+// const Room = lazy(() => import("./components/astrology/zegocloud/Room"));
+// const LiveVideo = lazy(() =>
+//   import("./components/astrology/zegocloud/LiveVideo")
+// );
+// const VideoCall = lazy(() =>
+//   import("./components/astrology/zegocloud/VideoCall")
+// );
+// const VideoCall2 = lazy(() =>
+//   import("./components/astrology/zegocloud/VideoCall2")
+// );
+// const Call = lazy(() => import("./components/astrology/zegocloud/Call"));
 // astology pages start
 
 const AlertPage = lazy(() => import("./components/astrology/AlertPage"));
@@ -151,7 +151,9 @@ const FreeKundli = lazy(() =>
 const PitraDosh = lazy(() => import("./components/astrology/PitraDosh"));
 const KalsharpDosh = lazy(() => import("./components/astrology/KalsharpDosh"));
 const ManglikDosh = lazy(() => import("./components/astrology/ManglikDosh"));
-const ManglikDoshDetail = lazy(() => import("./components/astrology/ManglikDoshDetail"));
+const ManglikDoshDetail = lazy(() =>
+  import("./components/astrology/ManglikDoshDetail")
+);
 
 const bannerSection = lazy(() =>
   import("./components/astrology/bannerSection")
@@ -268,7 +270,7 @@ const AddressForm = lazy(() => import("./components/astrology/AddressForm"));
 const AddressFormEdit = lazy(() =>
   import("./components/astrology/AddressFormEdit")
 );
-const Home = lazy(() => import("./components/astrology/zegocloud/Home"));
+// const Home = lazy(() => import("./components/astrology/zegocloud/Home"));
 const Cart = lazy(() => import("./pages/other/Cart"));
 const MyOrder = lazy(() => import("./pages/other/MyOrder"));
 const Wishlist = lazy(() => import("./pages/other/Wishlist"));
@@ -404,14 +406,14 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/product-slider/:id"}
                     component={ProductSlider}
                   />
-                  <Route
+                  {/* <Route
                     path={process.env.PUBLIC_URL + "/room"}
                     component={Room}
-                  />
-                  <Route
+                  /> */}
+                  {/* <Route
                     path={process.env.PUBLIC_URL + "/home"}
                     component={Home}
-                  />
+                  /> */}
                   <Route
                     path={process.env.PUBLIC_URL + "/product-fixed-image/:id"}
                     component={ProductFixedImage}
@@ -490,7 +492,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/askquestionList"}
                     component={AskQuestionList}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/orderHistory"}
                     component={OrderHistory}
@@ -777,10 +778,10 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/completeproastro"}
                     component={CompleteProAstro}
                   />
-                  <Route
+                  {/* <Route
                     path={process.env.PUBLIC_URL + "/demovideocall"}
                     component={DemoVideoCall}
-                  />
+                  /> */}
                   <Route
                     path={process.env.PUBLIC_URL + "/democall"}
                     component={DemoCall}
@@ -794,7 +795,7 @@ const App = props => {
                     component={Phone}
                   />
                   {/* // zegocloud // */}
-                  <Route
+                  {/* <Route
                     path={process.env.PUBLIC_URL + "/livevideo"}
                     component={LiveVideo}
                   />
@@ -809,7 +810,7 @@ const App = props => {
                   <Route
                     path={process.env.PUBLIC_URL + "/call"}
                     component={Call}
-                  />
+                  /> */}
                   {/* <Route
                   path={process.env.PUBLIC_URL + "/cart"}
                   component={Cart}

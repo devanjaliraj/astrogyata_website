@@ -204,6 +204,11 @@ const FooterOne = ({
                           Kalsharvp Dosh
                         </Link>
                       </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/bookEvent"}>
+                          Book Pooja
+                        </Link>
+                      </li>
                       {/* {categoryList?.map((cat) => (
                         <li className="" key={cat._id}>
                           <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
