@@ -106,7 +106,7 @@ const DemoCall = lazy(() => import("./components/astrology/DemoCall"));
 // );
 // const Call = lazy(() => import("./components/astrology/zegocloud/Call"));
 // astology pages start
-
+const ZodicPage = lazy(() => import("./components/astrology/ZodicPage"));
 const AlertPage = lazy(() => import("./components/astrology/AlertPage"));
 
 const CustomerSupport = lazy(() =>
@@ -151,10 +151,15 @@ const FreeKundli = lazy(() =>
 const PitraDosh = lazy(() => import("./components/astrology/PitraDosh"));
 const KalsharpDosh = lazy(() => import("./components/astrology/KalsharpDosh"));
 const ManglikDosh = lazy(() => import("./components/astrology/ManglikDosh"));
+const PitraDoshDetail = lazy(() =>
+  import("./components/astrology/PitraDoshDetail")
+);
 const ManglikDoshDetail = lazy(() =>
   import("./components/astrology/ManglikDoshDetail")
 );
-
+const KalsharpDoshDetail = lazy(() =>
+  import("./components/astrology/KalsharpDoshDetail")
+);
 const bannerSection = lazy(() =>
   import("./components/astrology/bannerSection")
 );
@@ -556,7 +561,15 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/manglikDoshDetail"}
                     component={ManglikDoshDetail}
                   />
-                  ManglikDoshDetail
+                  <Route
+                    path={process.env.PUBLIC_URL + "/kalsharpDoshDetail"}
+                    component={KalsharpDoshDetail}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/pitraDoshDetail"}
+                    component={PitraDoshDetail}
+                  />
+
                   <Route
                     path={process.env.PUBLIC_URL + "/kalsharpdosh"}
                     component={KalsharpDosh}
@@ -596,6 +609,10 @@ const App = props => {
                   <Route
                     path={process.env.PUBLIC_URL + "/cartlist/:id"}
                     component={CartList}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/zodicPage"}
+                    component={ZodicPage}
                   />
                   <Route
                     path={process.env.PUBLIC_URL + "/heroscopesall"}
