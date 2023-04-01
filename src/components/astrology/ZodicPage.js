@@ -1,21 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import LayoutOne from "../../layouts/LayoutOne";
-import virgo from "../../assets/img/heroscope/virgo.png";
-import aquarius from "../../assets/img/heroscope/aquarius.png";
-import cancer from "../../assets/img/heroscope/cancer.png";
-import capricorn from "../../assets/img/heroscope/capricorn.png";
-import gemini from "../../assets/img/heroscope/gemini.png";
-import leo from "../../assets/img/heroscope/leo.png";
-import libra from "../../assets/img/heroscope/libra.png";
-import pisces from "../../assets/img/heroscope/pisces.png";
-import sagittarius from "../../assets/img/heroscope/sagittarius.png";
-import scorpio from "../../assets/img/heroscope/scorpio.png";
-import taurus from "../../assets/img/heroscope/taurus.png";
-import aries from "../../assets/img/heroscope/aries.png";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
-
 class ZodicPage extends React.Component {
   render() {
     return (
