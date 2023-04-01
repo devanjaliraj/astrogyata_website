@@ -179,7 +179,7 @@ class PitraDosh extends React.Component {
         });
         console.log("data11", response.data.data);
         swal("Success!", "Submitted SuccessFull!", "success");
-        this.props.history.push("/pitraDoshDetail");
+        // this.props.history.push("/manglikDoshDetail");
       })
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");

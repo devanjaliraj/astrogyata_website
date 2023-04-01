@@ -147,7 +147,7 @@ class ManglikDosh extends React.Component {
         });
         console.log("data11", response.data.data);
         swal("Success!", "Submitted SuccessFull!", "success");
-        this.props.history.push("/manglikDoshDetail");
+        // this.props.history.push("/manglikDoshDetail");
       })
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");
@@ -664,7 +664,35 @@ class ManglikDosh extends React.Component {
             </Col>
           </Row>
         </Container>
+        <Container>
+          {/* <form onSubmit={this.submitHandler}> */}
+          <Row>
+            <Col lg="12">
+              <div className="scope-1">
+                <h3>Rashi Name</h3>
+                <p>{data.percentage_manglik_after_cancellation}</p>
 
+                <h3>personal life</h3>
+                <p>{data.manglik_present_rule?.based_on_aspect}</p>
+
+                {/* <h3>Profession</h3>
+                    <p>{manglikDosh?.prediction?.profession}</p>
+
+                    <h3>Health</h3>
+                    <p>{manglikDosh?.prediction?.health}</p>
+
+                    <h3>Travel</h3>
+                    <p>{manglikDosh?.prediction?.travel}</p>
+
+                    <h3>Luck</h3>
+                    <p>{manglikDosh?.prediction?.luck}</p>
+
+                    <h3>Emotions</h3>
+                    <p>{manglikDosh?.prediction?.emotions}</p> */}
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </LayoutOne>
     );
   }
