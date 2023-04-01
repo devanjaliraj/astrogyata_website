@@ -43,7 +43,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/heroscopestwo">
                         <h3>Horoscopes</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>A horoscope is a forecast of a person's future astrologers?.</p>
                       </Link>
                     </div>
                   </Col>
@@ -51,7 +51,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/kundaliform">
                         <h3> Match Matching</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>Kundali Match Making to get married. </p>
                       </Link>
                     </div>
                   </Col>
@@ -59,7 +59,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/manglikdosh">
                         <h3>Manglik Dosh</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>Looking for your free Kundli from expert astrologers? </p>
                       </Link>
                     </div>
                   </Col>
@@ -67,7 +67,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/pitraDosh">
                         <h3>Pitra Dosh</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>Looking for your free Kundli from expert astrologers? </p>
                       </Link>
                     </div>
                   </Col>{" "}
@@ -75,7 +75,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/kalsharpDosh">
                         <h3>Kalsharp Dosh</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>Looking for your free Kundli from expert astrologers? </p>
                       </Link>
                     </div>
                   </Col>
@@ -105,7 +105,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/allastrochatlist">
                         <h3>Chat with Astrologer</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>Chat with an astrologers online anytime at Astrogyata! Chat Now! </p>
                       </Link>
                     </div>
                   </Col>
@@ -113,8 +113,8 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/#/">
                         <h3>Call Astrologer</h3>
-                        <i class="fa fa-phone-square" aria-hidden="true"></i>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        {/* <i class="fa fa-phone-square" aria-hidden="true"></i> */}
+                        <p>Chat with an  astrologers online anytime at Astrogyata! Call Now! </p>
                       </Link>
                     </div>
                   </Col>
@@ -122,7 +122,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/#/">
                         <h3>Video Call Astrologer</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p>Video Call with an astrologer online anytime at Astrogyata! Video Call Now!</p>
                       </Link>
                     </div>
                   </Col>
@@ -130,7 +130,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/askQuestionList">
                         <h3>Ask Question </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p> Ask Question with an astrologers online anytime at Astrogyata! Ask Question Now!</p>
                       </Link>
                     </div>
                   </Col>
@@ -138,7 +138,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/allastrologerlist">
                         <h3>Talk Astrologer</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        <p> Talk to experienced astrologers online anytime at Astrogyata! Call Now!</p>
                       </Link>
                     </div>
                   </Col>
