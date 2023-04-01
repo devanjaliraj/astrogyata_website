@@ -154,7 +154,7 @@ class KalsharpDosh extends React.Component {
         });
         console.log("data11", response.data.data);
         swal("Success!", "Submitted SuccessFull!", "success");
-        // this.props.history.push("/manglikDoshDetail");
+        this.props.history.push("/kalsharpDoshDetail");
       })
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");
