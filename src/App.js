@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Navigate,
   Redirect,
   HashRouter,
 } from "react-router-dom";
@@ -14,7 +13,7 @@ import { multilanguage, loadLanguages } from "redux-multilanguage";
 import { connect } from "react-redux";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
 import TermsOfUse from "./wrappers/myPage/TermsOfUse";
-import { Component } from "react";
+import { } from "react";
 import { history } from "./history";
 
 const HomeFurnitureTwo = lazy(() => import("./pages/home/HomeFurnitureTwo"));
