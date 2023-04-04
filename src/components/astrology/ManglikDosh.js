@@ -201,7 +201,7 @@ class ManglikDosh extends React.Component {
                 <p>
                   Looking for your free Kundli from expert astrologers? Then you
                   have come to the right place. The online free kundali
-                  available on Astrotalk is a 100% free and authentic free
+                  available on AstroGyata is a 100% free and authentic free
                   Kundli that has been prepared after consulting more than 50
                   expert astrologers on board. The free kundli is such that it
                   can give you a glimpse into various aspects of your life such
@@ -213,7 +213,7 @@ class ManglikDosh extends React.Component {
                 </p>
                 <p>
                   Talking about future predictions, the kundali catered by
-                  Astrotalk to you is such that it considers the movement of all
+                  AstroGyata to you is such that it considers the movement of all
                   the planets in the native's life from the beginning of his or
                   her life till as far as 100 years. Doing so helps you
                   understand the reasons behind not only the ongoing

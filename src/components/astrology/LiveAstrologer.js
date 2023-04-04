@@ -50,29 +50,29 @@ class LiveAstrologer extends React.Component {
             <Row className="mb-40">
               <Col lg="12">
                 <p>
-                  In a new way to interact with astrologers, Astrotalk brings
-                  you Astrotalk Live, where you can talk to astrologers via live
-                  sessions and ask them questions for free. Astrotalk Live is a
+                  In a new way to interact with astrologers, AstroGyata brings
+                  you AstroGyata Live, where you can talk to astrologers via live
+                  sessions and ask them questions for free. AstroGyata Live is a
                   new and innovative way to talk to an astrologer face-to-face
                   and get your queries answered while enjoying the best of
-                  astrology. On Astrotalk live, anyone can get guidance from the
+                  astrology. On AstroGyata live, anyone can get guidance from the
                   best astrologers in India on questions spanning across topics
                   such as marriage, career, love, health and much more.
                 </p>
                 <br></br>
                 <p>
                   Talking with astrologers through live sessions is one of the
-                  most popular features of Astrotalk, as no other app provides
+                  most popular features of AstroGyata, as no other app provides
                   this unique way to consult an astrologer. Apart from just
                   being unique, the feature is easy to use and highly
-                  interactive. Accessing an astrologer on Astrotalk Live is
+                  interactive. Accessing an astrologer on AstroGyata Live is
                   fairly simple, and so is getting your queries answered by
                   them. To have the best experience of live sessions, it is
                   recommended that you ask YES and NO questions to the
                   astrologer. Also, if you like the session being delivered by
                   an astrologer, you can even contribute to their earnings by
-                  the means of donations. The Astrotalk Live feature is also
-                  available on the Astrotalk app.
+                  the means of donations. The AstroGyata Live feature is also
+                  available on the AstroGyata app.
                 </p>
               </Col>
             </Row>
@@ -227,29 +227,29 @@ class LiveAstrologer extends React.Component {
               <h3>Chat with Astrologers Live</h3>
               <Col lg="12">
                 <p>
-                  In a new way to interact with astrologers, Astrotalk brings
-                  you Astrotalk Live, where you can talk to astrologers via live
-                  sessions and ask them questions for free. Astrotalk Live is a
+                  In a new way to interact with astrologers, AstroGyata brings
+                  you AstroGyata Live, where you can talk to astrologers via live
+                  sessions and ask them questions for free. AstroGyata Live is a
                   new and innovative way to talk to an astrologer face-to-face
                   and get your queries answered while enjoying the best of
-                  astrology. On Astrotalk live, anyone can get guidance from the
+                  astrology. On AstroGyata live, anyone can get guidance from the
                   best astrologers in India on questions spanning across topics
                   such as marriage, career, love, health and much more.
                 </p>
                 <br></br>
                 <p>
                   Talking with astrologers through live sessions is one of the
-                  most popular features of Astrotalk, as no other app provides
+                  most popular features of AstroGyata, as no other app provides
                   this unique way to consult an astrologer. Apart from just
                   being unique, the feature is easy to use and highly
-                  interactive. Accessing an astrologer on Astrotalk Live is
+                  interactive. Accessing an astrologer on AstroGyata Live is
                   fairly simple, and so is getting your queries answered by
                   them. To have the best experience of live sessions, it is
                   recommended that you ask YES and NO questions to the
                   astrologer. Also, if you like the session being delivered by
                   an astrologer, you can even contribute to their earnings by
-                  the means of donations. The Astrotalk Live feature is also
-                  available on the Astrotalk app.
+                  the means of donations. The AstroGyata Live feature is also
+                  available on the AstroGyata app.
                 </p>
               </Col>
             </Row>

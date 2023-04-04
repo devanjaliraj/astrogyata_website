@@ -3,20 +3,19 @@ import React from "react";
 
 const FeatureIconSixSingle = ({ data, spaceBottomClass, textAlignClass }) => {
   return (
-    <div className="col-md-3">
+    <div className="col-md-6">
       <div
-        className={`support-wrap-5 support-shape ${
-          spaceBottomClass ? spaceBottomClass : ""
-        } ${textAlignClass ? textAlignClass : ""}`}
+        className={`support-wrap-5 support-shape ${spaceBottomClass ? spaceBottomClass : ""
+          } ${textAlignClass ? textAlignClass : ""}`}
       >
-         <div className="support-icon">
+        <div className="support-icon">
           <img
             className="animated img-secure"
-            src={process.env.PUBLIC_URL+data.image}
+            src={process.env.PUBLIC_URL + data.image}
             alt=""
           />
         </div>
-        
+
         <div className="support-content-5">
           <h5>{data.title}</h5>
           <p>{data.subtitle}</p>

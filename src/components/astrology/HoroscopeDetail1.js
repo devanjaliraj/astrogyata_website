@@ -129,7 +129,7 @@ class HoroscopeDetail1 extends React.Component {
                     <h3>End Date</h3>
                     <p>{dailyHoroscope.prediction_end_date}</p>
 
-                    <h3>prediction</h3>
+                    <h3>Prediction</h3>
                     <p>{dailyHoroscope.prediction}</p>
                   </div>
                 </Col>

@@ -29,34 +29,18 @@ class AboutUs extends React.Component {
                   <div className="">
                     <h3>Astrogyata Connects You With Best Astrologers</h3>
                     <p>
-                      We all believe that Vedic Astrology helps you to predict
-                      your future and help you to be ready for your future
-                      problems. We at Astrogyata too help you with Future
-                      predictions, Life Predictions, Marriage life predictions
-                      and much more with our Best Astrologers panel.
+                      Astrology is a practice that originated thousands of years ago in which people study the positions of celestial bodies, such as the sun, moon, and planets, in the belief that they have an influence on human affairs and natural phenomena. Based on the positions of these bodies, astrologers create birth charts or horoscopes that are said to reveal someone's personality traits, life path, and potential future events.
                     </p>
 
                     <p>
-                      We have Expert & Verified Astrologers who can guide you
-                      and suggest you best astrology remedies which can help you
-                      to make your life better.
+                      There are total nine planets in the astrology are Sun (Surya), Moon (Chandra), Mars (Mangala), Mercury (Budha), Jupiter (Brihaspati), Venus (Shukra), Saturn (Shani), Rahu (north node of the moon), and Ketu (south node of the moon).
                     </p>
 
                     <p>
-                      We all have this curiosity to know about our future
-                      however, most of us fail to do so. Not having a reliable
-                      astrologer in contact remains the major issue. A few want
-                      to know about their marriage or match making and others
-                      about their career or job.
+                      Among these planets, some planets are known as friendly planets, meaning the presence of them brings positivity to your life. And then, there are also planets that have a negative effect on human life. The latter would be planets like Rahu and Ketu. Their presence in one’s Kundli is said to bring pain and misery. The impact of planets on one’s life depends upon the position of these planets in houses. There are total twelve houses in Kundli and all of these houses represent one thing or the other
                     </p>
 
-                    <p>
-                      We are a reliable platform that connects you with the most
-                      trustworthy astrologers that can guide you through your
-                      life. We are serving our clients from last seven years
-                      with the sole purpose of helping them out at their worst
-                      times.
-                    </p>
+
                   </div>
                 </Col>
               </Row>

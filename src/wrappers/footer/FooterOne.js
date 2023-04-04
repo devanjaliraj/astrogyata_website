@@ -51,53 +51,31 @@ const FooterOne = ({
 
   return (
     <footer
-      className={`footer-area ${
-        backgroundColorClass ? backgroundColorClass : ""
-      } ${spaceTopClass ? spaceTopClass : ""} ${
-        spaceBottomClass ? spaceBottomClass : ""
-      } ${extraFooterClass ? extraFooterClass : ""} ${
-        spaceLeftClass ? spaceLeftClass : ""
-      } ${spaceRightClass ? spaceRightClass : ""}`}
+      className={`footer-area ${backgroundColorClass ? backgroundColorClass : ""
+        } ${spaceTopClass ? spaceTopClass : ""} ${spaceBottomClass ? spaceBottomClass : ""
+        } ${extraFooterClass ? extraFooterClass : ""} ${spaceLeftClass ? spaceLeftClass : ""
+        } ${spaceRightClass ? spaceRightClass : ""}`}
     >
       <div className={`${containerClass ? containerClass : "container"}`}>
         <div className="row">
           <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-            }`}
+            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
+              }`}
           >
-            {/* footer copyright */}
-            {/* <h3 className="stltext">Astrogyata </h3> */}
+
             <FooterCopyright footerLogo={logoastro} spaceBottomClass="mb-30" />
           </div>
-          {/* <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-            }`}
-          >
-            <div className="footer-widget mb-30 ml-30">
-              <div className="footer-title">
-                <h3>ABOUT US</h3>
-              </div>
-              <div className="footer-list">
-                <ul>
-                 
-                </ul>
-              </div>
-            </div>
-          </div> */}
+
 
           <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-6"
-            }`}
+            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-6"
+              }`}
           >
             <div
-              className={`${
-                sideMenu
-                  ? "footer-widget mb-30 ml-145"
-                  : "footer-widget mb-30 ml-75"
-              }`}
+              className={`${sideMenu
+                ? "footer-widget mb-30 ml-145"
+                : "footer-widget mb-30 ml-75"
+                }`}
             >
               <div className="footer-title">
                 <h3>Horoscope</h3>
@@ -105,81 +83,63 @@ const FooterOne = ({
               <div className="footer-list">
                 <ul>
                   <li>
-                    {/* <Link>Horoscopes</Link> */}
+
                     <ul className="submenu">
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
+                        <Link to={process.env.PUBLIC_URL + "/heroscopestwo"}>
                           Daily
                         </Link>
                       </li>
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
+                        <Link to={process.env.PUBLIC_URL + "/heroscopestwo1"}>
                           Weekly
                         </Link>
                       </li>
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
+                        <Link to={process.env.PUBLIC_URL + "/heroscopestwo2"}>
                           Monthly
                         </Link>
                       </li>
-                      {/* {categoryList?.map((cat) => (
-                        <li className="" key={cat._id}>
-                          <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
-                            {cat?.title}
-                          </Link>
-                        </li>
-                      ))} */}
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/zodicPage"}>
+                          Zodiac Signs
+                        </Link>
+                      </li>
+
+
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/loveAstrologer"}>
+                          Love & Astrologer
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/numerology"}>
+                          Numerology
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/tarot"}>
+                          Tarot Reading Predictions
+                        </Link>
+                      </li>
+
                     </ul>
                   </li>
-                  {/* <li>
-                      <Link to="/heroscopesall">Health Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Career Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Finance Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Education Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Chinese Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Lal Kitab Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Numerology Horoscope 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Tarot Reading Predictions 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Festival 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Planetary Transit 2022</Link>
-                  </li>
-                  <li>
-                      <Link to="/">Planetary Transit 2022</Link>
-                  </li> */}
+
                 </ul>
               </div>
             </div>
           </div>
 
           <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-6"
-            }`}
+            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-6"
+              }`}
           >
             <div
-              className={`${
-                sideMenu
-                  ? "footer-widget mb-30 ml-145"
-                  : "footer-widget mb-30 ml-75"
-              }`}
+              className={`${sideMenu
+                ? "footer-widget mb-30 ml-145"
+                : "footer-widget mb-30 ml-75"
+                }`}
             >
               <div className="footer-title">
                 <h3>Dosh</h3>
@@ -204,16 +164,8 @@ const FooterOne = ({
                           Kalsharvp Dosh
                         </Link>
                       </li>
-                      <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/bookEvent"}>
-                          Book Pooja
-                        </Link>
-                      </li>
-                      <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/zodicPage"}>
-                          Zodiac
-                        </Link>
-                      </li>
+
+
                       {/* {categoryList?.map((cat) => (
                         <li className="" key={cat._id}>
                           <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
@@ -258,21 +210,88 @@ const FooterOne = ({
                   </li> */}
                 </ul>
               </div>
+              <div className="footer-title">
+                <h3>Remedies</h3>
+
+              </div>
+              <div className="footer-list">
+                <ul>
+                  <li>
+
+                    <ul className="submenu">
+
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/"}>
+                          Know your Lucky Gemstone
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/"}>
+                          Lal Kitab
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/bookEvent"}>
+                          Book Online Pooja
+                        </Link>
+                      </li>
+
+
+                    </ul>
+                  </li>
+
+                </ul>
+              </div>
+
+
             </div>
           </div>
 
           <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-6"
-            }`}
+            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-6"
+              }`}
           >
             <div
-              className={`${
-                sideMenu
-                  ? "footer-widget mb-30 ml-145"
-                  : "footer-widget mb-30 ml-75"
-              }`}
+              className={`${sideMenu
+                ? "footer-widget mb-30 ml-145"
+                : "footer-widget mb-30 ml-75"
+                }`}
             >
+              <div className="footer-title">
+                <h3>Panchang</h3>
+
+              </div>
+              <div className="footer-list">
+                <ul>
+                  <li>
+
+                    <ul className="submenu">
+
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/"}>
+
+                          Today Panchanag
+
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/"}>
+                          Shubh Muhurat
+
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/"}>
+                          Today Festival
+                        </Link>
+                      </li>
+
+
+                    </ul>
+                  </li>
+
+                </ul>
+              </div>
               <div className="footer-title">
                 <h3>Astrologer</h3>
               </div>
@@ -292,13 +311,7 @@ const FooterOne = ({
                         </Link>
                       </li>
 
-                      {/* {categoryList?.map((cat) => (
-                        <li className="" key={cat._id}>
-                          <Link to={process.env.PUBLIC_URL + "/heroscopesall"}>
-                            {cat?.title}
-                          </Link>
-                        </li>
-                      ))} */}
+
                     </ul>
                   </li>
                   {/* <li>
@@ -340,16 +353,14 @@ const FooterOne = ({
           </div>
 
           <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-            }`}
+            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
+              }`}
           >
             <div
-              className={`${
-                sideMenu
-                  ? "footer-widget mb-30 ml-95"
-                  : "footer-widget mb-30 ml-50"
-              }`}
+              className={`${sideMenu
+                ? "footer-widget mb-30 ml-95"
+                : "footer-widget mb-30 ml-50"
+                }`}
             >
               <div className="footer-title">
                 {/* <h3>USEFUL LINKS</h3> */}
@@ -406,9 +417,8 @@ const FooterOne = ({
           </div>
 
           <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-8" : "col-lg-2 col-sm-6"
-            }`}
+            className={`${sideMenu ? "col-xl-2 col-sm-8" : "col-lg-2 col-sm-6"
+              }`}
           >
             {/* footer newsletter */}
             <FooterNewsletter

@@ -123,6 +123,11 @@ const AskQuestionList = lazy(() =>
 const LiveAstrologer = lazy(() =>
   import("./components/astrology/LiveAstrologer")
 );
+
+const Numerology = lazy(() => import("./components/astrology/Numerology"));
+const Tarot = lazy(() => import("./components/astrology/Tarot"));
+const LoveAstrologer = lazy(() => import("./components/astrology/LoveAstrologer"));
+
 const BookEvent = lazy(() => import("./components/astrology/BookEvent"));
 const AstroRating = lazy(() => import("./components/astrology/AstroRating"));
 const OrderHistory = lazy(() => import("./components/astrology/OrderHistory"));
@@ -203,6 +208,9 @@ const HoroscopeDetail1 = lazy(() =>
 );
 const HoroscopeDetail2 = lazy(() =>
   import("./components/astrology/HoroscopeDetail2")
+);
+const ZodicPage = lazy(() =>
+  import("./components/astrology/ZodicPage")
 );
 const AstromallList = lazy(() =>
   import("./components/astrology/astromallList")
@@ -456,6 +464,20 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/astrorating"}
                     component={AstroRating}
                   />
+
+                  <Route
+                    path={process.env.PUBLIC_URL + "/numerology"}
+                    component={Numerology}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/tarot"}
+                    component={Tarot}
+                  />
+
+                  <Route
+                    path={process.env.PUBLIC_URL + "/loveAstrologer"}
+                    component={LoveAstrologer}
+                  />
                   <Route
                     path={process.env.PUBLIC_URL + "/bookEvent"}
                     component={BookEvent}
@@ -633,6 +655,11 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/horoscopedetail2/:id"}
                     component={HoroscopeDetail2}
                   />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/zodicPage"}
+                    component={ZodicPage}
+                  />
+
                   <Route
                     path={process.env.PUBLIC_URL + "/astromallList"}
                     component={AstromallList}

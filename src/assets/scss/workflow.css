@@ -24,6 +24,7 @@
   -webkit-box-shadow: 3px -2px 3px 0px #00000036;
   box-shadow: 3px -2px 3px 0px #00000036;
   z-index: 1;
+  display: none;
 }
 
 .process-right:after {
@@ -52,7 +53,8 @@
   margin: 0 auto;
   color: #fff;
   height: 100%;
-  padding-top: 8px;
+  padding-top: 10px;
+  padding-bottom: 15px;
   position: relative;
   top: -26px;
   border-radius: 0px 0px 10px 10px;
@@ -145,6 +147,7 @@
   position: absolute;
   left: -16px;
   top: 0;
+  /* display: none; */
 }
 
 .process-step:before {
@@ -186,7 +189,8 @@ section.stt-2 {
 
 h5.bt-txt {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=workflow.css.map */
 

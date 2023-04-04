@@ -41,6 +41,9 @@ class KundaliForm extends React.Component {
       selectedCountry: null,
       selectedState: null,
       selectedCity: null,
+      selectedCountry1: null,
+      selectedState1: null,
+      selectedCity1: null,
       timezone: null,
       latitude: "",
       longitude: "",
@@ -66,7 +69,7 @@ class KundaliForm extends React.Component {
     console.log(this.state.searchQuery);
   }
   changeCountry = item => {
-    this.setState({ selectedCountry: item });
+    this.setState({ selectedCountry: item, selectedCountry1: item, });
     axiosConfig
       .post(`/user/time_zone`, {
         country_code: item?.timezones[0].zoneName,
@@ -240,8 +243,7 @@ class KundaliForm extends React.Component {
             <Col md="12">
               <Card className="mb-50 pt-d">
                 <h3>
-                  Free Match Making - Kundli Milan & Gun Milan to Check
-                  Possibilities of Marriage
+                  Free Match Making - Boy and Girl is missing/or provide gender Drop Down
                 </h3>
                 <p>
                   Kundali Match Making is an important consideration to get
@@ -570,10 +572,10 @@ class KundaliForm extends React.Component {
                                     getOptionValue={options => {
                                       return options["name"];
                                     }}
-                                    value={this.state.selectedCountry}
+                                    value={this.state.selectedCountry1}
                                     onChange={item => {
                                       //setSelectedCountry(item);
-                                      this.setState({ selectedCountry: item });
+                                      this.setState({ selectedCountry1: item });
                                     }}
                                   />
                                 </Col>
@@ -582,7 +584,7 @@ class KundaliForm extends React.Component {
                                   <label>State</label>
                                   <Select
                                     options={State?.getStatesOfCountry(
-                                      this.state.selectedCountry?.isoCode
+                                      this.state.selectedCountry1?.isoCode
                                     )}
                                     getOptionLabel={options => {
                                       return options["name"];
@@ -590,10 +592,10 @@ class KundaliForm extends React.Component {
                                     getOptionValue={options => {
                                       return options["name"];
                                     }}
-                                    value={this.state.selectedState}
+                                    value={this.state.selectedState1}
                                     onChange={item => {
                                       //setSelectedState(item);
-                                      this.setState({ selectedState: item });
+                                      this.setState({ selectedState1: item });
                                     }}
                                   />
                                 </Col>
@@ -602,8 +604,8 @@ class KundaliForm extends React.Component {
                                   <label>City</label>
                                   <Select
                                     options={City.getCitiesOfState(
-                                      this.state.selectedState?.countryCode,
-                                      this.state.selectedState?.isoCode
+                                      this.state.selectedState1?.countryCode,
+                                      this.state.selectedState1?.isoCode
                                     )}
                                     getOptionLabel={options => {
                                       return options["name"];
@@ -611,10 +613,10 @@ class KundaliForm extends React.Component {
                                     getOptionValue={options => {
                                       return options["name"];
                                     }}
-                                    value={this.state.selectedCity}
+                                    value={this.state.selectedCity1}
                                     onChange={item => {
                                       //setSelectedCity(item);
-                                      this.setState({ selectedCity: item });
+                                      this.setState({ selectedCity1: item });
                                     }}
                                   />
                                 </Col>

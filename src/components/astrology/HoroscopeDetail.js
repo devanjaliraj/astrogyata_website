@@ -135,7 +135,7 @@ class HoroscopeDetail extends React.Component {
                     <h3>Rashi Name</h3>
                     <p>{dailyHoroscope.sun_sign}</p>
 
-                    <h3>personal life</h3>
+                    <h3>Personal Life</h3>
                     <p>{dailyHoroscope?.prediction?.personal_life}</p>
 
                     <h3>Profession</h3>

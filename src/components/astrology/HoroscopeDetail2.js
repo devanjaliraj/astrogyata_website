@@ -129,7 +129,7 @@ class HoroscopeDetail2 extends React.Component {
                       <h3>Prediction Month</h3>
                       <p>{dailyHoroscope.prediction_month}</p>
 
-                      <h3>Prediction life</h3>
+                      <h3>Prediction Life</h3>
                       <p>{dailyHoroscope.prediction}</p>
                     </div>
                   </div>

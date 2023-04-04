@@ -61,6 +61,7 @@ class HeroscopesTwo extends React.Component {
                 <div className="scope-1">
                   <h3>DAILY HOROSCOPE</h3>
                   <p>
+
                     A horoscope is a forecast of a person's future, typically
                     including predictions about personality, relationships, and
                     events, based on the positions of celestial bodies such as
