@@ -19,7 +19,7 @@ const FooterOne = ({
 }) => {
   const [scroll, setScroll] = useState(0);
   const [top, setTop] = useState(0);
-  const [categoryList, setCategoryList] = useState([]);
+  const [setCategoryList] = useState([]);
   const getCategory = () => {
     Axios.get(`http://13.234.48.35:8000/admin/getallCategory`)
       .then(response => {

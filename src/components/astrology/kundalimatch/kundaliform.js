@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, Card, Input, Form, Button } from "reactstrap";
+import { Container, Row, Col, Card, Input, Button } from "reactstrap";
 import "../../../assets/scss/astropooja.css";
 import LayoutOne from "../../../layouts/LayoutOne";
 import MatchSearch from "../MatchSearch";
@@ -8,7 +8,7 @@ import axiosConfig from "../../../axiosConfig";
 import astrologinbg from "../../../assets/img/astrologin-bg.jpg";
 
 import swal from "sweetalert";
-import Axios from "axios";
+
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
 class KundaliForm extends React.Component {
