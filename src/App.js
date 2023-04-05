@@ -122,11 +122,15 @@ const AskQuestionList = lazy(() =>
 const LiveAstrologer = lazy(() =>
   import("./components/astrology/LiveAstrologer")
 );
-
+const LalKitabPage = lazy(() => import("./components/astrology/LalKitabPage"));
 const Numerology = lazy(() => import("./components/astrology/Numerology"));
 const Tarot = lazy(() => import("./components/astrology/Tarot"));
-const LoveAstrologer = lazy(() => import("./components/astrology/LoveAstrologer"));
+const LuckyGemstone = lazy(() => import("./components/astrology/LuckyGemstone"));
+const ShubhMuhurat = lazy(() => import("./components/astrology/ShubhMuhurat"));
+const TodayFestival = lazy(() => import("./components/astrology/TodayFestival"));
 
+const LoveAstrologer = lazy(() => import("./components/astrology/LoveAstrologer"));
+const PanchangPage = lazy(() => import("./components/astrology/PanchangPage"));
 const BookEvent = lazy(() => import("./components/astrology/BookEvent"));
 const AstroRating = lazy(() => import("./components/astrology/AstroRating"));
 const OrderHistory = lazy(() => import("./components/astrology/OrderHistory"));
@@ -465,6 +469,10 @@ const App = props => {
                   />
 
                   <Route
+                    path={process.env.PUBLIC_URL + "/lalKitabPage"}
+                    component={LalKitabPage}
+                  />
+                  <Route
                     path={process.env.PUBLIC_URL + "/numerology"}
                     component={Numerology}
                   />
@@ -477,6 +485,24 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/loveAstrologer"}
                     component={LoveAstrologer}
                   />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/shubhMuhurat"}
+                    component={ShubhMuhurat}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/todayFestival"}
+                    component={TodayFestival}
+                  />
+
+                  <Route
+                    path={process.env.PUBLIC_URL + "/luckyGemstone"}
+                    component={LuckyGemstone}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/panchangPage"}
+                    component={PanchangPage}
+                  />
+
                   <Route
                     path={process.env.PUBLIC_URL + "/bookEvent"}
                     component={BookEvent}

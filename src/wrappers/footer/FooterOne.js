@@ -221,18 +221,18 @@ const FooterOne = ({
                     <ul className="submenu">
 
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/"}>
+                        <Link to={process.env.PUBLIC_URL + "/luckyGemstone"}>
                           Know your Lucky Gemstone
                         </Link>
                       </li>
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/"}>
+                        <Link to={process.env.PUBLIC_URL + "/lalKitabPage"}>
                           Lal Kitab
                         </Link>
                       </li>
                       <li className="">
                         <Link to={process.env.PUBLIC_URL + "/bookEvent"}>
-                          Book Online Pooja
+                          Book Online Puja
                         </Link>
                       </li>
 
@@ -258,7 +258,7 @@ const FooterOne = ({
                 }`}
             >
               <div className="footer-title">
-                <h3>Panchang</h3>
+                <h3>Panchanag</h3>
 
               </div>
               <div className="footer-list">
@@ -268,20 +268,20 @@ const FooterOne = ({
                     <ul className="submenu">
 
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/"}>
+                        <Link to={process.env.PUBLIC_URL + "/panchangPage"}>
 
                           Today Panchanag
 
                         </Link>
                       </li>
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/"}>
+                        <Link to={process.env.PUBLIC_URL + "/shubhMuhurat"}>
                           Shubh Muhurat
 
                         </Link>
                       </li>
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/"}>
+                        <Link to={process.env.PUBLIC_URL + "/todayFestival"}>
                           Today Festival
                         </Link>
                       </li>
@@ -374,6 +374,12 @@ const FooterOne = ({
                         Our Services
                       </Link>
                     </li>
+
+                    <li>
+                      <Link to={process.env.PUBLIC_URL + "/freekundli"}>
+                        Free Kundli
+                      </Link>
+                    </li>
                     <li>
                       <Link to={process.env.PUBLIC_URL + "/kundaliform"}>
                         Match Making
@@ -405,7 +411,7 @@ const FooterOne = ({
                   </li>
                   <li>
                     <Link to={process.env.PUBLIC_URL + "/privacyPolicy"}>
-                      privacyPolicy
+                      Privacy Policy
                     </Link>
                   </li>
                   <li>

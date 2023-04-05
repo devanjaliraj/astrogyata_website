@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { multilanguage } from "redux-multilanguage";
 
 const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
-  const [categoryList, setCategoryList] = useState([]);
+  const [setCategoryList] = useState([]);
 
   const getCategory = () => {
     Axios.get(`http://13.234.48.35:8000/admin/getallCategory`)

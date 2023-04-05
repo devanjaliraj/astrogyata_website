@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import textbottom from "../../assets/img/textbottom.png";
 import "../../assets/scss/workflow.css"
@@ -20,6 +20,7 @@ class OurWorkFlow extends React.Component {
                         <Container>
 
                             <div className="heading">
+                                {/* <Link to="/allastrochatlist"> */}
                                 <h2>Connect to Astrologers</h2>
                                 <img src={textbottom} alt="" />
                             </div>
@@ -29,14 +30,15 @@ class OurWorkFlow extends React.Component {
                                         <Row>
                                             <Col md="5">
                                                 <div className="process-step">
-                                                    <i class="fa fa-commenting" aria-hidden="true"></i>
+                                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                                     {/* <img src={chatimg} alt="" className="hm-img" /> */}
                                                 </div>
                                             </Col>
                                             <Col md="7">
-                                                <h5 className="bt-txt">Chat with Astrologer</h5>
-                                                {/* <p><small>You can start a live chat with the astrologer of your choice using chat now functionality. </small></p> */}
-                                            </Col>
+                                                <Link to="/allastrochatlist">
+                                                    <h5 className="bt-txt">Chat with Astrologer</h5>
+                                                    {/* <p><small>You can start a live chat with the astrologer of your choice using chat now functionality. </small></p> */}
+                                                </Link>                                            </Col>
                                             {/* <div class="process-line-l"></div> */}
                                         </Row>
                                     </div>
@@ -51,10 +53,14 @@ class OurWorkFlow extends React.Component {
                                                 </div>
                                             </Col>
                                             <Col md="7">
-                                                <h5 className="bt-txt">Talk to Astrologer</h5>
-                                                {/* <p><small>You can start a live talk with the astrologer of your choice using talk now functionality. </small></p> */}
+                                                <Link to="/allastrologerlist">
+                                                    <h5 className="bt-txt">Talk to Astrologer</h5>
+                                                    {/* <p><small>You can start a live talk with the astrologer of your choice using talk now functionality. </small></p> */}
+                                                </Link>
+
                                             </Col>
                                             {/* <div class="process-line-l"></div> */}
+
                                         </Row>
                                     </div>
                                 </Col>
@@ -63,13 +69,15 @@ class OurWorkFlow extends React.Component {
                                         <Row>
                                             <Col md="5">
                                                 <div className="process-step">
-                                                    <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                                    <i class="fa fa-file-video-o" aria-hidden="true"></i>
                                                     {/* <img src={videoimg} alt="" className="hm-img" /> */}
                                                 </div>
                                             </Col>
                                             <Col md="7">
-                                                <h5 className="bt-txt">Live Astrologer</h5>
-                                                {/* <p><small>In a new way to interact with astrologers. where you can talk to astrologers via live sessions. </small></p> */}
+                                                <Link to="/liveAstrologer">
+
+                                                    <h5 className="bt-txt">Live Astrologer</h5>
+                                                    {/* <p><small>In a new way to interact with astrologers. where you can talk to astrologers via live sessions. </small></p> */}</Link>
                                             </Col>
                                             {/* <div class="process-line-l"></div> */}
                                         </Row>
@@ -79,7 +87,7 @@ class OurWorkFlow extends React.Component {
                         </Container>
                     </section>
                 </div>
-            </div>
+            </div >
         );
     }
 }

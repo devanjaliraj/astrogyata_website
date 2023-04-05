@@ -113,7 +113,7 @@ class BookEvent extends React.Component {
                     {/* <h1>
                         Astromall Shop/ Product Detail/ Consultant List/ Address
                     </h1> */}
-                    <h3>Book Pooja</h3>
+                    <h3>Book Puja</h3>
                   </div>
                 </Col>
               </Row>
@@ -126,7 +126,7 @@ class BookEvent extends React.Component {
             <Row>
               <Col lg="12 mt-12">
                 <div className="wal-amt">
-                  <h3>Pooja Booking</h3>
+                  <h3>Puja Booking</h3>
                   <hr></hr>
                   <form onSubmit={this.submitHandler}>
                     <Row>
@@ -156,8 +156,8 @@ class BookEvent extends React.Component {
                             name="email"
                             // required
                             placeholder="Enter Your email"
-                            // value={this.state.email}
-                            // onChange={this.changeHandler}
+                          // value={this.state.email}
+                          // onChange={this.changeHandler}
                           />
                         </div>
                       </Col>
@@ -169,8 +169,8 @@ class BookEvent extends React.Component {
                             name="mobile"
                             // required
                             placeholder="Enter Your Number"
-                            // value={this.state.mobile}
-                            // onChange={this.changeHandler}
+                          // value={this.state.mobile}
+                          // onChange={this.changeHandler}
                           />
                         </div>
                       </Col>
@@ -211,8 +211,8 @@ class BookEvent extends React.Component {
                             name="Slots"
                             required
                             placeholder="Enter Your Slots"
-                            // value={this.state.locality}
-                            // onChange={this.changeHandler}
+                          // value={this.state.locality}
+                          // onChange={this.changeHandler}
                           />
                         </div>
                       </Col>

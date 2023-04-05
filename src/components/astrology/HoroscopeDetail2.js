@@ -41,11 +41,11 @@ class HoroscopeDetail2 extends React.Component {
       .then(response => {
         console.log("dailyHoroscope", response.data.data.prediction);
         this.setState({ dailyHoroscope: response.data.data });
-        swal("Success!", "Submitted SuccessFull!", "success");
+        // swal("Success!", "Submitted SuccessFull!", "success");
       })
 
       .catch(error => {
-        swal("Error!", "You clicked the button!", "error");
+        // swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
@@ -124,8 +124,8 @@ class HoroscopeDetail2 extends React.Component {
                   <div className="scope-1">
                     <div className="scope-1">
                       <h3>Rashi Name</h3>
-                      <p>{dailyHoroscope.sun_sign}</p>
-
+                      {/* <p>{dailyHoroscope.sun_sign}</p> */}
+                      <p>{dailyHoroscope?.sun_sign?.toUpperCase(0)}</p>
                       <h3>Prediction Month</h3>
                       <p>{dailyHoroscope.prediction_month}</p>
 

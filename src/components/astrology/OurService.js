@@ -79,6 +79,14 @@ class OurService extends React.Component {
                       </Link>
                     </div>
                   </Col>
+                  <Col md="2">
+                    <div className="serve-1">
+                      <Link to="/lalKitabPage">
+                        <h3>Lal Kitab</h3>
+                        <p>Looking for your free Kundli from expert astrologers? </p>
+                      </Link>
+                    </div>
+                  </Col>{" "}
                   {/* <Col md="2">
                     <div className="serve-1">
                      <img src={pisces} alt="" width="80px" />
@@ -105,7 +113,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/allastrochatlist">
                         <h3>Chat with Astrologer</h3>
-                        <p>Chat with an astrologers online anytime at Astrogyata! Chat Now! </p>
+                        <p>Chat with an astrologers online at Astrogyata! Chat Now! </p>
                       </Link>
                     </div>
                   </Col>
@@ -122,7 +130,7 @@ class OurService extends React.Component {
                     <div className="serve-1">
                       <Link to="/#/">
                         <h3>Video Call Astrologer</h3>
-                        <p>Video Call with an astrologer online anytime at Astrogyata! Video Call Now!</p>
+                        <p>Video Call with an astrologer online at Astrogyata! Video Call Now!</p>
                       </Link>
                     </div>
                   </Col>
@@ -139,6 +147,14 @@ class OurService extends React.Component {
                       <Link to="/allastrologerlist">
                         <h3>Talk Astrologer</h3>
                         <p> Talk to experienced astrologers online anytime at Astrogyata! Call Now!</p>
+                      </Link>
+                    </div>
+                  </Col>
+                  <Col md="2">
+                    <div className="serve-1">
+                      <Link to="/bookEvent">
+                        <h3>Book Puja </h3>
+                        <p> Puja to experienced astrologers online anytime at Astrogyata! Book Now!</p>
                       </Link>
                     </div>
                   </Col>

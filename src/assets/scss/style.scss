@@ -1615,7 +1615,7 @@ ul.week {
 .logoo {
   margin-top: 6px;
 }
-i.fa.fa-commenting {
+i.fa.fa-commenting-o {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: xxx-large;
@@ -1624,7 +1624,7 @@ i.fa.fa-commenting {
   color: blue;
 }
 
-i.fa.fa-video-camera {
+i.fa.fa-file-video-o {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: xxx-large;
@@ -1640,3 +1640,7 @@ i.fa.fa-phone-square {
   -webkit-font-smoothing: antialiased;
   color: blue;
 }
+// iframe css//
+// iframe {
+//   position: unset !important;
+// }

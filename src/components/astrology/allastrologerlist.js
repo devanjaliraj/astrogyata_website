@@ -229,80 +229,80 @@ class AllAstrologerList extends React.Component {
                 <Row>
                   {astrologerList.length
                     ? astrologerList.map((astrologer, index) => {
-                        return (
-                          <Col md="4" key={index}>
-                            <div className="image-flip">
-                              <div className="mainflip flip-0">
-                                <div className="frontside">
-                                  <Link className="">
-                                    <div className="card">
-                                      <div className="card-body text-center">
-                                        <p>
-                                          <img src={astrologer?.img} alt="" />
-                                        </p>
-                                        <h4 className="card-title">
-                                          {astrologer?.fullname}
-                                        </h4>
-                                        <ul className="mb-3">
-                                          <li>
-                                            Experience:{" "}
-                                            <span>
-                                              {astrologer?.exp_in_years}
-                                            </span>
-                                          </li>
-                                          <li>
-                                            Call Rate:{" "}
-                                            <span>
-                                              {astrologer?.callCharge}/
-                                              {astrologer?.conrubute_hrs}
-                                            </span>
-                                          </li>
-                                        </ul>
-                                        {astrologer.waiting_queue === 0 ? (
-                                          <>
-                                            <Link
-                                              className="btn btn-primary btn-sm sc"
-                                              to={
-                                                "/astrologerdetail/" +
-                                                astrologer._id
+                      return (
+                        <Col md="4" key={index}>
+                          <div className="image-flip">
+                            <div className="mainflip flip-0">
+                              <div className="frontside">
+                                <Link className="">
+                                  <div className="card">
+                                    <div className="card-body text-center">
+                                      <p>
+                                        <img src={astrologer?.img} alt="" />
+                                      </p>
+                                      <h4 className="card-title">
+                                        {astrologer?.fullname}
+                                      </h4>
+                                      <ul className="mb-3">
+                                        <li>
+                                          Experience:{" "}
+                                          <span>
+                                            {astrologer?.exp_in_years}
+                                          </span>
+                                        </li>
+                                        <li>
+                                          Call Rate:{" "}
+                                          <span>
+                                            {astrologer?.callCharge}/
+                                            {astrologer?.conrubute_hrs}
+                                          </span>
+                                        </li>
+                                      </ul>
+                                      {astrologer.waiting_queue === 0 ? (
+                                        <>
+                                          <Link
+                                            className="btn btn-primary btn-sm sc"
+                                            to={
+                                              "/astrologerdetail/" +
+                                              astrologer._id
+                                            }
+                                          >
+                                            <span
+                                              className="sr-btn"
+                                              onClick={e =>
+                                                this.submitHandler(
+                                                  e,
+                                                  astrologer?._id,
+                                                  astrologer?.mobile
+                                                )
                                               }
                                             >
-                                              <span
-                                                className="sr-btn"
-                                                onClick={e =>
-                                                  this.submitHandler(
-                                                    e,
-                                                    astrologer?._id,
-                                                    astrologer?.mobile
-                                                  )
-                                                }
-                                              >
-                                                <i class="fa fa-phone"> Call</i>
-                                              </span>
-                                            </Link>
-                                          </>
-                                        ) : (
-                                          <>
-                                            <button className="btn btn-denger wr">
-                                              <i class="fa fa-phone">Wait</i>
-                                            </button>
-                                          </>
-                                        )}
+                                              <i class="fa fa-phone"> Call</i>
+                                            </span>
+                                          </Link>
+                                        </>
+                                      ) : (
+                                        <>
+                                          <button className="btn btn-denger wr">
+                                            <i class="fa fa-phone">Wait</i>
+                                          </button>
+                                        </>
+                                      )}
 
-                                        <br />
-                                        <span value={this.state.waiting_queue}>
-                                          {" "}
-                                          Wait ~ {astrologer.waiting_queue}Min
-                                        </span>
-                                      </div>
+                                      <br />
+                                      <span value={this.state.waiting_queue}>
+                                        {" "}
+                                        Wait ~ {astrologer.waiting_queue}Min
+                                      </span>
                                     </div>
-                                  </Link>
-                                </div>
+                                  </div>
+                                </Link>
                               </div>
                             </div>
-                          </Col>
-                        );
-                      })
+                          </div>
+                        </Col>
+                      );
+                    })
                     : null}
                 </Row>
               </Col>

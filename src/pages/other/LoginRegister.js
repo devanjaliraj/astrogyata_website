@@ -69,7 +69,7 @@ export default class LoginRegister extends Component {
             JSON.stringify(response?.data?.data?.mobile)
           );
           if (response.data.msg === "otp verified") {
-            swal("otp verified");
+            // swal("OTP verified");
             // window.location.replace('/')
             this.props.history.push("/");
           }
@@ -133,7 +133,7 @@ export default class LoginRegister extends Component {
           this.setState({ otpMsg: response.data.msg });
           if (response.data.msg === "otp Send Successfully") {
             localStorage.setItem("mobileNumber", this.state.mobile);
-            swal("otp Send Successfully");
+            swal("OTP Send Successfully");
             // this.props.history.push('/')
           }
         })
