@@ -122,6 +122,7 @@ const AskQuestionList = lazy(() =>
 const LiveAstrologer = lazy(() =>
   import("./components/astrology/LiveAstrologer")
 );
+const LalKitab = lazy(() => import("./components/astrology/LalKitab"));
 const LalKitabPage = lazy(() => import("./components/astrology/LalKitabPage"));
 const Numerology = lazy(() => import("./components/astrology/Numerology"));
 const Tarot = lazy(() => import("./components/astrology/Tarot"));
@@ -468,6 +469,10 @@ const App = props => {
                     component={AstroRating}
                   />
 
+                  <Route
+                    path={process.env.PUBLIC_URL + "/lalKitab"}
+                    component={LalKitab}
+                  />
                   <Route
                     path={process.env.PUBLIC_URL + "/lalKitabPage"}
                     component={LalKitabPage}

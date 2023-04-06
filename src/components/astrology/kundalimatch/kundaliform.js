@@ -47,6 +47,7 @@ class KundaliForm extends React.Component {
       timezone: null,
       latitude: "",
       longitude: "",
+
     };
   }
   changeHandler = e => {
@@ -73,9 +74,13 @@ class KundaliForm extends React.Component {
     axiosConfig
       .post(`/user/time_zone`, {
         country_code: item?.timezones[0].zoneName,
+        // country_code1: item?.f_tzones[0].zoneName,
       })
       .then(response => {
-        this.setState({ timezone: response?.data?.data?.timezone });
+        this.setState({
+          timezone: response?.data?.data?.timezone,
+          // f_tzone: response?.data?.data?.f_tzone
+        });
       })
       .catch(error => {
         console.log(error);
@@ -93,8 +98,9 @@ class KundaliForm extends React.Component {
       })
       .then(response => {
         this.setState({
-          latitude: response?.data?.data?.geonames[0].latitude,
-          longitude: response?.data?.data?.geonames[0].longitude,
+          f_lat: response?.data?.data?.geonames[0].f_lat,
+          f_lon: response?.data?.data?.geonames[0].f_lon, m_lat: response?.data?.data?.geonames[0].m_lat,
+          m_lon: response?.data?.data?.geonames[0].m_lon,
         });
       })
       .catch(error => {
@@ -105,6 +111,7 @@ class KundaliForm extends React.Component {
     e.preventDefault();
     let payload = {
       country_code: this.state.country_code,
+      country_code1: this.state.country_code1,
     };
     console.log("shgdjhg", payload);
     axiosConfig
@@ -172,9 +179,12 @@ class KundaliForm extends React.Component {
       f_year: this.state.f_year,
       f_hour: this.state.f_hour,
       f_min: this.state.f_min,
-      f_lat: this.state.f_lat,
-      f_lon: this.state.f_lon,
-      f_tzone: this.state.f_tzone,
+      // f_lat: this.state.f_lat,
+      // f_lon: this.state.f_lon,
+      // f_tzone: this.state.f_tzone,
+      f_lat: this.state.latitude,
+      f_lon: this.state.longitude,
+      f_tzone: this.state.timezone,
     };
     console.log("djfkjhf", payload);
     axiosConfig
@@ -286,6 +296,20 @@ class KundaliForm extends React.Component {
                                     placeholder="Name"
                                   />
                                 </Col>
+                                <Col md="12">
+                                  <label>Gender</label>
+                                  <select
+                                    type="select"
+                                    className="form-control"
+                                  // value={this.state.gender}
+                                  // onChange={this.changeHandler}
+                                  // name="gender"
+                                  >
+                                    <option selected>select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </select>
+                                </Col>
                                 <Col md="4">
                                   <label>Birth Day</label>
                                   <Input
@@ -295,8 +319,8 @@ class KundaliForm extends React.Component {
                                     value={this.state.m_day}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
-                                    <option>0</option>
+                                    <option>1</option>
+                                    {/* <option>0</option> */}
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -338,7 +362,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.m_month}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>1</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -362,7 +386,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.m_year}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>1990</option>
                                     <option value="1942">1942</option>
                                     <option value="1943">1943</option>
                                     <option value="1944">1944</option>
@@ -464,7 +488,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.m_hour}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -499,7 +523,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.m_min}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>1</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -613,7 +637,7 @@ class KundaliForm extends React.Component {
                                     getOptionValue={options => {
                                       return options["name"];
                                     }}
-                                    value={this.state.selectedCity1}
+                                    value={this.state.submitPlaceHandler}
                                     onChange={item => {
                                       //setSelectedCity(item);
                                       this.setState({ selectedCity1: item });
@@ -666,6 +690,20 @@ class KundaliForm extends React.Component {
                                     placeholder="Name"
                                   />
                                 </Col>
+                                <Col md="12">
+                                  <label>Gender</label>
+                                  <select
+                                    type="select"
+                                    className="form-control"
+                                  // value={this.state.gender}
+                                  // onChange={this.changeHandler}
+                                  // name="gender"
+                                  >
+                                    <option selected>select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </select>
+                                </Col>
                                 <Col md="4">
                                   <label>Birth Day</label>
                                   <Input
@@ -675,7 +713,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.f_day}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>1</option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -718,7 +756,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.f_month}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>1</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -742,7 +780,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.f_year}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>1990</option>
                                     <option value="1942">1942</option>
                                     <option value="1943">1943</option>
                                     <option value="1944">1944</option>
@@ -844,7 +882,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.f_hour}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -879,7 +917,7 @@ class KundaliForm extends React.Component {
                                     value={this.state.f_min}
                                     onChange={this.changeHandler}
                                   >
-                                    <option>--Select--</option>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -1004,29 +1042,33 @@ class KundaliForm extends React.Component {
                                     name="f_lat"
                                     placeholder="00.00"
                                     maxLength={8}
-                                    value={this.state.f_lat}
+                                    value={this.state.latitude}
                                     onChange={this.changeHandler}
                                   />
                                 </Col>
                                 <Col md="12">
                                   <label>Birth Place Longitude</label>
                                   <input
+                                    type="text"
+
                                     name="f_lon"
                                     placeholder="00.000"
                                     maxLength={8}
-                                    value={this.state.f_lon}
+                                    value={this.state.longitude}
                                     onChange={this.changeHandler}
                                   />
                                 </Col>
                                 <Col md="12">
                                   <label>Birth Place Time Zone</label>
+
                                   <input
-                                    // type="time"
+                                    type="text"
                                     name="f_tzone"
                                     placeholder="00.00"
-                                    maxLength={8}
-                                    value={this.state.f_tzone}
+                                    maxLength={5}
+                                    value={this.state.timezone}
                                     onChange={this.changeHandler}
+
                                   />
                                 </Col>
                               </Row>

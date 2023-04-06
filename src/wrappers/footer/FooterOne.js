@@ -226,7 +226,7 @@ const FooterOne = ({
                         </Link>
                       </li>
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/lalKitabPage"}>
+                        <Link to={process.env.PUBLIC_URL + "/lalKitab"}>
                           Lal Kitab
                         </Link>
                       </li>

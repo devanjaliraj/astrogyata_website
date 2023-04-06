@@ -81,7 +81,7 @@ class OurService extends React.Component {
                   </Col>
                   <Col md="2">
                     <div className="serve-1">
-                      <Link to="/lalKitabPage">
+                      <Link to="/lalKitab">
                         <h3>Lal Kitab</h3>
                         <p>Looking for your free Kundli from expert astrologers? </p>
                       </Link>

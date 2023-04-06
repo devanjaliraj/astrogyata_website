@@ -3,12 +3,27 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Input, InputGroup, Form, Button } from "reactstrap";
 import textbottom from "../../assets/img/textbottom.png";
 import astro2 from "../../assets/img/team/astro2.jpg";
-
+import axios from "axios"
 
 class SectionPooja extends React.Component {
+    state = {
 
+
+        productList: [],
+    };
+    componentDidMount() {
+
+
+
+        axios
+            .get(`http://13.234.48.35:8000/admin/getProduct`)
+            .then((res) => {
+                console.log(res);
+                this.setState({ productList: res.data.data });
+            });
+    }
     render() {
-
+        const { productList } = this.state;
         return (
             <Container>
                 <div className="heading mt-40">
@@ -21,7 +36,31 @@ class SectionPooja extends React.Component {
                             <section className="pt-0" >
                                 <div className="container">
                                     <Row>
-                                        <Col md="3">
+
+                                        {this.state.productList.length
+                                            ? productList.map((product, index) => {
+                                                return (
+                                                    <Col md="3">
+                                                        <div className="product-grid8">
+                                                            <div class="product-image8">
+                                                                <Link to="/poojadetail">
+
+                                                                    <img src={product.image} alt="" className="Ptd-img" />
+
+                                                                </Link>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <div className="price"><i class="fa fa-inr" aria-hidden="true"></i> {product.price}
+                                                                </div>
+                                                                <h3 className="title"><Link>{product.productname} </Link></h3>
+                                                                <Link className="all-deals">View More<i class="fa fa-angle-right icon"></i></Link>
+                                                            </div>
+                                                        </div>
+                                                    </Col>
+                                                );
+                                            })
+                                            : null}
+                                        {/* <Col md="3">
                                             <div className="product-grid8">
                                                 <div class="product-image8">
                                                     <Link to="/poojadetail">
@@ -65,22 +104,7 @@ class SectionPooja extends React.Component {
                                                     <Link className="all-deals">View More<i class="fa fa-angle-right icon"></i></Link>
                                                 </div>
                                             </div>
-                                        </Col>
-                                        <Col md="3">
-                                            <div className="product-grid8">
-                                                <div class="product-image8">
-                                                    <Link to="/poojadetail">
-                                                        <img src={astro2} alt="" />
-                                                    </Link>
-                                                </div>
-                                                <div className="product-content">
-                                                    <div className="price"><i class="fa fa-inr" aria-hidden="true"></i> 800.00
-                                                    </div>
-                                                    <h3 className="title"><Link>Magic ball reader</Link></h3>
-                                                    <Link className="all-deals">View More<i class="fa fa-angle-right icon"></i></Link>
-                                                </div>
-                                            </div>
-                                        </Col>
+                                        </Col> */}
                                     </Row>
                                 </div>
                             </section>

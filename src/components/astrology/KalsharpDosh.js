@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, Input, Form, Button } from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
-
 import "../../assets/scss/astropooja.css";
 import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
@@ -105,7 +104,6 @@ class KalsharpDosh extends React.Component {
         console.log("country_code", response.data.timezone);
         swal("Success!", "Submitted SuccessFull!", "success");
       })
-
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
@@ -113,7 +111,6 @@ class KalsharpDosh extends React.Component {
   };
   submitPlaceHandler = e => {
     e.preventDefault();
-
     let payload = {
       // data: this.state.data
       place: this.state.place,
@@ -133,7 +130,6 @@ class KalsharpDosh extends React.Component {
   };
   submitHandler = e => {
     e.preventDefault();
-
     let payload = {
       day: this.state.day,
       month: this.state.month,
@@ -516,6 +512,7 @@ class KalsharpDosh extends React.Component {
                             <Col md="4">
                               <label>Country</label>
                               <Select
+
                                 options={Country.getAllCountries()}
                                 getOptionLabel={options => {
                                   return options["name"];

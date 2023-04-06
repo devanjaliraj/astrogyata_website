@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Col, Row } from "reactstrap";
-import astro3 from "../../assets/img/team/astro3.jpg";
+
 import axiosConfig from "../../axiosConfig";
 const SliderDemo = ({ data, sliderClass, sliderdemoClass }) => {
   const [userId, setUserId] = useState("");
@@ -37,9 +36,8 @@ const SliderDemo = ({ data, sliderClass, sliderdemoClass }) => {
 
   return (
     <div
-      className={`${
-        sliderdemoClass ? sliderdemoClass : " slider-demo"
-      } text-center ${sliderClass ? sliderClass : ""} st-hit`}
+      className={`${sliderdemoClass ? sliderdemoClass : " slider-demo"
+        } text-center ${sliderClass ? sliderClass : ""} st-hit`}
     >
       <div className="image-flip">
         <div className="mainflip flip-0">
