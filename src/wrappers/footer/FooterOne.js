@@ -86,6 +86,11 @@ const FooterOne = ({
 
                     <ul className="submenu">
                       <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/heroscopestwo3"}>
+                          Tomorrow
+                        </Link>
+                      </li>
+                      <li className="">
                         <Link to={process.env.PUBLIC_URL + "/heroscopestwo"}>
                           Daily
                         </Link>
@@ -268,7 +273,7 @@ const FooterOne = ({
                     <ul className="submenu">
 
                       <li className="">
-                        <Link to={process.env.PUBLIC_URL + "/panchangPage"}>
+                        <Link to={process.env.PUBLIC_URL + "/todayPanchang"}>
 
                           Today Panchanag
 

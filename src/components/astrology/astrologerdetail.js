@@ -1,20 +1,14 @@
 import React from "react";
-// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 import {
   Container,
   Row,
   Col,
-  // Input,
-  // InputGroup,
-  // Form,
   Button,
 } from "reactstrap";
-// import women from "../../assets/img/women.jpg";
 import LayoutOne from "../../layouts/LayoutOne";
 import Tab from "react-bootstrap/Tab";
-import Rating from "@mui/material/Rating";
+// import Rating from "@mui/material/Rating";
 import LinearProgress from "@mui/material/LinearProgress";
 import Nav from "react-bootstrap/Nav";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
@@ -37,7 +31,6 @@ const colors = {
 class AstrologerDetail extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       allminrechargeList: [],
       data: {},
@@ -49,20 +42,16 @@ class AstrologerDetail extends React.Component {
       astroId: "",
       avg_rating: [false],
     };
-
     this.state = {
       modal: false,
     };
-
     this.toggle = this.toggle.bind(this);
   }
-
   toggle() {
     this.setState({
       modal: !this.state.modal,
     });
   }
-
   componentDidMount = () => {
     axiosConfig
       .get("/user/all_min_recharge")
@@ -77,7 +66,6 @@ class AstrologerDetail extends React.Component {
         console.log(error.response);
       });
     let { id } = this.props.match.params;
-    // console.log(id);
     axiosConfig
       .get(`/admin/getoneAstro/${id}`)
       .then(response => {
@@ -102,39 +90,7 @@ class AstrologerDetail extends React.Component {
         console.log(error);
       });
   };
-  // submitHandler = (e, astroid, mobile) => {
-  //   e.preventDefault();
-  //   // let astrologerList = localStorage.getItem('astrologerList')
-  //   // let astroid = localStorage.getItem('astro_id')
-  //   let mobileNo = localStorage.getItem("user_mobile_no");
-  //   let userId = JSON.parse(localStorage.getItem("user_id"));
-  //   // let astroId = JSON.parse(localStorage.getItem('astroid'))
-  //   let obj = {
-  //     userid: userId,
-  //     astroid: astroid,
-  //     // astrologerList: astrologerList,
-  //     From: mobile, //parseInt(this.state.number)
-  //     To: mobileNo, //parseInt(this.state.number)
-  //   };
-  //   // axiosConfig
-  //   //   .post(`/user/make_call`, obj)
-
-  //   //   .then((response) => {
-  //   //     console.log("rhsagdhgshgdjhgj", response.data.data);
-  //   //     // console.log(response.data.STATUSMSG)
-  //   //     // this.setState({ responseData: response.data })
-  //   //     // swal('Successful!', 'Recharge Successful!', 'success')
-  //   //     // this.props.history.push('/orderrecharge')
-  //   //   })
-
-  //   //   .catch((error) => {
-  //   //     console.log(error);
-  //   //     // swal('Error!', 'Invalid!', 'error')
-  //   //   });
-  // };
-
   render() {
-    // const { allminrechargeList } = this.state;
     const icons = {
       star: {
         complete: farStar,
@@ -142,17 +98,12 @@ class AstrologerDetail extends React.Component {
         empty: farStar,
       },
     };
-
     return (
       <LayoutOne headerTop="visible">
         <section className="pt-0 pb-0">
           <div
             className=""
             style={{
-              // backgroundColor: "#ffcc01",
-              // width: "100%",
-              // padding: "70px 0px",
-              // backgroundSize: "cover",
               float: "left",
               width: "100%",
               backgroundColor: "#272727",
@@ -194,35 +145,18 @@ class AstrologerDetail extends React.Component {
                       {/* <Rating name="no-value" value={null} /> */}
                       <div className="as-content mt-60">
                         <h3>{this.state.fullname}</h3>
-
                         <div className="review-rating">
                           <PrettyRating
                             value={this.state.avg_rating}
                             icons={icons.star}
                             setColors={["#d9ad26", "#d9ad26", "#434b4d"]}
-                            // colors={["#d9ad26", "#d9ad26", "#434b4d"]}
                           />
-                          {/* {this.state.avg_rating && this.state.avg_rating > 0 ? ( */}
-                          {/* <div className="review-rating"> */}
-                          {/* <Rating ratingValue={this.state.avg_rating} /> */}
-                          {/* </div> */}
-                          {/* // ) : (
-                          //   ""
-                          // )} */}
-                          {/* {this.state.avg_rating}
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" />
-                          <i className="fa fa-star" /> */}
                         </div>
-
                         <ul>
                           <li>
                             Language:
                             <span>{this.state.language}</span>
                           </li>
-
                           <li>
                             Specility: <span> {this.state.all_skills}</span>
                           </li>
@@ -234,11 +168,9 @@ class AstrologerDetail extends React.Component {
                           </li>
                           <li>
                             <span className="">{this.state.status}</span>{" "}
-                            {/* <span className="">{this.state.status}</span> */}
                           </li>
                         </ul>
                       </div>
-
                       <Row>
                         <Col md="3" className="mt-30">
                           {/* <Link to="/"> */}
@@ -263,13 +195,13 @@ class AstrologerDetail extends React.Component {
                             <Button
                               className="btn-as st"
                               onClick={this.toggle}
-                              // onClick={(e) =>
-                              //   this.submitHandler(
-                              //     e,
-                              //     this.state.astroId,
-                              //     this.state.astroMobile
-                              //   )
-                              // }
+                            // onClick={(e) =>
+                            //   this.submitHandler(
+                            //     e,
+                            //     this.state.astroId,
+                            //     this.state.astroMobile
+                            //   )
+                            // }
                             >
                               <i className="fa fa-phone" aria-hidden="true"></i>
                               Start Call
@@ -314,11 +246,9 @@ class AstrologerDetail extends React.Component {
                       </Row>
                     </Col>
                   </Row>
-
                   <div>
                     <AstroProfileVideo />
                   </div>
-                  {/* <div className="img_slider">shdsjkshaghjg</div> */}
                 </section>
                 <section className="mt-50 mb-30">
                   <div className="description-review-wrapper">
@@ -332,53 +262,22 @@ class AstrologerDetail extends React.Component {
                             About Information
                           </Nav.Link>
                         </Nav.Item>
-                        {/* <Nav.Item>
-                <Nav.Link eventKey="productDescription">Description</Nav.Link>
-              </Nav.Item> */}
                         <Nav.Item>
                           <Nav.Link eventKey="productReviews">Reviews</Nav.Link>
                         </Nav.Item>
                       </Nav>
-
                       <Tab.Content className="description-review-bottom">
                         <Tab.Pane eventKey="additionalInfo">
                           <div className="product-anotherinfo-wrapper">
-                            <p>
-                              {this.state.long_bio}
-                              {/* Sree Sanjib ji is KP astrologer from Kolkata,
-                              India. He has 15 years of experience in KP
-                              astrology and Vedic Astrology. You can consult him
-                              in Hindi, English and Bengali Language. He has Won
-                              Jyotish Gyan Ratna, Jyotish Gyan Bharti and
-                              Jyotish Shiromani awards from Word Astrologers
-                              Society. He is expert in Nadi Astrology, KP
-                              astrology, Numerology, Palmistry and Vastu. You
-                              can consult him for business related issues,
-                              marriage, financial issues, property or legal
-                              issues and much more. */}
-                            </p>
+                            <p>{this.state.long_bio}</p>
                           </div>
                         </Tab.Pane>
-                        {/* <Tab.Pane eventKey="productDescription">
-                <h5>lo</h5>
-              </Tab.Pane> */}
                         <Tab.Pane eventKey="productReviews">
-                          <h3>
-                            RATINGS <i class="fa fa-star"></i>
-                          </h3>
+                          <h3>RATINGS <i class="fa fa-star"></i></h3>
                           <div className="row">
                             <div className="col-lg-6">
                               <div className="row">
                                 <div className="col-md-4">
-                                  {/* <h1
-                                    style={{
-                                      fontSize: 96,
-                                      marginTop: 39,
-                                      marginRight: 15,
-                                      marginBottom: 20,
-                                      marginLeft: 0,
-                                    }}
-                                  ></h1> */}
                                   <p></p>
                                 </div>
                                 <div className="col-md-6">
@@ -446,11 +345,6 @@ class AstrologerDetail extends React.Component {
                                           <i className="fa fa-star" />
                                           <i className="fa fa-star" />
                                           <i className="fa fa-star" />
-                                          {/* <Rating
-                                    name="disabled"
-                                    style={{ opacity: 1 }}
-                                    disabled
-                                  /> */}
                                         </div>
                                       </div>
                                     </div>
@@ -484,59 +378,48 @@ class AstrologerDetail extends React.Component {
                                           Monday
                                         </Nav.Link>
                                       </Nav.Item>
-
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_two">
                                           Tuesday
                                         </Nav.Link>
                                       </Nav.Item>
-
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_three">
                                           Monday
                                         </Nav.Link>
                                       </Nav.Item>
-
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_four">
                                           Tuesday
                                         </Nav.Link>
                                       </Nav.Item>
-
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_five">
                                           Monday
                                         </Nav.Link>
                                       </Nav.Item>
-
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_six">
                                           Tuesday
                                         </Nav.Link>
                                       </Nav.Item>
                                     </Nav>
-
                                     <Tab.Content className="description-review-bottom">
                                       <Tab.Pane eventKey="tab_one">
                                         Hello
                                       </Tab.Pane>
-
                                       <Tab.Pane eventKey="tab_two">
                                         World
                                       </Tab.Pane>
-
                                       <Tab.Pane eventKey="tab_three">
                                         World
                                       </Tab.Pane>
-
                                       <Tab.Pane eventKey="tab_four">
                                         World
                                       </Tab.Pane>
-
                                       <Tab.Pane eventKey="tab_five">
                                         World
                                       </Tab.Pane>
-
                                       <Tab.Pane eventKey="tab_six">
                                         World
                                       </Tab.Pane>
@@ -545,129 +428,6 @@ class AstrologerDetail extends React.Component {
                                 </div>
                               </div>
                             </div>
-                            {/* <div className="col-lg-5">
-                              <div className="ratting-form-wrapper pl-50">
-                                <h3>Write a Review</h3>
-                                <div className="ratting-form">
-                                  <form action="#">
-                                    <div className="star-box">
-                                       <span>Your rating:</span> 
-                                     <div className="ratting-star">
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                            </div> 
-                                    </div>
-                                    <div className="row">
-                                      <div className="rating-form-style mb-10">
-                                        <Rating
-                                          name="simple-controlled"
-                                          onChange={(event, newValue) => { }}
-                                        />
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="rating-form-style mb-10">
-                                          <input
-                                            placeholder="Name"
-                                            type="text"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="rating-form-style mb-10">
-                                          <input
-                                            placeholder="Email"
-                                            type="email"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="col-md-12">
-                                        <div className="rating-form-style form-submit">
-                                          <textarea
-                                            name="comment"
-                                            placeholder="Comment"
-                                            defaultValue={""}
-                                            style={{ height: "auto" }}
-                                            rows={3}
-                                          />
-                                          <input
-                                            type="submit"
-                                            defaultValue="Submit"
-                                          />
-                                          <>
-                                          </>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="col-lg-5"></div>
-
-                            <div className="col-lg-5">
-                              <div className="ratting-form-wrapper pl-50">
-                                <h3>Write a Review</h3>
-                                <div className="ratting-form">
-                                  <form action="#">
-                                    <div className="star-box">
-                                       <span>Your rating:</span> 
-                                     <div className="ratting-star">
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                              <i className="fa fa-star" />
-                            </div> 
-                                    </div>
-                                    <div className="row">
-                                      <div className="rating-form-style mb-10">
-                                        <Rating
-                                          name="simple-controlled"
-                                          onChange={(event, newValue) => { }}
-                                        />
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="rating-form-style mb-10">
-                                          <input
-                                            placeholder="Name"
-                                            type="text"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div class="col-md-6">
-                                        <div class="rating-form-style mb-10">
-                                          <input
-                                            placeholder="Email"
-                                            type="email"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="col-md-12">
-                                        <div className="rating-form-style form-submit">
-                                          <textarea
-                                            name="comment"
-                                            placeholder="Comment"
-                                            defaultValue={""}
-                                            style={{ height: "auto" }}
-                                            rows={3}
-                                          />
-                                          <input
-                                            type="submit"
-                                            defaultValue="Submit"
-                                          />
-
-                                          <>
-                                          </>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div> */}
                           </div>
                         </Tab.Pane>
                       </Tab.Content>

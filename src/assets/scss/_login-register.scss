@@ -134,8 +134,23 @@
   color: #333;
   font-size: 14px;
   height: 45px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   padding: 0 15px;
-  margin-left: 37px !important;
-  width: 94% !important;
+  /* margin-left: 37px !important; */
+  width: 100% !important;
+}
+
+.react-tel-input {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  position: relative;
+  width: 100%;
+  max-width: 91% !important;
+}
+.react-tel-input.form-controller input {
+  margin-left: 42px;
+}
+
+.react-tel-input.mob-int input {
+  margin-left: 40px;
 }

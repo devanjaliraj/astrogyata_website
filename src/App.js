@@ -132,6 +132,8 @@ const TodayFestival = lazy(() => import("./components/astrology/TodayFestival"))
 
 const LoveAstrologer = lazy(() => import("./components/astrology/LoveAstrologer"));
 const PanchangPage = lazy(() => import("./components/astrology/PanchangPage"));
+const TodayPanchang = lazy(() => import("./components/astrology/TodayPanchang"));
+
 const BookEvent = lazy(() => import("./components/astrology/BookEvent"));
 const AstroRating = lazy(() => import("./components/astrology/AstroRating"));
 const OrderHistory = lazy(() => import("./components/astrology/OrderHistory"));
@@ -204,6 +206,9 @@ const HeroscopesTwo1 = lazy(() =>
 const HeroscopesTwo2 = lazy(() =>
   import("./components/astrology/heroscopestwo2")
 );
+const HeroscopesTwo3 = lazy(() =>
+  import("./components/astrology/heroscopestwo3")
+);
 const HoroscopeDetail = lazy(() =>
   import("./components/astrology/HoroscopeDetail")
 );
@@ -212,6 +217,9 @@ const HoroscopeDetail1 = lazy(() =>
 );
 const HoroscopeDetail2 = lazy(() =>
   import("./components/astrology/HoroscopeDetail2")
+);
+const HoroscopeDetail3 = lazy(() =>
+  import("./components/astrology/HoroscopeDetail3")
 );
 const ZodicPage = lazy(() =>
   import("./components/astrology/ZodicPage")
@@ -507,6 +515,11 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/panchangPage"}
                     component={PanchangPage}
                   />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/todayPanchang"}
+                    component={TodayPanchang}
+                  />
+
 
                   <Route
                     path={process.env.PUBLIC_URL + "/bookEvent"}
@@ -674,6 +687,10 @@ const App = props => {
                     component={HeroscopesTwo2}
                   />
                   <Route
+                    path={process.env.PUBLIC_URL + "/heroscopestwo3"}
+                    component={HeroscopesTwo3}
+                  />
+                  <Route
                     path={process.env.PUBLIC_URL + "/horoscopedetail/:id"}
                     component={HoroscopeDetail}
                   />
@@ -684,6 +701,10 @@ const App = props => {
                   <Route
                     path={process.env.PUBLIC_URL + "/horoscopedetail2/:id"}
                     component={HoroscopeDetail2}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/horoscopedetail3/:id"}
+                    component={HoroscopeDetail3}
                   />
                   <Route
                     path={process.env.PUBLIC_URL + "/zodicPage"}

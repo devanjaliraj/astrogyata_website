@@ -165,18 +165,7 @@ class UserRequestForm extends React.Component {
                           />
                         </div>
                       </Col>
-                      <Col md="4">
-                        <div class="form-group mtb-10">
-                          <label>Patner First Name*</label>
-                          <input
-                            type="text"
-                            name="p_firstname"
-                            placeholder="Enter Your Patner firstname"
-                            value={this.state.p_firstname}
-                            onChange={this.changeHandler}
-                          />
-                        </div>
-                      </Col>
+
                       <Col md="4">
                         <div class="form-group mtb-10">
                           <label> Last Name*</label>
@@ -190,18 +179,7 @@ class UserRequestForm extends React.Component {
                           />
                         </div>
                       </Col>
-                      <Col md="4">
-                        <div class="form-group mtb-10">
-                          <label>Patner Last Name*</label>
-                          <input
-                            type="text"
-                            name="p_lastname"
-                            placeholder="Enter Your Patner Lastname"
-                            value={this.state.p_lastname}
-                            onChange={this.changeHandler}
-                          />
-                        </div>
-                      </Col>
+
                       <Col md="4">
                         <div class="form-group mtb-10">
                           <label>Date of Birth*</label>
@@ -215,18 +193,7 @@ class UserRequestForm extends React.Component {
                           />
                         </div>
                       </Col>
-                      <Col md="4">
-                        <div class="form-group mtb-10">
-                          <label> patner Date of Birth*</label>
-                          <input
-                            type="date"
-                            name="p_dob"
-                            value={this.state.p_dob}
-                            onChange={this.changeHandler}
-                            placeholder="Enter Your Number"
-                          />
-                        </div>
-                      </Col>
+
 
                       <Col md="4">
                         <div class="form-group mtb-10">
@@ -241,19 +208,7 @@ class UserRequestForm extends React.Component {
                           />
                         </div>
                       </Col>
-                      <Col md="4">
-                        <div class="form-group mtb-10">
-                          <label> patner Date of Time*</label>
-                          <input
-                            type="time"
-                            name="p_date_of_time"
-                            value={this.state.p_date_of_time}
-                            onChange={this.changeHandler}
-                            // required
-                            placeholder="Enter Your Number"
-                          />
-                        </div>
-                      </Col>
+
 
                       <Col md="4">
                         <div class="form-group mtb-10">
@@ -326,19 +281,7 @@ class UserRequestForm extends React.Component {
                           }}
                         />
                       </Col>
-                      <Col md="4">
-                        <div class="form-group mtb-10">
-                          <label> patner Birth Place</label>
-                          <input
-                            type="text"
-                            name="p_birthPlace"
-                            value={this.state.p_birthPlace}
-                            onChange={this.changeHandler}
-                            // required
-                            placeholder="Enter Your  Birth Place"
-                          />
-                        </div>
-                      </Col>
+
                       <Col lg="4">
                         <label>Gender*</label>
                         <Input
@@ -442,6 +385,68 @@ class UserRequestForm extends React.Component {
                             placeholder="Enter Your Fullname"
                             value={this.state.entertopic_of_cnsrn}
                             onChange={this.changeHandler}
+                          />
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div class="form-group mtb-10">
+                          <label>Patner First Name*</label>
+                          <input
+                            type="text"
+                            name="p_firstname"
+                            placeholder="Enter Your Patner firstname"
+                            value={this.state.p_firstname}
+                            onChange={this.changeHandler}
+                          />
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div class="form-group mtb-10">
+                          <label>Patner Last Name*</label>
+                          <input
+                            type="text"
+                            name="p_lastname"
+                            placeholder="Enter Your Patner Lastname"
+                            value={this.state.p_lastname}
+                            onChange={this.changeHandler}
+                          />
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div class="form-group mtb-10">
+                          <label> patner Date of Birth*</label>
+                          <input
+                            type="date"
+                            name="p_dob"
+                            value={this.state.p_dob}
+                            onChange={this.changeHandler}
+                            placeholder="Enter Your Number"
+                          />
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div class="form-group mtb-10">
+                          <label> patner Date of Time*</label>
+                          <input
+                            type="time"
+                            name="p_date_of_time"
+                            value={this.state.p_date_of_time}
+                            onChange={this.changeHandler}
+                            // required
+                            placeholder="Enter Your Number"
+                          />
+                        </div>
+                      </Col>
+                      <Col md="4">
+                        <div class="form-group mtb-10">
+                          <label> patner Birth Place</label>
+                          <input
+                            type="text"
+                            name="p_birthPlace"
+                            value={this.state.p_birthPlace}
+                            onChange={this.changeHandler}
+                            // required
+                            placeholder="Enter Your  Birth Place"
                           />
                         </div>
                       </Col>

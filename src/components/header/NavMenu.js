@@ -83,6 +83,11 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
             <Link>Horoscopes</Link>
             <ul className="submenu">
               <li className="" >
+                <Link to={process.env.PUBLIC_URL + "/heroscopestwo3"}>
+                  Tomorrow
+                </Link>
+              </li>
+              <li className="" >
                 <Link to={process.env.PUBLIC_URL + "/heroscopestwo"}>
                   Daily
                 </Link>

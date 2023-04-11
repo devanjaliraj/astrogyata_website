@@ -5,18 +5,13 @@ import Nav from "react-bootstrap/Nav";
 import axios from "axios";
 import LayoutOne from "../../layouts/LayoutOne";
 import { Label, Input, Form, Button, Row, Col } from "reactstrap";
-
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
-import { width } from "@mui/system";
-
 export default class LoginRegister extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       fullname: "",
       email: "",
@@ -35,7 +30,6 @@ export default class LoginRegister extends Component {
       mobileError: "",
     };
   }
-
   //Image Submit Handler
   onChangeHandler = event => {
     this.setState({ selectedFile: event.target.files[0] });
@@ -55,19 +49,10 @@ export default class LoginRegister extends Component {
         // let id = response.data.user;
         if (response.data.status === true) {
           this.setState({ otpMsg: response.data.msg });
-          localStorage.setItem(
-            "userData",
-            JSON.stringify(response?.data?.data)
-          );
+          localStorage.setItem("userData", JSON.stringify(response?.data?.data));
           localStorage.setItem("token", JSON.stringify(response?.data?.token));
-          localStorage.setItem(
-            "user_id",
-            JSON.stringify(response?.data?.data?._id)
-          );
-          localStorage.setItem(
-            "user_mobile_no",
-            JSON.stringify(response?.data?.data?.mobile)
-          );
+          localStorage.setItem("user_id", JSON.stringify(response?.data?.data?._id));
+          localStorage.setItem("user_mobile_no", JSON.stringify(response?.data?.data?.mobile));
           if (response.data.msg === "otp verified") {
             // swal("OTP verified");
             // window.location.replace('/')
@@ -80,52 +65,10 @@ export default class LoginRegister extends Component {
         //this.setState({ errormsg: error });
       });
   };
-  // loginpassHandler = e => {
-  //   e.preventDefault();
-  //   console.log("dddddddddhh", this.state);
-
-  //   axios
-  //     .post(`http://13.234.48.35:8000/user/loginWithPassword`, {
-  //       mobile: parseInt(this.state.mobile),
-  //       otp: parseInt(this.state.otp),
-  //     })
-  //     .then(response => {
-  //       console.log("@@@####", response.data);
-  //       // let id = response.data.user;
-  //       if (response.data.status === true) {
-  //         this.setState({ otpMsg: response.data.msg });
-  //         localStorage.setItem(
-  //           "userData",
-  //           JSON.stringify(response?.data?.data)
-  //         );
-  //         localStorage.setItem("token", JSON.stringify(response?.data?.token));
-  //         localStorage.setItem(
-  //           "user_id",
-  //           JSON.stringify(response?.data?.data?._id)
-  //         );
-  //         localStorage.setItem(
-  //           "user_mobile_no",
-  //           JSON.stringify(response?.data?.data?.mobile)
-  //         );
-  //         if (response.data.msg === "otp verified") {
-  //           swal("otp verified");
-  //           // window.location.replace('/')
-  //           this.props.history.push("/");
-  //         }
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       console.log(error.response);
-  //       // swal("Error!", "User doesn't Exist", "error");
-  //     });
-  // };
   loginHandler = e => {
     e.preventDefault();
     if (this.state.mobile !== "") {
-      let obj = {
-        mobile: parseInt(this.state.mobile),
-      };
+      let obj = { mobile: parseInt(this.state.mobile) };
       axios
         .post(`http://13.234.48.35:8000/user/userlogin`, obj)
         .then(response => {
@@ -163,7 +106,6 @@ export default class LoginRegister extends Component {
     data.append("dob", this.state.dob);
     data.append("password", this.state.password);
     data.append("cnfmPassword", this.state.cnfmPassword);
-
     if (this.state.selectedFile !== null) {
       data.append("userimg", this.state.selectedFile, this.state.selectedName);
     }
@@ -185,6 +127,7 @@ export default class LoginRegister extends Component {
         });
         swal("Success!", " Register Successful Done!", "success");
         this.props.history.push("/");
+
       })
       .catch(error => {
         console.log(error.response);
@@ -233,19 +176,10 @@ export default class LoginRegister extends Component {
                                     required
                                     placeholder="Enter OTP"
                                     value={this.state.otp}
-                                    onChange={this.changeHandler}
-                                  />
+                                    onChange={this.changeHandler} />
                                   <div className="button-box">
                                     <div className="login-toggle-btn">
-                                      {/* <input type="checkbox" />
-                                      <label className="ml-10">
-                                        Remember me
-                                      </label> */}
-                                      <Link
-                                        to={
-                                          process.env.PUBLIC_URL + "/password"
-                                        }
-                                      >
+                                      <Link to={process.env.PUBLIC_URL + "/password"}>
                                         Login with password
                                       </Link>
                                     </div>
@@ -260,14 +194,11 @@ export default class LoginRegister extends Component {
                                 <Form onSubmit={this.loginHandler}>
                                   <Row>
                                     <Col md="12">
-                                      <PhoneInput
+                                      <PhoneInput className="mob-int"
                                         country={"in"}
                                         value={this.state.mobile}
-                                        onChange={mobile =>
-                                          this.setState({ mobile })
-                                        }
-                                        width="100%"
-                                      />
+                                        onChange={mobile => this.setState({ mobile })}
+                                        width="100%" />
                                       {this.state.mobileError !== "" ? (
                                         <span style={{ color: "red" }}>
                                           {this.state.mobileError}
@@ -275,44 +206,13 @@ export default class LoginRegister extends Component {
                                       ) : null}
                                     </Col>
                                   </Row>
-
-                                  {/* <Input
-                                    type="number"
-                                    name="mobile"
-                                    maxLength="12"
-                                    required
-                                    placeholder="Enter Your Mobile No."
-                                    value={this.state.mobile}
-                                    onChange={this.changeHandler}
-                                  /> */}
-                                  {/* <Input
-                                    type="password"
-                                    name="password"
-                                    // maxLength="12"
-                                    // required
-                                    placeholder="Enter Your password"
-                                    // value={this.state.mobile}
-                                    // onChange={this.changeHandler}
-                                  /> */}
                                   <div className="button-box">
-                                    {/* <div className="button-box"> */}
                                     <div className="login-toggle-btn">
-                                      {/* <input type="checkbox" />
-                                      <label className="ml-10">
-                                        Remember me
-                                      </label> */}
                                       <Link
-                                        to={
-                                          process.env.PUBLIC_URL +
-                                          "/ForgotPassword"
-                                        }
-                                      >
+                                        to={process.env.PUBLIC_URL + "/ForgotPassword"}>
                                         Forgot Password?
                                       </Link>
                                     </div>
-                                    {/* <button type="back">Back</button>
-                                      <button type="submit">SendOTP</button>
-                                    </div> */}
                                     <div className="login-toggle-btn"></div>
                                     <button type="submit">
                                       <span>Login</span>
@@ -368,9 +268,7 @@ export default class LoginRegister extends Component {
                                     <PhoneInput
                                       country={"in"}
                                       value={this.state.mobile}
-                                      onChange={mobile =>
-                                        this.setState({ mobile })
-                                      }
+                                      onChange={mobile => this.setState({ mobile })}
                                       width="80%"
                                       className="form-controller"
                                     />
@@ -400,7 +298,6 @@ export default class LoginRegister extends Component {
                                       className="form-controller"
                                     />
                                   </Col>
-
                                   <Col md="6">
                                     <Input
                                       type="date"
@@ -468,19 +365,19 @@ export default class LoginRegister extends Component {
                                     />
                                   </Col>
                                   <Col md="6">
-                                    <Input
+                                    {/* <label>Gender</label> */}
+                                    <select
                                       type="select"
-                                      name="gender"
-                                      placeholder=""
+                                      className="form-control"
                                       value={this.state.gender}
                                       onChange={this.changeHandler}
-                                      className="form-controller"
                                     >
-                                      <option>Select Gender</option>
-                                      <option>Male</option>
-                                      <option>Female</option>
-                                    </Input>
+                                      <option selected>Select Gender</option>
+                                      <option value="Male">Male</option>
+                                      <option value="Female">Female</option>
+                                    </select>
                                   </Col>
+
                                 </Row>
                                 <div className="button-box">
                                   <Button type="submit">
