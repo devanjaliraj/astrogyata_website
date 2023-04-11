@@ -104,12 +104,11 @@ export class HeroSliderTwentyEightSingle extends Component {
                     );
                   })
                   : null}
-                <h1 className="st-3">Start control of your
-                  professional destiny
+                <h1 className="st-3">AstroGyata Your true Guide to world of Progress.
                 </h1>
-                <p className="st-4">
-                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.
-                </p>
+                {/* <p className="st-4">
+                  Your true Guide to world of Progress.
+                </p> */}
                 <Link className="st-6">
                   Appointment
                 </Link>

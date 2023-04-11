@@ -213,7 +213,6 @@ class Numerology extends React.Component {
 
                                     <div className="match-bx">
                                         <Row>
-
                                             <Col md="12">
                                                 <h3> Numerology </h3>
                                                 <div>
@@ -222,31 +221,76 @@ class Numerology extends React.Component {
                                                 <Table striped className="">
                                                     <thead>
                                                         <tr>
-                                                            <th>1 </th>
-                                                            <th>2 </th>
-                                                            <th>3</th>
-                                                            <th>4  </th>
-                                                            <th>5  </th>
-                                                            <th>6 </th>
-                                                            <th>7  </th>
-                                                            <th>8</th>
-                                                            <th>9  </th>
-                                                            <th>10  </th>
-                                                            <th>11 </th>
-                                                            <th>12 </th>
-                                                            <th>13</th>
-                                                            <th>14  </th>
-                                                            <th>15  </th>
-                                                            <th>16 </th>
-                                                            <th>17  </th>
-
+                                                            <th># </th>
+                                                            {/* <td>{data.name}</td> */}
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Date </th>
+                                                            <td>{data.date}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Destiny Number </th>
+                                                            <td>{data.destiny_number} </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Radical Number </th>
+                                                            <td>{data.radical_number}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Name Number </th>
+                                                            <td>{data.name_number}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Evil Number </th>
+                                                            <td>{data.evil_num}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav Color</th>
+                                                            <td>{data.fav_color}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav Day</th>
+                                                            <td>{data.fav_day}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav God</th>
+                                                            <td> {data.fav_god}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav Mantra</th>
+                                                            <td>{data.fav_mantra}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav Metal</th>
+                                                            <td>{data.fav_metal}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav Stone</th>
+                                                            <td>{data.fav_stone}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fav Substone</th>
+                                                            <td>{data.fav_substone}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Friendly Number</th>
+                                                            <td>{data.friendly_num}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Neutral Number</th>
+                                                            <td>{data.neutral_num}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Radical Number</th>
+                                                            <td>{data.radical_num}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Radical Ruler</th>
+                                                            <td>{data.radical_ruler}</td>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
-
-
-                                                        <tr>
+                                                        {/* <tr>
                                                             <td>{data.name}</td>
                                                             <td>{data.date}</td>
                                                             <td>{data.destiny_number} </td>
@@ -265,21 +309,12 @@ class Numerology extends React.Component {
                                                             <td>{data.radical_num}</td>
                                                             <td>{data.radical_ruler}</td>
 
-                                                        </tr>
-
-
+                                                        </tr> */}
                                                     </tbody>
                                                 </Table>
-
-
                                                 {/* </div> */}
                                             </Col>
                                         </Row>
-
-
-
-
-
                                     </div>
                                 </Card>
                             </Col>

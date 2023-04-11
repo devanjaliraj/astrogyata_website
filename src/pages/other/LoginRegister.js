@@ -183,6 +183,7 @@ export default class LoginRegister extends Component {
                                         Login with password
                                       </Link>
                                     </div>
+                                    <div className="login-toggle-btn"></div>
                                     <button type="submit">
                                       <span>OTP Verify</span>
                                     </button>

@@ -2,10 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import handbgtwo from "../../assets/img/handbgone .png"
-import handbgone from "../../assets/img/handbgtwo .png"
-import Abotimg from "../../assets/img/abot.png";
-
-
+import handbgone from "../../assets/img/om.png"
+import Abotimg from "../../assets/img/gif.png";
 const HeroSliderTwentyNineSingle = ({ data, sliderClass }) => {
   return (
     <div
@@ -36,8 +34,8 @@ const HeroSliderTwentyNineSingle = ({ data, sliderClass }) => {
             </div>
           </div>
           <div className="col-xl-6 col-lg-7 col-md-8 col-12">
-            <img src={Abotimg} className="st-1" alt="" />
-            {/* <img src={Abotimg} className="st-2" alt="" /> */}
+            <img src={Abotimg} className="st-1" alt="" width='400px' />
+            <img src={handbgone} className="st-2" alt="" />
           </div>
         </div>
       </div>

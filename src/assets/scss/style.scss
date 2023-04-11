@@ -1640,13 +1640,22 @@ i.fa.fa-phone-square {
   -webkit-font-smoothing: antialiased;
   color: blue;
 }
-// iframe css//
-// iframe {
-//   position: unset !important;
-// }
+
 img.Ptd-img {
   height: 150px !important;
 }
 .col-md-1 {
   width: 124px;
+}
+
+// iframe rs
+
+iframe {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 10px !important;
+  height: 100%;
+  border: none;
+  z-index: 2147483647;
 }

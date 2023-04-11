@@ -320,7 +320,7 @@ class LalKitab extends Component {
                                                     <div className="form-m">
                                                         <Row>
                                                             <Col md="2">
-                                                                <label>Birth Day</label>
+                                                                <label>Day</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -363,7 +363,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label>Birth Month</label>
+                                                                <label> Month</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -387,7 +387,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label>Birth Year</label>
+                                                                <label> Year</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -489,7 +489,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label>Birth Hour</label>
+                                                                <label> Hour</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -525,7 +525,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label>Birth Minute</label>
+                                                                <label> Minute</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"

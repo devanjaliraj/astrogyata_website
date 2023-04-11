@@ -185,8 +185,8 @@ class TodayPanchang extends React.Component {
                             <Row>
                                 <Col md="12">
                                     <div className="leftcont text-left">
-                                        <h1>Today Panchang</h1>
-                                        <h3>Get instant & accurate, Today Panchang</h3>
+                                        <h1>Panchang</h1>
+                                        <h3>Get instant & accurate, Panchang</h3>
                                     </div>
                                 </Col>
                             </Row>
@@ -198,22 +198,22 @@ class TodayPanchang extends React.Component {
                         <Col md="12">
                             <Card className="mb-50 pt-d">
                                 <h3>
-                                    Today Panchang  Online - Get Your Detailed Birth Chart with
+                                    Panchang  Online - Get Your Detailed Birth Chart with
                                     Predictions
                                 </h3>
                                 <p>
-                                    Today Panchang  is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Today Panchang. Written in ancient Urdu language, first time in the history of astrology, Today Panchang introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
+                                    Panchang  is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Panchang. Written in ancient Urdu language, first time in the history of astrology,  Panchang introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
                                 </p>
 
                                 <div className="match-bx">
                                     <Row>
                                         <Col md="12">
-                                            <h3> Today Panchang</h3>
+                                            <h3>Panchang</h3>
                                             <Form onSubmit={this.submitHandler}>
                                                 <div className="form-m">
                                                     <Row>
                                                         <Col md="2">
-                                                            <label>Birth Day</label>
+                                                            <label>Day</label>
                                                             <Input
                                                                 className="form-control"
                                                                 type="select"
@@ -256,7 +256,7 @@ class TodayPanchang extends React.Component {
                                                             </Input>
                                                         </Col>
                                                         <Col md="2">
-                                                            <label>Birth Month</label>
+                                                            <label>Month</label>
                                                             <Input
                                                                 className="form-control"
                                                                 type="select"
@@ -280,7 +280,7 @@ class TodayPanchang extends React.Component {
                                                             </Input>
                                                         </Col>
                                                         <Col md="2">
-                                                            <label>Birth Year</label>
+                                                            <label>Year</label>
                                                             <Input
                                                                 className="form-control"
                                                                 type="select"
@@ -382,7 +382,7 @@ class TodayPanchang extends React.Component {
                                                             </Input>
                                                         </Col>
                                                         <Col md="2">
-                                                            <label>Birth Hour</label>
+                                                            <label>Hour</label>
                                                             <Input
                                                                 className="form-control"
                                                                 type="select"
@@ -418,7 +418,7 @@ class TodayPanchang extends React.Component {
                                                             </Input>
                                                         </Col>
                                                         <Col md="2">
-                                                            <label>Birth Minute</label>
+                                                            <label>Minute</label>
                                                             <Input
                                                                 className="form-control"
                                                                 type="select"
@@ -589,7 +589,7 @@ class TodayPanchang extends React.Component {
                                             </Form>
                                         </Col>
                                         <Col md="12">
-                                            <h3> Today Panchang </h3>
+                                            <h3> Panchang </h3>
                                             {/* <div className="form-m"> */}
                                             <Table striped className="">
                                                 <thead>

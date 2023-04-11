@@ -82,11 +82,11 @@ const HomeFurnitureTwo = () => {
       />
 
       {/* testimonial */}
-      <TestimonialOne
+      {/* <TestimonialOne
         spaceTopClass="pt-95"
         spaceBottomClass="pb-95"
         bgColorClass="bg-gray-3"
-      />
+      /> */}
 
       {/* blog featured */}
 

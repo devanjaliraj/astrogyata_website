@@ -6,9 +6,7 @@ import LayoutOne from "../../../layouts/LayoutOne";
 import MatchSearch from "../MatchSearch";
 import axiosConfig from "../../../axiosConfig";
 import astrologinbg from "../../../assets/img/astrologin-bg.jpg";
-
 import swal from "sweetalert";
-
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
 class KundaliForm extends React.Component {
@@ -23,27 +21,24 @@ class KundaliForm extends React.Component {
       m_lat: "",
       m_lon: "",
       m_tzone: "",
-      f_day: "",
-      f_month: "",
-      f_year: "",
-      f_hour: "",
-      f_min: "",
-      f_lat: "",
-      f_lon: "",
-      f_tzone: "",
+      // f_day: "",
+      // f_month: "",
+      // f_year: "",
+      // f_hour: "",
+      // f_min: "",
+      // f_lat: "",
+      // f_lon: "",
+      // f_tzone: "",
+
+
       matchmakingreport: {},
-      data: {},
-      place: "",
-      searchQuery: "",
+      data: [],
       state: [],
       city: [],
       country: [],
       selectedCountry: null,
       selectedState: null,
       selectedCity: null,
-      selectedCountry1: null,
-      selectedState1: null,
-      selectedCity1: null,
       timezone: null,
       latitude: "",
       longitude: "",
@@ -53,6 +48,7 @@ class KundaliForm extends React.Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   handleInputChanged(event) {
     this.setState({
       searchQuery: event.target.value,
@@ -69,18 +65,16 @@ class KundaliForm extends React.Component {
       });
     console.log(this.state.searchQuery);
   }
+
   changeCountry = item => {
-    this.setState({ selectedCountry: item, selectedCountry1: item, });
+    this.setState({ selectedCountry: item });
+
     axiosConfig
-      .post(`/user/time_zone`, {
+      .post(`http://13.234.48.35:8000/user/time_zone`, {
         country_code: item?.timezones[0].zoneName,
-        // country_code1: item?.f_tzones[0].zoneName,
       })
       .then(response => {
-        this.setState({
-          timezone: response?.data?.data?.timezone,
-          // f_tzone: response?.data?.data?.f_tzone
-        });
+        this.setState({ timezone: response?.data?.data?.timezone });
       })
       .catch(error => {
         console.log(error);
@@ -92,15 +86,15 @@ class KundaliForm extends React.Component {
     this.setState({
       submitPlaceHandler: item,
     });
+
     axiosConfig
-      .post(`/user/geo_detail`, {
+      .post(`http://13.234.48.35:8000/user/geo_detail`, {
         place: item?.name,
       })
       .then(response => {
         this.setState({
-          f_lat: response?.data?.data?.geonames[0].f_lat,
-          f_lon: response?.data?.data?.geonames[0].f_lon, m_lat: response?.data?.data?.geonames[0].m_lat,
-          m_lon: response?.data?.data?.geonames[0].m_lon,
+          latitude: response?.data?.data?.geonames[0].latitude,
+          longitude: response?.data?.data?.geonames[0].longitude,
         });
       })
       .catch(error => {
@@ -144,24 +138,7 @@ class KundaliForm extends React.Component {
         console.log(error);
       });
   };
-  //   componentDidMount() {
-  //     let { id } = this.props.match.params;
-  //     this.setState({ m_day: id });
-  //     let obj = {
-  //       m_day: id,
-  //     };
-  //     axiosConfig
-  //       .post(`/user/match_making_report`, obj)
-  //       .then(response => {
-  //         console.log("matchmakingreport", response.data.data.ashtakoota);
-  //         this.setState({ matchmakingreport: response.data.data });
-  //       })
 
-  //       .catch(error => {
-  //         swal("Error!", "You clicked the button!", "error");
-  //         console.log(error);
-  //       });
-  //   }
 
   submitHandler = e => {
     e.preventDefault();
@@ -171,20 +148,20 @@ class KundaliForm extends React.Component {
       m_year: this.state.m_year,
       m_hour: this.state.m_hour,
       m_min: this.state.m_min,
-      m_lat: this.state.m_lat,
-      m_lon: this.state.m_lon,
-      m_tzone: this.state.m_tzone,
-      f_day: this.state.f_day,
-      f_month: this.state.f_month,
-      f_year: this.state.f_year,
-      f_hour: this.state.f_hour,
-      f_min: this.state.f_min,
+      m_lat: this.state.latitude,
+      m_lon: this.state.longitude,
+      m_tzone: this.state.timezone,
+      // f_day: this.state.f_day,
+      // f_month: this.state.f_month,
+      // f_year: this.state.f_year,
+      // f_hour: this.state.f_hour,
+      // f_min: this.state.f_min,
       // f_lat: this.state.f_lat,
       // f_lon: this.state.f_lon,
       // f_tzone: this.state.f_tzone,
-      f_lat: this.state.latitude,
-      f_lon: this.state.longitude,
-      f_tzone: this.state.timezone,
+      // f_lat: this.state.latitude,
+      // f_lon: this.state.longitude,
+      // f_tzone: this.state.timezone,
     };
     console.log("djfkjhf", payload);
     axiosConfig
@@ -586,96 +563,133 @@ class KundaliForm extends React.Component {
                                     <option>60</option>
                                   </select>
                                 </Col>
-                                <Col md="12">
-                                  <label>Country</label>
-                                  <Select
-                                    options={Country.getAllCountries()}
-                                    getOptionLabel={options => {
-                                      return options["name"];
-                                    }}
-                                    getOptionValue={options => {
-                                      return options["name"];
-                                    }}
-                                    value={this.state.selectedCountry1}
-                                    onChange={item => {
-                                      //setSelectedCountry(item);
-                                      this.setState({ selectedCountry1: item });
-                                    }}
-                                  />
-                                </Col>
+                                <Row>
+                                  <Col md="12">
+                                    <label>Country</label>
+                                    <Select
 
-                                <Col md="12">
-                                  <label>State</label>
-                                  <Select
-                                    options={State?.getStatesOfCountry(
-                                      this.state.selectedCountry1?.isoCode
-                                    )}
-                                    getOptionLabel={options => {
-                                      return options["name"];
-                                    }}
-                                    getOptionValue={options => {
-                                      return options["name"];
-                                    }}
-                                    value={this.state.selectedState1}
-                                    onChange={item => {
-                                      //setSelectedState(item);
-                                      this.setState({ selectedState1: item });
-                                    }}
-                                  />
-                                </Col>
+                                      options={Country.getAllCountries()}
+                                      getOptionLabel={options => {
+                                        return options["name"];
+                                      }}
+                                      getOptionValue={options => {
+                                        return options["name"];
+                                      }}
+                                      value={this.state.selectedCountry}
+                                      onChange={item => {
+                                        this.changeCountry(item);
+                                      }}
+                                    />
+                                  </Col>
 
-                                <Col md="12">
-                                  <label>City</label>
-                                  <Select
-                                    options={City.getCitiesOfState(
-                                      this.state.selectedState1?.countryCode,
-                                      this.state.selectedState1?.isoCode
-                                    )}
-                                    getOptionLabel={options => {
-                                      return options["name"];
-                                    }}
-                                    getOptionValue={options => {
-                                      return options["name"];
-                                    }}
-                                    value={this.state.submitPlaceHandler}
-                                    onChange={item => {
-                                      //setSelectedCity(item);
-                                      this.setState({ selectedCity1: item });
-                                    }}
-                                  />
-                                </Col>
+                                  <Col md="6">
+                                    <label>State</label>
+                                    <Select
+                                      options={State?.getStatesOfCountry(
+                                        this.state.selectedCountry?.isoCode
+                                      )}
+                                      getOptionLabel={options => {
+                                        return options["name"];
+                                      }}
+                                      getOptionValue={options => {
+                                        return options["name"];
+                                      }}
+                                      value={this.state.selectedState}
+                                      onChange={item => {
+                                        this.setState({ selectedState: item });
+                                      }}
+                                    />
+                                  </Col>
 
-                                <Col md="12">
+                                  <Col md="6">
+                                    <label>City</label>
+                                    <Select
+                                      options={City.getCitiesOfState(
+                                        this.state.selectedState?.countryCode,
+                                        this.state.selectedState?.isoCode
+                                      )}
+                                      getOptionLabel={options => {
+                                        return options["name"];
+                                      }}
+                                      getOptionValue={options => {
+                                        return options["name"];
+                                      }}
+                                      value={this.state.submitPlaceHandler}
+                                      onChange={item => {
+                                        this.changeCity(item);
+                                      }}
+                                    />
+                                  </Col>
+
+                                  <Col md="4">
+                                    <label>Birth Place Latitude</label>
+                                    <Input
+                                      className="form-control"
+                                      placeholder="00.00"
+                                      maxLength={7}
+                                      type="text"
+                                      name="latitude"
+                                      value={this.state.latitude}
+                                      onChange={this.changeHandler}
+                                    />
+                                  </Col>
+                                  <Col md="4">
+                                    <label>Birth Place Longitude</label>
+                                    <Input
+                                      className="form-control"
+                                      placeholder="00.000"
+                                      maxLength={7}
+                                      type="text"
+                                      name="longitude"
+                                      value={this.state.longitude}
+                                      onChange={this.changeHandler}
+                                    />
+                                  </Col>
+                                  <Col md="4">
+                                    <label>Birth Place Time Zone</label>
+                                    <input
+                                      className="form-control"
+                                      type="text"
+                                      placeholder="00.00"
+                                      maxLength={5}
+                                      name="timezone"
+                                      value={this.state.timezone}
+                                      onChange={this.changeHandler}
+                                    />
+                                  </Col>
+                                </Row>
+
+                                {/* <Col md="12">
                                   <label>Birth Place Latitude</label>
                                   <Input
                                     // type="tel"
                                     maxLength={8}
-                                    name="m_lat"
+                                    name="latitude"
                                     placeholder="00.00"
-                                    value={this.state.m_lat}
+                                    value={this.state.latitude}
                                     onChange={this.changeHandler}
                                   />
                                 </Col>
                                 <Col md="12">
                                   <label>Birth Place Longitude</label>
                                   <input
-                                    name="m_lon"
+                                    name="longitude"
                                     placeholder="00.000"
                                     maxLength={8}
-                                    value={this.state.m_lon}
+                                    value={this.state.longitude}
                                     onChange={this.changeHandler}
                                   />
                                 </Col>
                                 <Col md="12">
                                   <label>Birth Place Time Zone</label>
                                   <input
-                                    name="m_tzone"
+                                    name="timezone"
                                     placeholder="00.00"
                                     maxLength={8}
-                                    value={this.state.m_tzone}
+                                    value={this.state.timezone}
                                     onChange={this.changeHandler}
                                   />
-                                </Col>
+                                </Col> */}
                               </Row>
                             </div>
                           </Col>
@@ -1076,7 +1090,7 @@ class KundaliForm extends React.Component {
                           </Col>
                         </Row>
                       </Col>
-                      <Col md="4">
+                      {/* <Col md="4">
                         <h3>Saved Matches</h3>
                         <div className="form-m">
                           <Row>
@@ -1127,7 +1141,7 @@ class KundaliForm extends React.Component {
                             </Col>
                           </Row>
                         </div>
-                      </Col>
+                      </Col> */}
                     </Row>
 
                     <Button className="btn btn-primary">Match Horoscope</Button>
