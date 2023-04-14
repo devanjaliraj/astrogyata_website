@@ -84,6 +84,14 @@ class AstrologerDetail extends React.Component {
           astroMobile: response?.data?.data?.mobile,
           status: response?.data?.data?.status,
           astroId: response?.data?.data?._id,
+          // availability: response.data.data.availability,
+          Sunday: response.data.data.Sunday,
+          Monday: response.data.data.Monday,
+          Tuesday: response.data.data.Tuesday,
+          Wednesday: response.data.data.Wednesday,
+          Thursday: response.data.data.Thursday,
+          Friday: response.data.data.Friday,
+          Saturday: response.data.data.Saturday,
         });
       })
       .catch(error => {
@@ -380,48 +388,64 @@ class AstrologerDetail extends React.Component {
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_two">
+
                                           Tuesday
+
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_three">
-                                          Monday
+                                          Wednesday
+
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_four">
-                                          Tuesday
+                                          Thursday
+
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_five">
-                                          Monday
+                                          Friday
+
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_six">
-                                          Tuesday
+                                          Saturday
+
+                                        </Nav.Link>
+                                      </Nav.Item>
+                                      <Nav.Item className="rt_tab">
+                                        <Nav.Link eventKey="tab_six">
+                                          Sunday
+
                                         </Nav.Link>
                                       </Nav.Item>
                                     </Nav>
                                     <Tab.Content className="description-review-bottom">
                                       <Tab.Pane eventKey="tab_one">
-                                        Hello
+                                        {this.state.Monday}
+
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_two">
-                                        World
+                                        {this.state.Tuesday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_three">
-                                        World
+                                        {this.state.Wednesday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_four">
-                                        World
+                                        {this.state.Thursday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_five">
-                                        World
+                                        {this.state.Friday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_six">
-                                        World
+                                        {this.state.Saturday}
+                                      </Tab.Pane>
+                                      <Tab.Pane eventKey="tab_six">
+                                        {this.state.Sunday}
                                       </Tab.Pane>
                                     </Tab.Content>
                                   </Tab.Container>

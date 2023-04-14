@@ -15,11 +15,19 @@ class AstrologerSignup extends React.Component {
   constructor() {
     super();
     this.state = {
+      min_amount: "",
+      Monday: "",
+      Tuesday: "",
+      Wednesday: "",
+      Thursday: "",
+      Friday: "",
+      Saturday: "",
+      Sunday: "",
+      max_amount: "",
       fullname: "",
       email: "",
       mobile: "",
       otp: "",
-
       gender: "",
       dob: "",
       primary_skills: "",
@@ -104,6 +112,15 @@ class AstrologerSignup extends React.Component {
     e.preventDefault();
     console.log("@@@@@");
     let obj = {
+      min_amount: this.state.min_amount,
+      Sunday: this.state.Sunday,
+      Monday: this.state.Monday,
+      Tuesday: this.state.Tuesday,
+      Wednesday: this.state.Wednesday,
+      Thursday: this.state.Thursday,
+      Friday: this.state.Friday,
+      Saturday: this.state.Saturday,
+      max_amount: this.state.max_amount,
       fullname: this.state.fullname,
       email: this.state.email,
       mobile: this.state.mobile,
@@ -171,6 +188,13 @@ class AstrologerSignup extends React.Component {
     data.append("long_bio", this.state.long_bio);
     data.append("status", this.state.status);
     data.append("callCharge", this.state.callCharge);
+    data.append("Sunday", this.state.Sunday);
+    data.append("Monday", this.state.Monday);
+    data.append("Tuesday", this.state.Tuesday);
+    data.append("Wednesday", this.state.Wednesday);
+    data.append("Thursday", this.state.Thursday);
+    data.append("Friday", this.state.Friday);
+    data.append("Saturday", this.state.Saturday);
     if (this.state.selectedFile !== null) {
       data.append("img", this.state.selectedFile, this.state.selectedName);
     }
@@ -436,7 +460,46 @@ class AstrologerSignup extends React.Component {
                             />
                           </div>
                         </Col>
+                        <Col md="6">
+                          <div className="form-group mtb-10">
+                            <Label>Minimum Amount*</Label>
 
+                            <Input
+                              placeholder="Enter Amount"
+                              name="min_amount"
+                              type="text"
+                              value={this.state.min_amount}
+                              onChange={this.changeHandler}
+                            />
+                          </div>
+                        </Col>
+                        <Col md="6">
+                          <div className="form-group mtb-10">
+                            <Label>Availability</Label>
+
+                            <Input
+                              placeholder="Availability Time"
+                              name="availability"
+                              type="text"
+                              value={this.state.availability}
+                              onChange={this.changeHandler}
+                            />
+                          </div>
+                        </Col>
+                        <Col md="6">
+                          <div className="form-group mtb-10">
+                            <Label>Maximum Amount*</Label>
+
+
+                            <Input
+                              placeholder="Enter Amount"
+                              name="max_amount"
+                              type="text"
+                              value={this.state.max_amount}
+                              onChange={this.changeHandler}
+                            />
+                          </div>
+                        </Col>
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Experience in years*</Label>
