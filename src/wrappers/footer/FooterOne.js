@@ -236,6 +236,12 @@ const FooterOne = ({
                         </Link>
                       </li>
                       <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/lalkitabPlanets"}>
+                          Lal Kitab Planets
+                        </Link>
+                      </li>
+
+                      <li className="">
                         <Link to={process.env.PUBLIC_URL + "/bookEvent"}>
                           Book Online Puja
                         </Link>
@@ -272,6 +278,13 @@ const FooterOne = ({
 
                     <ul className="submenu">
 
+                      <li className="">
+                        <Link to={process.env.PUBLIC_URL + "/basicPanchang"}>
+
+                          Basic Panchanag
+
+                        </Link>
+                      </li>
                       <li className="">
                         <Link to={process.env.PUBLIC_URL + "/todayPanchang"}>
 

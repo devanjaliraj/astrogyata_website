@@ -60,22 +60,22 @@ class AddressForm extends React.Component {
     let shippingaddress = JSON.parse(localStorage.getItem("shipping_address"));
     let productid = JSON.parse(localStorage.getItem("productid"));
     let obj = {
-      astroId: astroid,
-      userId: userid,
-      productId: productid,
-      shipping_address: shippingaddress,
       userid: userId,
-      alt_mobile: parseInt(this.state.alt_mobile),
-      flat_no: parseInt(this.state.flat_no),
-      locality: this.state.locality,
+      userId: userid,
+      astroId: astroid,
+      productId: productid,
+      name: this.state.name,
+      email: this.state.email,
       city: this.state.city,
       state: this.state.state,
       country: this.state.country,
       pincode: this.state.pincode,
+      locality: this.state.locality,
       landmark: this.state.landmark,
-      name: this.state.name,
+      shipping_address: shippingaddress,
       mobile: parseInt(this.state.mobile),
-      email: this.state.email,
+      flat_no: parseInt(this.state.flat_no),
+      alt_mobile: parseInt(this.state.alt_mobile),
     };
 
     axiosConfig
@@ -161,91 +161,89 @@ class AddressForm extends React.Component {
             </Container>
           </div>
         </section>
-
         <section className="">
           <Container>
             <div className="multi-address">
               <Row>
                 {viewoneAddressData.length
                   ? viewoneAddressData.map(address => {
-                      return (
-                        <Col lg="6" className="mb-20">
-                          <div className="wal-amt">
-                            <h3>
-                              Continue with your saved address
-                              <span>
-                                <Link
-                                  to={"/addressformedit/" + address?._id}
-                                  className=""
-                                >
-                                  <i className="pe-7s-note ad-edit" />
-                                </Link>
-                                <Link
-                                  onClick={() =>
-                                    this.addressDelete(address?._id)
-                                  }
-                                  className=" "
-                                >
-                                  <i className="pe-7s-trash ad-del" />
-                                </Link>
-                              </span>
-                            </h3>
-                            <hr></hr>
-                            <div className="user-pro py-0">
-                              <ul>
-                                <li>
-                                  Name : <span>{address?.name}</span>
-                                </li>
-                                <li>
-                                  Mobile : <span>{address?.mobile}</span>
-                                </li>
-                                <li>
-                                  Email : <span>{address?.email}</span>
-                                </li>
-                                <li>
-                                  Address :
-                                  <span>
-                                    {address?.flat_no +
-                                      "," +
-                                      address?.locality +
-                                      "," +
-                                      address?.city +
-                                      "(" +
-                                      address.pincode +
-                                      ")"}
-                                  </span>
-                                </li>
-                                <li>
-                                  City : <span>{address?.city}</span>
-                                </li>
-                                <li>
-                                  State : <span>{address?.state}</span>
-                                </li>
-
-                                <li>
-                                  Locality : <span>{address?.locality}</span>
-                                </li>
-                                <li>
-                                  Pin Code :{" "}
-                                  <span>
-                                    {address?.pincode ? address?.pincode : "NA"}
-                                  </span>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="py-3 text-center">
-                              <Link to={"/cartlist/" + address?._id}>
-                                {/* <Link to={'/cartlist/' + this.props.match.params.id}> */}
-
-                                <Button className="btn btn-warning">
-                                  Deliver To This Address{" "}
-                                </Button>
+                    return (
+                      <Col lg="6" className="mb-20">
+                        <div className="wal-amt">
+                          <h3>
+                            Continue with your saved address
+                            <span>
+                              <Link
+                                to={"/addressformedit/" + address?._id}
+                                className=""
+                              >
+                                <i className="pe-7s-note ad-edit" />
                               </Link>
-                            </div>
+                              <Link
+                                onClick={() =>
+                                  this.addressDelete(address?._id)
+                                }
+                                className=" "
+                              >
+                                <i className="pe-7s-trash ad-del" />
+                              </Link>
+                            </span>
+                          </h3>
+                          <hr></hr>
+                          <div className="user-pro py-0">
+                            <ul>
+                              <li>
+                                Name : <span>{address?.name}</span>
+                              </li>
+                              <li>
+                                Mobile : <span>{address?.mobile}</span>
+                              </li>
+                              <li>
+                                Email : <span>{address?.email}</span>
+                              </li>
+                              <li>
+                                Address :
+                                <span>
+                                  {address?.flat_no +
+                                    "," +
+                                    address?.locality +
+                                    "," +
+                                    address?.city +
+                                    "(" +
+                                    address.pincode +
+                                    ")"}
+                                </span>
+                              </li>
+                              <li>
+                                City : <span>{address?.city}</span>
+                              </li>
+                              <li>
+                                State : <span>{address?.state}</span>
+                              </li>
+
+                              <li>
+                                Locality : <span>{address?.locality}</span>
+                              </li>
+                              <li>
+                                Pin Code :{" "}
+                                <span>
+                                  {address?.pincode ? address?.pincode : "NA"}
+                                </span>
+                              </li>
+                            </ul>
                           </div>
-                        </Col>
-                      );
-                    })
+                          <div className="py-3 text-center">
+                            <Link to={"/cartlist/" + address?._id}>
+                              {/* <Link to={'/cartlist/' + this.props.match.params.id}> */}
+                              <Button className="btn btn-warning">
+                                Deliver To This Address{" "}
+                              </Button>
+                            </Link>
+                          </div>
+                        </div>
+                      </Col>
+                    );
+                  })
                   : null}
               </Row>
             </div>

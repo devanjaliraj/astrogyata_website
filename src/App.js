@@ -123,6 +123,9 @@ const LiveAstrologer = lazy(() =>
   import("./components/astrology/LiveAstrologer")
 );
 const LalKitab = lazy(() => import("./components/astrology/LalKitab"));
+const LalkitabPlanets = lazy(() => import("./components/astrology/LalkitabPlanets"));
+// const LalKitab = lazy(() => import("./components/astrology/LalKitab"));
+
 const LalKitabPage = lazy(() => import("./components/astrology/LalKitabPage"));
 const Numerology = lazy(() => import("./components/astrology/Numerology"));
 const Tarot = lazy(() => import("./components/astrology/Tarot"));
@@ -133,6 +136,7 @@ const TodayFestival = lazy(() => import("./components/astrology/TodayFestival"))
 const LoveAstrologer = lazy(() => import("./components/astrology/LoveAstrologer"));
 const PanchangPage = lazy(() => import("./components/astrology/PanchangPage"));
 const TodayPanchang = lazy(() => import("./components/astrology/TodayPanchang"));
+const BasicPanchang = lazy(() => import("./components/astrology/BasicPanchang"));
 
 const BookEvent = lazy(() => import("./components/astrology/BookEvent"));
 const AstroRating = lazy(() => import("./components/astrology/AstroRating"));
@@ -482,6 +486,11 @@ const App = props => {
                     component={LalKitab}
                   />
                   <Route
+                    path={process.env.PUBLIC_URL + "/lalkitabPlanets"}
+                    component={LalkitabPlanets}
+                  />
+
+                  <Route
                     path={process.env.PUBLIC_URL + "/lalKitabPage"}
                     component={LalKitabPage}
                   />
@@ -518,6 +527,10 @@ const App = props => {
                   <Route
                     path={process.env.PUBLIC_URL + "/todayPanchang"}
                     component={TodayPanchang}
+                  />
+                  <Route
+                    path={process.env.PUBLIC_URL + "/basicPanchang"}
+                    component={BasicPanchang}
                   />
 
 

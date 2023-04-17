@@ -1,17 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Input,
-  InputGroup,
-  Form,
-  Button,
-} from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import LayoutOne from "../../../layouts/LayoutOne";
 import "../../../assets/scss/astroteam.scss";
-
 class CompleteProAstro extends React.Component {
   constructor(props) {
     super(props);
@@ -189,9 +179,9 @@ class CompleteProAstro extends React.Component {
                               <label>Monthly Earning</label>
                               <input
                                 type="text"
-                                // name="max_earning_expe"
-                                // value={this.state.max_earning_expe}
-                                // onChange={this.changeHandler}
+                              // name="max_earning_expe"
+                              // value={this.state.max_earning_expe}
+                              // onChange={this.changeHandler}
                               />
                             </div>
                           </Col>

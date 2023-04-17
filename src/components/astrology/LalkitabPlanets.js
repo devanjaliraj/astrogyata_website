@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import { Container, Row, Col, Card, Input, Form, Button, Table } from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
@@ -7,7 +9,7 @@ import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
-class LalKitab extends Component {
+class LalkitabPlanets extends Component {
 
     constructor(props) {
         super(props);
@@ -144,7 +146,7 @@ class LalKitab extends Component {
         };
         console.log("shgdjhg", payload);
         axiosConfig
-            .post(`/user/lalkitab_horoscope`, payload)
+            .post(`/user/lalkitab_planets`, payload)
             .then(response => {
                 this.setState({ data1: true })
 
@@ -224,11 +226,11 @@ class LalKitab extends Component {
                                                 <Table striped className="">
                                                     <thead>
                                                         <tr>
-                                                            <th>Sign </th>
-                                                            <th>Sign Name </th>
-                                                            <th>Planet</th>
-                                                            <th>Planet Degree </th>
-                                                            <th>Planet Small </th>
+                                                            <th>Planet </th>
+                                                            <th>Rashi </th>
+                                                            <th>Soya</th>
+                                                            <th> Position </th>
+                                                            <th>Nature </th>
 
                                                         </tr>
                                                     </thead>
@@ -237,26 +239,19 @@ class LalKitab extends Component {
 
 
                                                             <tr>
-                                                                <th>{data.sign}</th>
-                                                                <td>{data.sign_name}</td>
+                                                                <th>{data.planet}</th>
+                                                                <td>{data?.rashi}</td>
 
 
 
-                                                                <td>
-                                                                    {data?.planet?.map((value) => (
-                                                                        <p className="tableL">{value}</p>
-                                                                    ))}</td>
-                                                                {/* <td><p className="gfg">{data.planet}</p></td> */}
-                                                                {/*   <td>{data.planet}</td> */}
 
-                                                                <td>
-                                                                    {data?.planet_small?.map((value) => (
-                                                                        <p className="tableL">{value}</p>))}</td>
+                                                                <td>{data?.soya}</td>
+                                                                <td>{data?.position}</td>
 
 
-                                                                <td>
-                                                                    {data?.planet_small?.map((value) => (
-                                                                        <p className="tableL">{value}</p>))}</td>
+                                                                <td>{data?.nature}</td>
+
+
 
                                                             </tr>
 
@@ -725,4 +720,4 @@ class LalKitab extends Component {
 
     }
 }
-export default LalKitab;
+export default LalkitabPlanets;

@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from "react";
+// import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, Input, Form, Button, Table } from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import "../../assets/scss/astropooja.css";
 import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
+// import { Select } from "@mui/material";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
-class LalKitab extends Component {
-
+class BasicPanchang extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +22,7 @@ class LalKitab extends Component {
             lat: "",
             lon: "",
             tzone: "",
-            data: [],
+            data: {},
             state: [],
             city: [],
             country: [],
@@ -128,9 +129,7 @@ class LalKitab extends Component {
                 console.log(error);
             });
     };
-
     submitHandler = e => {
-
         e.preventDefault();
         let payload = {
             day: this.state.day,
@@ -144,10 +143,9 @@ class LalKitab extends Component {
         };
         console.log("shgdjhg", payload);
         axiosConfig
-            .post(`/user/lalkitab_horoscope`, payload)
+            .post(`/user/basicPanchang`, payload)
             .then(response => {
                 this.setState({ data1: true })
-
                 console.log("data1", response.data.data);
                 this.setState({
                     data: response.data.data,
@@ -162,17 +160,15 @@ class LalKitab extends Component {
                 console.log(error);
             });
     };
+
     render() {
-
-
-
-
         const { data } = this.state;
         console.log("firstResponse", data)
         if (this.state.data1 === true) {
             console.log("first", this.state.data1)
             // const { data2 } = this.state;
             return (
+
                 <LayoutOne headerTop="visible">
                     <section className="pt-0 pb-0">
                         <div
@@ -196,8 +192,8 @@ class LalKitab extends Component {
                                 <Row>
                                     <Col md="12">
                                         <div className="leftcont text-left">
-                                            <h1>Lal Kitab</h1>
-                                            <h3>Get instant & accurate, LalKitab</h3>
+                                            <h1>Panchang</h1>
+                                            <h3>Get instant & accurate, Panchang</h3>
                                         </div>
                                     </Col>
                                 </Row>
@@ -209,76 +205,80 @@ class LalKitab extends Component {
                             <Col md="12">
                                 <Card className="mb-50 pt-d">
                                     <h3>
-                                        Lal Kitab Online - Get Your Detailed Birth Chart with
+                                        Panchang  Online - Get Your Detailed Birth Chart with
                                         Predictions
                                     </h3>
                                     <p>
-                                        Lal Kitab is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Lal Kitab. Written in ancient Urdu language, first time in the history of astrology, Lal Kitab introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
+                                        Panchang  is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Panchang. Written in ancient Urdu language, first time in the history of astrology,  Panchang introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
                                     </p>
 
                                     <div className="match-bx">
-                                        <div>
+                                        <Row>
+
                                             <Col md="12">
-                                                <h3>Saved LalKitab </h3>
+                                                <h3> Panchang </h3>
                                                 {/* <div className="form-m"> */}
                                                 <Table striped className="">
                                                     <thead>
                                                         <tr>
-                                                            <th>Sign </th>
-                                                            <th>Sign Name </th>
-                                                            <th>Planet</th>
-                                                            <th>Planet Degree </th>
-                                                            <th>Planet Small </th>
+                                                            <th>Name </th>
+                                                            <th>Value </th>
 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {data.map(data => (
 
+                                                        <tr>
+                                                            <th>Day</th>
+                                                            <td>{data.day}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Tithi</th>
+                                                            <td>{data.tithi}</td>
+                                                        </tr>
 
-                                                            <tr>
-                                                                <th>{data.sign}</th>
-                                                                <td>{data.sign_name}</td>
+                                                        <tr>
+                                                            <th>Nakshatra</th>
+                                                            <td>{data.nakshatra} </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Yog</th>
+                                                            <td>{data.yog}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Karan</th>
+                                                            <td>{data.karan}</td>
+                                                        </tr>
 
+                                                        <tr>
+                                                            <th>Sunrise</th>
+                                                            <td>{data.sunrise}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Sunset</th>
+                                                            <td>{data.sunset}</td>
+                                                        </tr>
 
-
-                                                                <td>
-                                                                    {data?.planet?.map((value) => (
-                                                                        <p className="tableL">{value}</p>
-                                                                    ))}</td>
-                                                                {/* <td><p className="gfg">{data.planet}</p></td> */}
-                                                                {/*   <td>{data.planet}</td> */}
-
-                                                                <td>
-                                                                    {data?.planet_small?.map((value) => (
-                                                                        <p className="tableL">{value}</p>))}</td>
-
-
-                                                                <td>
-                                                                    {data?.planet_small?.map((value) => (
-                                                                        <p className="tableL">{value}</p>))}</td>
-
-                                                            </tr>
-
-
-
-                                                        ))}
+                                                        <tr>
+                                                            <th>Vedic Sunrise</th>
+                                                            <td>{data.vedic_sunrise}</td>
+                                                        </tr>
+                                                        <tr><th>Vedic Sunset</th>
+                                                            <td>{data.vedic_sunset}</td>
+                                                        </tr>
                                                     </tbody>
                                                 </Table>
-
-
                                                 {/* </div> */}
                                             </Col>
-                                        </div>
+                                        </Row>
                                     </div>
                                 </Card>
                             </Col>
                         </Row>
                     </Container>
-                </LayoutOne>
+                </LayoutOne >
             );
         } else {
-
             return (
                 <LayoutOne headerTop="visible">
                     <section className="pt-0 pb-0">
@@ -303,8 +303,8 @@ class LalKitab extends Component {
                                 <Row>
                                     <Col md="12">
                                         <div className="leftcont text-left">
-                                            <h1>Lal Kitab</h1>
-                                            <h3>Get instant & accurate, LalKitab</h3>
+                                            <h1>Panchang</h1>
+                                            <h3>Get instant & accurate, Panchang</h3>
                                         </div>
                                     </Col>
                                 </Row>
@@ -316,19 +316,18 @@ class LalKitab extends Component {
                             <Col md="12">
                                 <Card className="mb-50 pt-d">
                                     <h3>
-                                        Lal Kitab Online - Get Your Detailed Birth Chart with
+                                        Panchang  Online - Get Your Detailed Birth Chart with
                                         Predictions
                                     </h3>
                                     <p>
-                                        Lal Kitab is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Lal Kitab. Written in ancient Urdu language, first time in the history of astrology, Lal Kitab introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
+                                        Panchang  is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Panchang. Written in ancient Urdu language, first time in the history of astrology,  Panchang introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
                                     </p>
 
                                     <div className="match-bx">
-                                        <div>
+                                        <Row>
                                             <Col md="12">
-                                                <h3> LAL KITAB</h3>
-                                                <Form>
-                                                    {/* <Form onSubmit={this.submitHandler}> */}
+                                                <h3>Panchang</h3>
+                                                <Form onSubmit={this.submitHandler}>
                                                     <div className="form-m">
                                                         <Row>
                                                             <Col md="2">
@@ -375,7 +374,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label> Month</label>
+                                                                <label>Month</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -399,7 +398,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label> Year</label>
+                                                                <label>Year</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -501,7 +500,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label> Hour</label>
+                                                                <label>Hour</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -537,7 +536,7 @@ class LalKitab extends Component {
                                                                 </Input>
                                                             </Col>
                                                             <Col md="2">
-                                                                <label> Minute</label>
+                                                                <label>Minute</label>
                                                                 <Input
                                                                     className="form-control"
                                                                     type="select"
@@ -703,17 +702,17 @@ class LalKitab extends Component {
                                                                 />
                                                             </Col>
                                                         </Row>
-                                                        {/* <button className="btn btn-primary" onClick={() => this.setState({ showContent: true })}>Show Content</button> */}
-                                                        <Button className="btn btn-primary" onClick={(e) => {
-                                                            this.submitHandler(e)
-                                                            // this.setState({ data1: true })
-                                                        }}
-                                                            type='submit' >submit</Button>
+                                                        <Button className="btn btn-primary">submit</Button>
                                                     </div>
                                                 </Form>
                                             </Col>
 
-                                        </div>
+                                        </Row>
+
+
+
+
+
                                     </div>
                                 </Card>
                             </Col>
@@ -722,7 +721,6 @@ class LalKitab extends Component {
                 </LayoutOne>
             );
         }
-
     }
 }
-export default LalKitab;
+export default BasicPanchang;

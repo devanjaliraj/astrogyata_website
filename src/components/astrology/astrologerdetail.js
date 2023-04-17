@@ -1,46 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-} from "reactstrap";
-import LayoutOne from "../../layouts/LayoutOne";
 import Tab from "react-bootstrap/Tab";
-// import Rating from "@mui/material/Rating";
-import LinearProgress from "@mui/material/LinearProgress";
 import Nav from "react-bootstrap/Nav";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg";
-// import pagetitle from "../../assets/img/pagetitle.jpg";
+import { Link } from "react-router-dom";
 import axiosConfig from "../../axiosConfig";
 import PrettyRating from "pretty-rating-react";
+import LayoutOne from "../../layouts/LayoutOne";
+import AstroProfileVideo from "./AstroProfileVideo";
+import { Container, Row, Col, Button, } from "reactstrap";
+import LinearProgress from "@mui/material/LinearProgress";
+import { Modal, ModalHeader, ModalBody } from "reactstrap";
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import { faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
-// import axios from "axios";
-import { Modal, ModalHeader, ModalBody } from "reactstrap";
-import AstroProfileVideo from "./AstroProfileVideo";
-
 const colors = {
   star: ["#d9ad26", "#d9ad26", "#434b4d"],
   // heart: ['#9b111e', '#a83f39'],
 };
-// const colors = {
-//   star: ["#d9ad26", "#d9ad26", "#434b4d"],
-// };
+
 class AstrologerDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allminrechargeList: [],
       data: {},
       To: "",
       Form: "",
       astrid: "",
       userid: "",
-      astroMobile: "",
       astroId: "",
+      astroMobile: "",
       avg_rating: [false],
+      allminrechargeList: [],
     };
     this.state = {
       modal: false,
@@ -71,27 +60,28 @@ class AstrologerDetail extends React.Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          fullname: response.data.data.fullname,
-          all_skills: response.data.data.all_skills,
-          language: response.data.data.language,
-          img: response.data.data.img[0],
-          avg_rating: response.data.data.avg_rating,
           Exp: response.data.data.Exp,
-          exp_in_years: response.data.data.exp_in_years,
-          callCharge: response.data.data.callCharge,
-          long_bio: response.data.data.long_bio,
           msg: response.data.data.msg,
-          astroMobile: response?.data?.data?.mobile,
-          status: response?.data?.data?.status,
-          astroId: response?.data?.data?._id,
-          // availability: response.data.data.availability,
+          img: response.data.data.img[0],
           Sunday: response.data.data.Sunday,
           Monday: response.data.data.Monday,
-          Tuesday: response.data.data.Tuesday,
-          Wednesday: response.data.data.Wednesday,
-          Thursday: response.data.data.Thursday,
           Friday: response.data.data.Friday,
+          astroId: response?.data?.data?._id,
+          Tuesday: response.data.data.Tuesday,
+          status: response?.data?.data?.status,
+          Thursday: response.data.data.Thursday,
           Saturday: response.data.data.Saturday,
+          fullname: response.data.data.fullname,
+          language: response.data.data.language,
+          long_bio: response.data.data.long_bio,
+          Wednesday: response.data.data.Wednesday,
+          astroMobile: response?.data?.data?.mobile,
+          all_skills: response.data.data.all_skills,
+          avg_rating: response.data.data.avg_rating,
+          callCharge: response.data.data.callCharge,
+          exp_in_years: response.data.data.exp_in_years,
+          // availability: response.data.data.availability,
+
         });
       })
       .catch(error => {
@@ -388,27 +378,22 @@ class AstrologerDetail extends React.Component {
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_two">
-
                                           Tuesday
-
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_three">
                                           Wednesday
-
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_four">
                                           Thursday
-
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_five">
                                           Friday
-
                                         </Nav.Link>
                                       </Nav.Item>
                                       <Nav.Item className="rt_tab">
@@ -420,14 +405,12 @@ class AstrologerDetail extends React.Component {
                                       <Nav.Item className="rt_tab">
                                         <Nav.Link eventKey="tab_six">
                                           Sunday
-
                                         </Nav.Link>
                                       </Nav.Item>
                                     </Nav>
                                     <Tab.Content className="description-review-bottom">
                                       <Tab.Pane eventKey="tab_one">
                                         {this.state.Monday}
-
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_two">
                                         {this.state.Tuesday}
@@ -462,7 +445,6 @@ class AstrologerDetail extends React.Component {
             </section>
           </div>
         </div>
-
         {/* modal for recharge*/}
         <Modal
           size="md"
@@ -548,7 +530,6 @@ class AstrologerDetail extends React.Component {
     );
   }
 }
-
 export default AstrologerDetail;
 export function getUserID() {
   const name = JSON.parse(localStorage.getItem("userData"));

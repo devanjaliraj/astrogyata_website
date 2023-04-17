@@ -1,17 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Row, Col, Button, Input } from "reactstrap";
-import LayoutOne from "../../layouts/LayoutOne";
-// import AutoSearch from './autosearch'
-import axiosConfig from "../../axiosConfig";
 import swal from "sweetalert";
+import axiosConfig from "../../axiosConfig";
+import LayoutOne from "../../layouts/LayoutOne";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
+import { Container, Row, Col, Button, Input } from "reactstrap";
 class AddEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       mode: "",
-      event_list: "",
       mobile: "",
       email: "",
       userid: "",
@@ -20,58 +17,30 @@ class AddEvent extends React.Component {
       state: "",
       country: "",
       address: "",
+      event_list: "",
     };
   }
-  // componentDidMount() {
-
-  //     let userId = JSON.parse(localStorage.getItem('user_id'))
-
-  //     axiosConfig
-  //         .get(`/user/viewone_address/${userId}`)
-  //         .then((response) => {
-  //             //localStorage.setItem('shipping_id', response?.data?.data[0]?._id)
-  //             console.log('viewone_address', response.data.data)
-  //             this.setState({
-  //                 viewoneAddressData: response.data.data,
-  //             })
-  //         })
-  //         .catch((error) => {
-  //             console.log(error)
-  //         })
-  // }
   changeHandler1 = e => {
     this.setState({ status: e.target.value });
   };
-
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   submitHandler = e => {
     e.preventDefault();
-    // let { id } = this.props.match.params
-    // console.log(id)
-    // let userId = JSON.parse(localStorage.getItem('user_id'))
-
-    // let astroid = JSON.parse(localStorage.getItem('astroId'))
     let userid = localStorage.getItem("user_id");
-
     let obj = {
-      // astroId: astroid,
       userId: userid,
-
-      // userid: userId,
-
-      address: this.state.address,
-      city: this.state.city,
-      state: this.state.state,
-      country: this.state.country,
+      email: this.state.email,
       date: this.state.date,
       mode: this.state.mode,
+      city: this.state.city,
+      state: this.state.state,
+      address: this.state.address,
+      country: this.state.country,
       event_list: this.state.event_list,
       mobile: parseInt(this.state.mobile),
-      email: this.state.email,
     };
-
     axiosConfig
       .post(`/user/add_event`, obj)
       .then(response => {
@@ -80,13 +49,11 @@ class AddEvent extends React.Component {
         swal("Success!", "Submitted SuccessFull!", "success");
         // window.location.reload('/addEvent')
       })
-
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error);
       });
   };
-
   render() {
     return (
       <LayoutOne headerTop="visible">
@@ -94,10 +61,6 @@ class AddEvent extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: '#ffcc01',
-              // width: '100%',
-              // padding: '70px 0px',
-              // backgroundSize: 'cover',
               float: "left",
               width: "100%",
               backgroundColor: "#272727",
@@ -117,8 +80,8 @@ class AddEvent extends React.Component {
                 <Col md="12">
                   <div className="leftcont text-left">
                     {/* <h1>
-                                            Astromall Shop/ Product Detail/ Consultant List/ Address
-                                        </h1> */}
+                    Astromall Shop/ Product Detail/ Consultant List/ Address
+                    </h1> */}
                     <h3>Event</h3>
                   </div>
                 </Col>
@@ -126,7 +89,6 @@ class AddEvent extends React.Component {
             </Container>
           </div>
         </section>
-
         <section className="">
           <Container>
             <div className="multi-address"></div>
@@ -196,32 +158,6 @@ class AddEvent extends React.Component {
                           </Input>
                         </div>
                       </Col>
-                      {/* <Col md="4">
-                                                <div class="form-group mtb-10">
-                                                    <label>Flat No:*</label>
-                                                    <Input
-                                                        type="text"
-                                                        name="flat_no"
-                                                        required
-                                                        placeholder="Enter Your Number"
-                                                        value={this.state.flat_no}
-                                                        onChange={this.changeHandler}
-                                                    />
-                                                </div>
-                                            </Col>
-                                            <Col md="4">
-                                                <div class="form-group mtb-10">
-                                                    <label>Locality*</label>
-                                                    <Input
-                                                        type="text"
-                                                        name="locality"
-                                                        required
-                                                        placeholder="Enter Your Number"
-                                                        value={this.state.locality}
-                                                        onChange={this.changeHandler}
-                                                    />
-                                                </div>
-                                            </Col> */}
                       <Col md="4">
                         <div class="form-group mtb-10">
                           <label>City*</label>

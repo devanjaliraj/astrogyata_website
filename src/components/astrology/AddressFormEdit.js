@@ -43,8 +43,6 @@ class AddressFormEdit extends React.Component {
           city: response.data.data.city,
           locality: response.data.data.locality,
           pincode: response.data.data.pincode,
-          // image: response.data.data.image[0],
-          // gst: response.data.data.gst,
           state: response.data.data.state,
           country: response.data.data.country,
           landmark: response.data.data.landmark,

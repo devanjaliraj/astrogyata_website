@@ -1,21 +1,21 @@
 import React from "react";
-// import render  from 'react-dom';
+import swal from "sweetalert";
+import Stepper from "bs-stepper";
+import axiosConfig from "../../axiosConfig";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bs-stepper/dist/css/bs-stepper.min.css";
-import Stepper from "bs-stepper";
-// import axios from 'axios'
-// import LayoutOne from "../../layouts/LayoutOne";
-import { Container, Row, Col, Input, Form, Button, Label } from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
-// import Select from 'react-select'
-import swal from "sweetalert";
-import axiosConfig from "../../axiosConfig";
-// import { colourOptions } from '../astrology/selectdata/data.ts';
+import { Container, Row, Col, Input, Form, Button, Label } from "reactstrap";
 class AstrologerSignup extends React.Component {
   constructor() {
     super();
     this.state = {
-      min_amount: "",
+      fullname: "",
+      email: "",
+      mobile: "",
+      otp: "",
+      gender: "",
+      dob: "",
       Monday: "",
       Tuesday: "",
       Wednesday: "",
@@ -23,13 +23,8 @@ class AstrologerSignup extends React.Component {
       Friday: "",
       Saturday: "",
       Sunday: "",
+      min_amount: "",
       max_amount: "",
-      fullname: "",
-      email: "",
-      mobile: "",
-      otp: "",
-      gender: "",
-      dob: "",
       primary_skills: "",
       all_skills: "",
       language: "",
@@ -80,7 +75,6 @@ class AstrologerSignup extends React.Component {
   }
 
   handlechange = e => {
-    // e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -90,7 +84,6 @@ class AstrologerSignup extends React.Component {
   };
   submitHandlerLogin = e => {
     e.preventDefault();
-    //this.setState({ otp: false });
     axiosConfig
       .post("/user/signup", this.state)
       .then(response => {
@@ -206,7 +199,7 @@ class AstrologerSignup extends React.Component {
     for (var key of data.keys()) {
       console.log(key);
     }
-    // let { userId } = this.props.match.params;
+
     axiosConfig
       .post(`/user/editAstroDetails/${this.state.userId}`, obj)
       .then(response => {
@@ -214,7 +207,6 @@ class AstrologerSignup extends React.Component {
         swal("Success!", "Submitted SuccessFull!", "success");
         this.props.history.push("/");
       })
-
       .catch(error => {
         swal("Error!", "You clicked the button!", "error");
         console.log(error.response);
@@ -226,7 +218,6 @@ class AstrologerSignup extends React.Component {
     axiosConfig
       .post("/user/signup", {
         mobile: parseInt(mobile) != NaN ? parseInt(mobile) : "null",
-
         email: email,
         fullname: fullname,
         moblie: mobile,
@@ -316,10 +307,8 @@ class AstrologerSignup extends React.Component {
                     </button>
                   </div>
                 </div>
-
                 <div className="bs-stepper-content">
                   <Form className="m-1" onSubmit={this.submitHandler}>
-                    {/* <form onSubmit={this.submitHandler}> */}
                     <div id="test-l-1" className="content">
                       <Row>
                         <Col md="6">
@@ -424,7 +413,6 @@ class AstrologerSignup extends React.Component {
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Primary Skills*</Label>
-
                             <Input
                               placeholder="Primary Skills"
                               name="primary_skills"
@@ -437,7 +425,6 @@ class AstrologerSignup extends React.Component {
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>All Skills*</Label>
-
                             <Input
                               placeholder="All Skills"
                               name="all_skills"
@@ -450,7 +437,6 @@ class AstrologerSignup extends React.Component {
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Language*</Label>
-
                             <Input
                               placeholder="language"
                               name="language"
@@ -463,7 +449,6 @@ class AstrologerSignup extends React.Component {
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Minimum Amount*</Label>
-
                             <Input
                               placeholder="Enter Amount"
                               name="min_amount"
@@ -473,10 +458,9 @@ class AstrologerSignup extends React.Component {
                             />
                           </div>
                         </Col>
-                        <Col md="6">
+                        {/* <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Availability</Label>
-
                             <Input
                               placeholder="Availability Time"
                               name="availability"
@@ -485,12 +469,10 @@ class AstrologerSignup extends React.Component {
                               onChange={this.changeHandler}
                             />
                           </div>
-                        </Col>
+                        </Col> */}
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Maximum Amount*</Label>
-
-
                             <Input
                               placeholder="Enter Amount"
                               name="max_amount"
@@ -611,7 +593,6 @@ class AstrologerSignup extends React.Component {
                             />
                           </div>
                         </Col>
-
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Call Charge</Label>
@@ -629,7 +610,6 @@ class AstrologerSignup extends React.Component {
                             <Label>
                               Main source of business (other than astrology)*
                             </Label>
-
                             <Input
                               placeholder="source of business"
                               name="income_src"
@@ -642,7 +622,6 @@ class AstrologerSignup extends React.Component {
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Select your highest qualification*</Label>
-
                             <Input
                               placeholder="qualification"
                               name="highest_qualification"
@@ -655,7 +634,6 @@ class AstrologerSignup extends React.Component {
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Degree/Diploma*</Label>
-
                             <Input
                               placeholder="Degree/Diploma"
                               name="degree_deploma"
@@ -798,7 +776,6 @@ class AstrologerSignup extends React.Component {
                             />
                           </div>
                         </Col>
-
                         <Col md="12">
                           <div className="form-group mtb-10">
                             <Label>Long bio*</Label>
@@ -833,5 +810,4 @@ class AstrologerSignup extends React.Component {
     );
   }
 }
-
 export default AstrologerSignup;

@@ -1,27 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Input,
-  InputGroup,
-  Form,
-  Button,
-} from "reactstrap";
-// import aboutimg from "../../assets/img/aboutimg.jpg";
-import aboutone from "../../assets/img/aboutone.png";
-import abouttwo from "../../assets/img/abouttwo.png";
-import LayoutOne from "../../layouts/LayoutOne";
-import astrologinbg from "../../assets/img/astrologin-bg.jpg";
-import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
-import asectionbg from "../../assets/img/asectionbg.jpg";
 import axiosConfig from "../../axiosConfig";
-
+import LayoutOne from "../../layouts/LayoutOne";
+import aboutone from "../../assets/img/aboutone.png";
+import asectionbg from "../../assets/img/asectionbg.jpg";
+import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
+import astrologinbg from "../../assets/img/astrologin-bg.jpg";
+import { Container, Row, Col } from "reactstrap";
 class AboutDetail extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       aboutDetail: [],
     };
@@ -41,7 +28,6 @@ class AboutDetail extends React.Component {
         console.log(error.response);
       });
   };
-
   render() {
     const { aboutDetail } = this.state;
     return (
@@ -50,10 +36,6 @@ class AboutDetail extends React.Component {
           <div
             className=""
             style={{
-              // backgroundColor: "#ffcc01",
-              // width: "100%",
-              // padding: "70px 0px",
-              // backgroundSize: "cover",
               float: "left",
               width: "100%",
               backgroundColor: "#272727",
@@ -80,28 +62,27 @@ class AboutDetail extends React.Component {
             </Container>
           </div>
         </section>
-
         <section className="ptb-0">
           <Container>
             <Row>
               {aboutDetail.length
                 ? aboutDetail.map((abtdetail, index) => {
-                    return (
-                      <Col key={index} lg="6">
-                        <div className="abo-1">
-                          <h3>WHAT WE DO</h3>
-                          <p>{abtdetail?.aboutDetail}</p>
-                          <div className="bst-stro">
-                            <h2>Call Us </h2>
-                            <h3>
-                              <i class="fa fa-phone"></i>
-                              189 000 000 000
-                            </h3>
-                          </div>
+                  return (
+                    <Col key={index} lg="6">
+                      <div className="abo-1">
+                        <h3>WHAT WE DO</h3>
+                        <p>{abtdetail?.aboutDetail}</p>
+                        <div className="bst-stro">
+                          <h2>Call Us </h2>
+                          <h3>
+                            <i class="fa fa-phone"></i>
+                            189 000 000 000
+                          </h3>
                         </div>
-                      </Col>
-                    );
-                  })
+                      </div>
+                    </Col>
+                  );
+                })
                 : null}
               <Col lg="6">
                 <div className="abo-2">
@@ -149,29 +130,16 @@ class AboutDetail extends React.Component {
                 <div className="ourm mb-50">
                   <h2>OUR STORY</h2>
                   <p>
-                    Astrogyata came into being with an aim to not only keep the
-                    ethos of traditional astrology intact but to also amalgamate
-                    in it the solutions to modern problems like mental health,
-                    stress, depression, etc. With that being the first and
-                    foremost goal, Astrogyata founder, Puneet Gupta, has not
-                    only worked to deliver the best of Vedic astrology on the
-                    platform but has touched every aspect of mental wellness
-                    through spiritual means. With the grace of God, Astrogyata,
-                    over the years, has not only been able to achieve the
-                    aforementioned aim but also add-on to the list of ‘achieved
-                    goals’ and continues to do so. Today, with over 4000
-                    astrologers onboard and over 1 Lakh minutes of daily
-                    consultation, Astrogyata, besides allowing you to talk to
-                    the best astrologers, also provides numerous other services
-                    like Free live sessions, Free Kundli matching, Daily
-                    horoscope and much more.
+                    Astrogyata came into being with an aim to not only keep the ethos of traditional astrology intact but to also amalgamate in it the solutions to modern problems like mental health, stress, depression, etc.
+                    With that being the first and foremost goal, Astrogyata founder, Puneet Gupta, has not only worked to deliver the best of Vedic astrology on the platform but has touched every aspect of mental wellnessthrough spiritual means.
+                    With the grace of God, Astrogyata, over the years, has not only been able to achieve the aforementioned aim but also add-on to the list of ‘achieved goals’ and continues to do so.
+                    Today, with over 4000 astrologers onboard and over 1 Lakh minutes of daily consultation, Astrogyata, besides allowing you to talk to the best astrologers, also provides numerous other services like Free live sessions, Free Kundli matching, Daily horoscope and much more.
                   </p>
                 </div>
               </Col>
             </Row>
           </Container>
         </section>
-
         <section>
           <Container>
             <Row>
