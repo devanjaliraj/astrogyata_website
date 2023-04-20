@@ -48,8 +48,10 @@ class Tarot extends React.Component {
                                     <h3>Tarot</h3>
 
                                     <p>
-
-                                        Tarot is a deck of cards used for divination, spiritual guidance, and personal insight. It consists of 78 cards, each with its own symbolic meaning and artwork. The Tarot deck is divided into two parts: the Major Arcana, which contains 22 cards that represent major life themes and archetypes, and the Minor Arcana, which contains 56 cards that represent more everyday events and experiences.
+                                        Tarot is a deck of cards used for divination, spiritual guidance, and personal insight. It
+                                        consists of 78 cards, each with its own symbolic meaning and artwork. The Tarot deck is
+                                        divided into two parts: the Major Arcana, which contains 22 cards that represent major
+                                        life themes and archetypes, and the Minor Arcana, which contains 56 cards that represent more everyday events and experiences.
                                     </p>
                                     <p>During a Tarot reading, the cards are shuffled and laid out in a specific pattern or "spread." The reader then interprets the meaning of the cards based on their position in the spread, the symbols and images on the cards, and the intuition and knowledge of the reader. Tarot readings providew insights into a person's past, present, and future, as well as guidance on important decisions, relationships, and other aspects of life.</p>
                                 </div>

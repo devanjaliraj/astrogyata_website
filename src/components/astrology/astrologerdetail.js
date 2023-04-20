@@ -63,18 +63,18 @@ class AstrologerDetail extends React.Component {
           Exp: response.data.data.Exp,
           msg: response.data.data.msg,
           img: response.data.data.img[0],
-          Sunday: response.data.data.Sunday,
-          Monday: response.data.data.Monday,
-          Friday: response.data.data.Friday,
+          sunday: response.data.data.sunday,
+          monday: response.data.data.monday,
+          friday: response.data.data.friday,
           astroId: response?.data?.data?._id,
-          Tuesday: response.data.data.Tuesday,
+          tuesday: response.data.data.tuesday,
           status: response?.data?.data?.status,
-          Thursday: response.data.data.Thursday,
-          Saturday: response.data.data.Saturday,
+          thursday: response.data.data.thursday,
+          saturday: response.data.data.saturday,
           fullname: response.data.data.fullname,
           language: response.data.data.language,
           long_bio: response.data.data.long_bio,
-          Wednesday: response.data.data.Wednesday,
+          wednesday: response.data.data.wednesday,
           astroMobile: response?.data?.data?.mobile,
           all_skills: response.data.data.all_skills,
           avg_rating: response.data.data.avg_rating,
@@ -410,25 +410,25 @@ class AstrologerDetail extends React.Component {
                                     </Nav>
                                     <Tab.Content className="description-review-bottom">
                                       <Tab.Pane eventKey="tab_one">
-                                        {this.state.Monday}
+                                        {this.state.monday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_two">
-                                        {this.state.Tuesday}
+                                        {this.state.tuesday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_three">
-                                        {this.state.Wednesday}
+                                        {this.state.wednesday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_four">
-                                        {this.state.Thursday}
+                                        {this.state.thursday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_five">
-                                        {this.state.Friday}
+                                        {this.state.friday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_six">
-                                        {this.state.Saturday}
+                                        {this.state.saturday}
                                       </Tab.Pane>
                                       <Tab.Pane eventKey="tab_six">
-                                        {this.state.Sunday}
+                                        {this.state.sunday}
                                       </Tab.Pane>
                                     </Tab.Content>
                                   </Tab.Container>

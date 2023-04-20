@@ -36,7 +36,7 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
           </li>
 
           <li>
-            <Link to="/kundaliform">Match Matching</Link>
+            <Link to="/kundaliform">Match Making</Link>
           </li>
 
           {/* <li>

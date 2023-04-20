@@ -195,7 +195,7 @@ class KalsharpDosh extends React.Component {
                   <Col md="12">
                     <div className="leftcont text-left">
                       <h1>KALSHARP DOSH</h1>
-                      <h3>Get instant & accurate, Janam Kundli</h3>
+                      {/* <h3>Get instant & accurate, Janam Kundli</h3> */}
                     </div>
                   </Col>
                 </Row>
@@ -207,33 +207,18 @@ class KalsharpDosh extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    KALSHARP DOSH Online - Get Your Detailed Birth Chart with
-                    Predictions
+                    KALSHARP DOSH Online
                   </h3>
                   <p>
-                    Looking for your free Kundli from expert astrologers? Then you
-                    have come to the right place. The online free kundali
-                    available on AstroGyata is a 100% free and authentic free
-                    Kundli that has been prepared after consulting more than 50
-                    expert astrologers on board. The free kundli is such that it
-                    can give you a glimpse into various aspects of your life such
-                    as your career, love life, marriage, business and much more.
-                    The online kundli prepared by the free Kundali software here
-                    is no less than any traditional Kundli and can also be used
-                    for purposes like matching making, kundali matching for
-                    marriage or simply making future predictions.
+                    Kalasarpa Dosha, also known as Kalsharp Dosh, is a condition in Vedic astrology that is believed
+                    to occur when all the seven planets in an individual's birth chart are situated between the two
+                    lunar nodes, Rahu and Ketu. The term "Kalasarpa" means "serpent of time," and it is believed
+                    that this condition can cause various negative effects on an individual's life
                   </p>
                   <p>
-                    Talking about future predictions, the kundali catered by
-                    AstroGyata to you is such that it considers the movement of all
-                    the planets in the native's life from the beginning of his or
-                    her life till as far as 100 years. Doing so helps you
-                    understand the reasons behind not only the ongoing
-                    circumstances but also what's to come for you in the future.
-                    So if in any way you are confused about life, the online
-                    kundli can be your saviour. Having said that, make sure you
-                    try the fre online kunldi, and let us know what you feel about
-                    it.
+                    According to Vedic astrology, the presence of Kalasarpa Dosha in an individual's birth chart can
+                    cause delays and obstacles in various aspects of life, such as career, education, health, marriage,
+                    and financial stability. It is also believed to create mental stress, fear, and anxiety in individuals.
                   </p>
                   <h3>KALSHARP DOSH </h3>
                   <div className="match-bx bg-white">
@@ -251,7 +236,7 @@ class KalsharpDosh extends React.Component {
                         <p>{kalsharpDosh?.name}</p></>
                       ) : null}
 
-                      <h3>OneLine</h3>
+                      <h3>Details</h3>
                       <p>{kalsharpDosh?.one_line}</p>
                     </Row>
                   </div>
@@ -287,7 +272,7 @@ class KalsharpDosh extends React.Component {
                   <Col md="12">
                     <div className="leftcont text-left">
                       <h1>KALSHARP DOSH</h1>
-                      <h3>Get instant & accurate, Janam Kundli</h3>
+                      {/* <h3>Get instant & accurate, Janam Kundli</h3> */}
                     </div>
                   </Col>
                 </Row>
@@ -299,33 +284,18 @@ class KalsharpDosh extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    KALSHARP DOSH Online - Get Your Detailed Birth Chart with
-                    Predictions
+                    KALSHARP DOSH
                   </h3>
                   <p>
-                    Looking for your free Kundli from expert astrologers? Then you
-                    have come to the right place. The online free kundali
-                    available on AstroGyata is a 100% free and authentic free
-                    Kundli that has been prepared after consulting more than 50
-                    expert astrologers on board. The free kundli is such that it
-                    can give you a glimpse into various aspects of your life such
-                    as your career, love life, marriage, business and much more.
-                    The online kundli prepared by the free Kundali software here
-                    is no less than any traditional Kundli and can also be used
-                    for purposes like matching making, kundali matching for
-                    marriage or simply making future predictions.
+                    Kalasarpa Dosha, also known as Kalsharp Dosh, is a condition in Vedic astrology that is believed
+                    to occur when all the seven planets in an individual's birth chart are situated between the two
+                    lunar nodes, Rahu and Ketu. The term "Kalasarpa" means "serpent of time," and it is believed
+                    that this condition can cause various negative effects on an individual's life
                   </p>
                   <p>
-                    Talking about future predictions, the kundali catered by
-                    AstroGyata to you is such that it considers the movement of all
-                    the planets in the native's life from the beginning of his or
-                    her life till as far as 100 years. Doing so helps you
-                    understand the reasons behind not only the ongoing
-                    circumstances but also what's to come for you in the future.
-                    So if in any way you are confused about life, the online
-                    kundli can be your saviour. Having said that, make sure you
-                    try the fre online kunldi, and let us know what you feel about
-                    it.
+                    According to Vedic astrology, the presence of Kalasarpa Dosha in an individual's birth chart can
+                    cause delays and obstacles in various aspects of life, such as career, education, health, marriage,
+                    and financial stability. It is also believed to create mental stress, fear, and anxiety in individuals.
                   </p>
                   <div className="match-bx">
                     <Row>

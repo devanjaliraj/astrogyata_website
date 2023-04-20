@@ -158,6 +158,20 @@ class ManglikDosh extends React.Component {
   };
 
   render() {
+    const customStyles = {
+      option: (provided, state) => ({
+        ...provided,
+      }),
+      control: (provided) => ({
+        ...provided,
+
+        width: "100%",
+
+        height: "40px",
+
+        minHeight: "40px",
+      }),
+    };
     const { ManglikDosh } = this.state;
     console.log("Magalik@@@@", ManglikDosh);
     if (this.state.data1 === true) {
@@ -192,7 +206,7 @@ class ManglikDosh extends React.Component {
                   <Col md="12">
                     <div className="leftcont text-left">
                       <h1>MANGLIK DOSH</h1>
-                      <h3>Get instant & accurate, Janam Kundli</h3>
+                      {/* <h3>Get instant & accurate, Janam Kundli</h3> */}
                     </div>
                   </Col>
 
@@ -205,33 +219,15 @@ class ManglikDosh extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    MANGLIK DOSH Online - Get Your Detailed Birth Chart with
-                    Predictions
+                    MANGLIK DOSH
                   </h3>
                   <p>
-                    Looking for your free Kundli from expert astrologers? Then you
-                    have come to the right place. The online free kundali
-                    available on AstroGyata is a 100% free and authentic free
-                    Kundli that has been prepared after consulting more than 50
-                    expert astrologers on board. The free kundli is such that it
-                    can give you a glimpse into various aspects of your life such
-                    as your career, love life, marriage, business and much more.
-                    The online kundli prepared by the free Kundali software here
-                    is no less than any traditional Kundli and can also be used
-                    for purposes like matching making, kundali matching for
-                    marriage or simply making future predictions.
+                    In Vedic astrology Manglik Dosh is to describe a specific astrological condition that is believed to
+                    affect the marriage and relationships of an individual. In this condition, the planet Mars is placed in certain houses of a person's birth chart, which is believed to cause negative effects on their marital life.
                   </p>
                   <p>
-                    Talking about future predictions, the kundali catered by
-                    AstroGyata to you is such that it considers the movement of all
-                    the planets in the native's life from the beginning of his or
-                    her life till as far as 100 years. Doing so helps you
-                    understand the reasons behind not only the ongoing
-                    circumstances but also what's to come for you in the future.
-                    So if in any way you are confused about life, the online
-                    kundli can be your saviour. Having said that, make sure you
-                    try the fre online kunldi, and let us know what you feel about
-                    it.
+                    According to Vedic astrology, if Mars is placed in the 1st, 4th, 7th, 8th, or 12th house of a person's
+                    birth chart, it is said to cause Manglik Dosh. It is believed that the presence of this condition in a person's birth chart may cause delays or obstacles in their marriage, as well as problems in their married life
                   </p>
                   <h3> MANGLIK DOSH</h3>
                   <div className="match-bx bg-white">
@@ -328,7 +324,7 @@ class ManglikDosh extends React.Component {
                   <Col md="12">
                     <div className="leftcont text-left">
                       <h1>MANGLIK DOSH</h1>
-                      <h3>Get instant & accurate, Janam Kundli</h3>
+                      {/* <h3>Get instant & accurate, Janam Kundli</h3> */}
                     </div>
                   </Col>
                 </Row>
@@ -340,33 +336,15 @@ class ManglikDosh extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    MANGLIK DOSH Online - Get Your Detailed Birth Chart with
-                    Predictions
+                    MANGLIK DOSH
                   </h3>
                   <p>
-                    Looking for your free Kundli from expert astrologers? Then you
-                    have come to the right place. The online free kundali
-                    available on AstroGyata is a 100% free and authentic free
-                    Kundli that has been prepared after consulting more than 50
-                    expert astrologers on board. The free kundli is such that it
-                    can give you a glimpse into various aspects of your life such
-                    as your career, love life, marriage, business and much more.
-                    The online kundli prepared by the free Kundali software here
-                    is no less than any traditional Kundli and can also be used
-                    for purposes like matching making, kundali matching for
-                    marriage or simply making future predictions.
+                    In Vedic astrology Manglik Dosh is to describe a specific astrological condition that is believed to
+                    affect the marriage and relationships of an individual. In this condition, the planet Mars is placed in certain houses of a person's birth chart, which is believed to cause negative effects on their marital life.
                   </p>
                   <p>
-                    Talking about future predictions, the kundali catered by
-                    AstroGyata to you is such that it considers the movement of all
-                    the planets in the native's life from the beginning of his or
-                    her life till as far as 100 years. Doing so helps you
-                    understand the reasons behind not only the ongoing
-                    circumstances but also what's to come for you in the future.
-                    So if in any way you are confused about life, the online
-                    kundli can be your saviour. Having said that, make sure you
-                    try the fre online kunldi, and let us know what you feel about
-                    it.
+                    According to Vedic astrology, if Mars is placed in the 1st, 4th, 7th, 8th, or 12th house of a person's
+                    birth chart, it is said to cause Manglik Dosh. It is believed that the presence of this condition in a person's birth chart may cause delays or obstacles in their marriage, as well as problems in their married life
                   </p>
                   <div className="match-bx">
                     <Row>
@@ -657,6 +635,7 @@ class ManglikDosh extends React.Component {
                               <Col md="4">
                                 <label>Country</label>
                                 <Select
+                                  styles={customStyles}
                                   options={Country.getAllCountries()}
                                   getOptionLabel={options => {
                                     return options["name"];
@@ -674,6 +653,7 @@ class ManglikDosh extends React.Component {
                               <Col md="4">
                                 <label>State</label>
                                 <Select
+                                  styles={customStyles}
                                   options={State?.getStatesOfCountry(
                                     this.state.selectedCountry?.isoCode
                                   )}
@@ -693,6 +673,7 @@ class ManglikDosh extends React.Component {
                               <Col md="4">
                                 <label>City</label>
                                 <Select
+                                  styles={customStyles}
                                   options={City.getCitiesOfState(
                                     this.state.selectedState?.countryCode,
                                     this.state.selectedState?.isoCode

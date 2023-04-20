@@ -31,13 +31,13 @@ function valuetext(value) {
 // }
 
 
-const ShopPrice = ({ tags, getSortParams,priceobj }) => {
+const ShopPrice = ({ tags, getSortParams, priceobj }) => {
   const [value, setValue] = React.useState([1, 90]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     // console.log(newValue[0]*100)
-    priceobj({min:newValue[0]*25,max:newValue[1]*25})
+    priceobj({ min: newValue[0] * 25, max: newValue[1] * 25 })
     // getminvalue(newValue[0]*100)
     // console.log(newValue[1]*100)
     // getmaxvalue(newValue[1]*100)
@@ -46,16 +46,16 @@ const ShopPrice = ({ tags, getSortParams,priceobj }) => {
     <div className="sidebar-widget mt-50">
       <h4 className="pro-sidebar-title">Price Range </h4>
       <div className="sidebar-widget-tag mt-25">
-      <Box >
-      <Slider
-        getAriaLabel={() => 'Price range'}
-        value={value}
-        scale={(i) => 25*i }
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-      />
-    </Box>
+        <Box >
+          <Slider
+            getAriaLabel={() => 'Price range'}
+            value={value}
+            scale={(i) => 25 * i}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            getAriaValueText={valuetext}
+          />
+        </Box>
       </div>
     </div>
   );

@@ -192,7 +192,7 @@ class Numerology extends React.Component {
                                     <Col md="12">
                                         <div className="leftcont text-left">
                                             <h1>Numerology </h1>
-                                            <h3>Get instant & accurate, Numerology</h3>
+                                            {/* <h3>Get instant & accurate, Numerology</h3> */}
                                         </div>
                                     </Col>
                                 </Row>
@@ -204,11 +204,12 @@ class Numerology extends React.Component {
                             <Col md="12">
                                 <Card className="mb-50 pt-d">
                                     <h3>
-                                        Numerology Online - Get Your Detailed Birth Chart with
-                                        Predictions
+                                        Numerology
                                     </h3>
                                     <p>
-                                        Numerology is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Numerology. Written in ancient Urdu language, first time in the history of astrology, Numerology introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
+                                        Under numerology assigns symbolic meanings to numbers and their combinations. It is
+                                        based on the idea that each number has a unique vibration that can influence a person's
+                                        life, personality, and destiny. Numerologists use a person's birth date, name, or other numerical values associated with them to calculate and interpret their life number and number of destiny and other significant numbers. They then use this information to provide insights into a person's character traits, strengths, weaknesses, and potential life path. Numerology is often used in conjunction with other practices, such as astrology and tarot.
                                     </p>
 
                                     <div className="match-bx">
@@ -348,7 +349,7 @@ class Numerology extends React.Component {
                                     <Col md="12">
                                         <div className="leftcont text-left">
                                             <h1>Numerology </h1>
-                                            <h3>Get instant & accurate, Numerology</h3>
+                                            {/* <h3>Get instant & accurate, Numerology</h3> */}
                                         </div>
                                     </Col>
                                 </Row>
@@ -360,11 +361,14 @@ class Numerology extends React.Component {
                             <Col md="12">
                                 <Card className="mb-50 pt-d">
                                     <h3>
-                                        Numerology Online - Get Your Detailed Birth Chart with
-                                        Predictions
+                                        Numerology
                                     </h3>
                                     <p>
-                                        Numerology is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Numerology. Written in ancient Urdu language, first time in the history of astrology, Numerology introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
+                                        <p>
+                                            Under numerology assigns symbolic meanings to numbers and their combinations. It is
+                                            based on the idea that each number has a unique vibration that can influence a person's
+                                            life, personality, and destiny. Numerologists use a person's birth date, name, or other numerical values associated with them to calculate and interpret their life number and number of destiny and other significant numbers. They then use this information to provide insights into a person's character traits, strengths, weaknesses, and potential life path. Numerology is often used in conjunction with other practices, such as astrology and tarot.
+                                        </p>
                                     </p>
 
                                     <div className="match-bx">

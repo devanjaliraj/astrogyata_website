@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import swal from "sweetalert";
 import Stepper from "bs-stepper";
 import axiosConfig from "../../axiosConfig";
@@ -6,6 +6,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bs-stepper/dist/css/bs-stepper.min.css";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import { Container, Row, Col, Input, Form, Button, Label } from "reactstrap";
+import { Select } from "@mui/material";
+import Avilitiy from "./astrologerpages/Avilitiy";
+// import Avilitiy from "./astrologerpages/Avilitiy";
 class AstrologerSignup extends React.Component {
   constructor() {
     super();
@@ -106,13 +109,13 @@ class AstrologerSignup extends React.Component {
     console.log("@@@@@");
     let obj = {
       min_amount: this.state.min_amount,
-      Sunday: this.state.Sunday,
-      Monday: this.state.Monday,
-      Tuesday: this.state.Tuesday,
-      Wednesday: this.state.Wednesday,
-      Thursday: this.state.Thursday,
-      Friday: this.state.Friday,
-      Saturday: this.state.Saturday,
+      sunday: this.state.sunday,
+      monday: this.state.monday,
+      tuesday: this.state.tuesday,
+      wednesday: this.state.wednesday,
+      thursday: this.state.thursday,
+      friday: this.state.friday,
+      saturday: this.state.saturday,
       max_amount: this.state.max_amount,
       fullname: this.state.fullname,
       email: this.state.email,
@@ -181,13 +184,13 @@ class AstrologerSignup extends React.Component {
     data.append("long_bio", this.state.long_bio);
     data.append("status", this.state.status);
     data.append("callCharge", this.state.callCharge);
-    data.append("Sunday", this.state.Sunday);
-    data.append("Monday", this.state.Monday);
-    data.append("Tuesday", this.state.Tuesday);
-    data.append("Wednesday", this.state.Wednesday);
-    data.append("Thursday", this.state.Thursday);
-    data.append("Friday", this.state.Friday);
-    data.append("Saturday", this.state.Saturday);
+    data.append("sunday", this.state.sunday);
+    data.append("monday", this.state.monday);
+    data.append("tuesday", this.state.tuesday);
+    data.append("wednesday", this.state.wednesday);
+    data.append("thursday", this.state.thursday);
+    data.append("friday", this.state.friday);
+    data.append("saturday", this.state.saturday);
     if (this.state.selectedFile !== null) {
       data.append("img", this.state.selectedFile, this.state.selectedName);
     }
@@ -261,6 +264,27 @@ class AstrologerSignup extends React.Component {
   };
 
   render() {
+    // const [inputList, setInputList] = useState([{ firstName: "", lastName: "" }]);
+
+    // // handle input change
+    // const handleInputChange = (e, index) => {
+    //   const { name, value } = e.target;
+    //   const list = [...inputList];
+    //   list[index][name] = value;
+    //   setInputList(list);
+    // };
+
+    // // handle click event of the Remove button
+    // const handleRemoveClick = index => {
+    //   const list = [...inputList];
+    //   list.splice(index, 1);
+    //   setInputList(list);
+    // };
+
+    // // handle click event of the Add button
+    // const handleAddClick = () => {
+    //   setInputList([...inputList, { firstName: "", lastName: "" }]);
+    // };
     return (
       <section
         className=""
@@ -304,6 +328,13 @@ class AstrologerSignup extends React.Component {
                     <button className="step-trigger">
                       <span className="bs-stepper-circle">4</span>
                       <span className="bs-stepper-label">Other Details</span>
+                    </button>
+                  </div>
+                  <div className="line"></div>
+                  <div className="step" data-target="#test-l-4">
+                    <button className="step-trigger">
+                      <span className="bs-stepper-circle">5</span>
+                      <span className="bs-stepper-label">Availability </span>
                     </button>
                   </div>
                 </div>
@@ -458,18 +489,34 @@ class AstrologerSignup extends React.Component {
                             />
                           </div>
                         </Col>
-                        {/* <Col md="6">
+                        {/* <h5>Availability</h5>
+                        <Col md="3">
                           <div className="form-group mtb-10">
-                            <Label>Availability</Label>
+                            <Label>Day</Label>
                             <Input
-                              placeholder="Availability Time"
-                              name="availability"
+                              placeholder="Availability Day"
+                              name="day"
                               type="text"
                               value={this.state.availability}
                               onChange={this.changeHandler}
                             />
                           </div>
+
+                        </Col>
+                        <Col md="3">
+                          <div class="form-group mtb-10">
+                            <Label>Time</Label>
+                            <Select
+                              isMulti
+                              name="time"
+                              required
+                              // className="basic-multi-select"
+                              classNamePrefix="select"
+                              onChange={this.changeHandler}
+                            />
+                          </div>
                         </Col> */}
+
                         <Col md="6">
                           <div className="form-group mtb-10">
                             <Label>Maximum Amount*</Label>
@@ -796,6 +843,42 @@ class AstrologerSignup extends React.Component {
                         support team at onboarding@Astrogyata.com in case of any
                         issues or queries.
                       </p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => this.stepper.next()}
+                      >
+                        Next
+                      </button>
+                    </div>
+                    <div id="test-l-4" className="content">
+                      {/* <div>
+                        {inputList.map((x, i) => {
+                          return (
+                            <div className="box">
+                              <input
+                                name="firstName"
+                                placeholder="Enter First Name"
+                                value={x.firstName}
+                                onChange={e => handleInputChange(e, i)}
+                              />
+                              <input
+                                className="ml10"
+                                name="lastName"
+                                placeholder="Enter Last Name"
+                                value={x.lastName}
+                                onChange={e => handleInputChange(e, i)}
+                              />
+                              <div className="btn-box">
+                                {inputList.length !== 1 && <button
+                                  className="mr10"
+                                  onClick={() => handleRemoveClick(i)}>Remove</button>}
+                                {inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div> */}
+                      <Avilitiy />
                       <Button type="submit" className="btn btn-primary mt-5">
                         Submit
                       </Button>

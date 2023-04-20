@@ -536,31 +536,13 @@ class KundaliForm extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    Free Match Making - Boy and Girl is missing/or provide gender Drop Down
+                    Free Match Making
                   </h3>
                   <p>
-                    Kundali Match Making is an important consideration to get
-                    married. Under Kundli Match (Kundali/ Gunas Milan) Making with
-                    the help of comparing birth charts of individuals find
-                    compatibility for the purpose of marriage. This involves
-                    analyzing the positions of the stars and planets at the time
-                    of birth and comparing them between two individuals to see how
-                    well their astrological profiles match by looking for specific
-                    astrological compatibility factors, such as mutual planetary
-                    aspects, the presence of beneficial yogas, and compatibility
-                    in various life areas, such as wealth, health, and children.
+                    Kundali Match Making is an important consideration to get married. Under Kundli Match (Kundali/ Gunas Milan) Making with the help of comparing birth charts of individuals find compatibility for the purpose of marriage. This involves analyzing the positions of the stars and planets at the time of birth and comparing them between two individuals to see how well their astrological profiles match by looking for specific astrological compatibility factors, such as mutual planetary aspects, the presence of beneficial yogas, and compatibility in various life areas, such as wealth, health, and children.
                   </p>
                   <p>
-                    You are planning to get married, and need help in Kundali
-                    Match Making, then you are at right place, we can match the
-                    Kundali for you. The Kundali Match Making software developed
-                    by us in consultation of top astrologers. Kundali Match Making
-                    gives you insights; such as the number of guns matching for
-                    the girl and the boy, what they are compatible in, what their
-                    future would be like if they get married, and so much more.
-                    Online software can save you time and get the accurate result
-                    without consulting any astrologer. Further, for detail
-                    consultation or any doubt, you may connect our astrologer.
+                    You are planning to get married, and need help in Kundali Match Making, then you are at right place, we can match the Kundali for you. The Kundali Match Making software developed by us in consultation of top astrologers. Kundali Match Making gives you insights; such as the number of guns matching for the girl and the boy, what they are compatible in, what their future would be like if they get married, and so much more. Online software can save you time and get the accurate result without consulting any astrologer. Further, for detail consultation or any doubt, you may connect our astrologer.
                   </p>
                   <div className="match-bx">
                     <form onSubmit={this.submitHandler}>
@@ -571,7 +553,7 @@ class KundaliForm extends React.Component {
                             <Col md="6">
                               <div className="form-m">
                                 <Row>
-                                  <Col md="12">
+                                  <Col md="6">
                                     <label>Name</label>
                                     <input
                                       type="text"
@@ -579,7 +561,7 @@ class KundaliForm extends React.Component {
                                       placeholder="Name"
                                     />
                                   </Col>
-                                  <Col md="12">
+                                  <Col md="6">
                                     <label>Gender</label>
                                     <select
                                       type="select"
@@ -602,7 +584,7 @@ class KundaliForm extends React.Component {
                                       value={this.state.m_day}
                                       onChange={this.changeHandler}
                                     >
-                                      <option>1</option>
+
                                       {/* <option>0</option> */}
                                       <option>1</option>
                                       <option>2</option>
@@ -806,7 +788,7 @@ class KundaliForm extends React.Component {
                                       value={this.state.m_min}
                                       onChange={this.changeHandler}
                                     >
-                                      <option>1</option>
+                                      <option>0</option>
                                       <option>1</option>
                                       <option>2</option>
                                       <option>3</option>

@@ -171,6 +171,20 @@ class PitraDosh extends React.Component {
   };
 
   render() {
+    const customStyles = {
+      option: (provided, state) => ({
+        ...provided,
+      }),
+      control: (provided) => ({
+        ...provided,
+
+        width: "100%",
+
+        height: "40px",
+
+        minHeight: "40px",
+      }),
+    };
     const { PitraDosh } = this.state;
     console.log("Respose", PitraDosh)
 
@@ -205,7 +219,7 @@ class PitraDosh extends React.Component {
                   <Col md="12">
                     <div className="leftcont text-left">
                       <h1>PITRA DOSH</h1>
-                      <h3>Get instant & accurate, Janam Kundli</h3>
+                      {/* <h3>Get instant & accurate, Janam Kundli</h3> */}
                     </div>
                   </Col>
                 </Row>
@@ -217,33 +231,17 @@ class PitraDosh extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    PITRA DOSH Online - Get Your Detailed Birth Chart with
-                    Predictions
+                    PITRA DOSH
                   </h3>
                   <p>
-                    Looking for your free Kundli from expert astrologers? Then you
-                    have come to the right place. The online free kundali
-                    available on AstroGyata is a 100% free and authentic free
-                    Kundli that has been prepared after consulting more than 50
-                    expert astrologers on board. The free kundli is such that it
-                    can give you a glimpse into various aspects of your life such
-                    as your career, love life, marriage, business and much more.
-                    The online kundli prepared by the free Kundali software here
-                    is no less than any traditional Kundli and can also be used
-                    for purposes like matching making, kundali matching for
-                    marriage or simply making future predictions.
+                    Pitra Dosh is a term used in Vedic astrology to describe a specific astrological condition that is
+                    believed to affect an individual's life due to the ancestors' sins. It is believed that if the ancestors'sins have not been resolved, it may result in Pitra Dosh in the individual's birth chart, which can cause negative effects in various aspects of life.
+
                   </p>
                   <p>
-                    Talking about future predictions, the kundali catered by
-                    AstroGyata to you is such that it considers the movement of all
-                    the planets in the native's life from the beginning of his or
-                    her life till as far as 100 years. Doing so helps you
-                    understand the reasons behind not only the ongoing
-                    circumstances but also what's to come for you in the future.
-                    So if in any way you are confused about life, the online
-                    kundli can be your saviour. Having said that, make sure you
-                    try the fre online kunldi, and let us know what you feel about
-                    it.
+                    According to Vedic astrology, Pitra Dosh is caused by the position of the Sun, Moon, and Mars in
+                    specific houses of an individual's birth chart. It is believed that the presence of this condition may
+                    cause problems in financial matters, health issues, delays in marriage, and difficulties in having children.
                   </p>
                   <h3>PITRA DOSH</h3>
                   <div className="match-bx bg-white">
@@ -324,7 +322,7 @@ class PitraDosh extends React.Component {
                   <Col md="12">
                     <div className="leftcont text-left">
                       <h1>PITRA DOSH</h1>
-                      <h3>Get instant & accurate, Janam Kundli</h3>
+                      {/* <h3>Get instant & accurate, Janam Kundli</h3> */}
                     </div>
                   </Col>
                 </Row>
@@ -336,33 +334,17 @@ class PitraDosh extends React.Component {
               <Col md="12">
                 <Card className="mb-50 pt-d">
                   <h3>
-                    PITRA DOSH Online - Get Your Detailed Birth Chart with
-                    Predictions
+                    PITRA DOSH
                   </h3>
                   <p>
-                    Looking for your free Kundli from expert astrologers? Then you
-                    have come to the right place. The online free kundali
-                    available on AstroGyata is a 100% free and authentic free
-                    Kundli that has been prepared after consulting more than 50
-                    expert astrologers on board. The free kundli is such that it
-                    can give you a glimpse into various aspects of your life such
-                    as your career, love life, marriage, business and much more.
-                    The online kundli prepared by the free Kundali software here
-                    is no less than any traditional Kundli and can also be used
-                    for purposes like matching making, kundali matching for
-                    marriage or simply making future predictions.
+                    Pitra Dosh is a term used in Vedic astrology to describe a specific astrological condition that is
+                    believed to affect an individual's life due to the ancestors' sins. It is believed that if the ancestors'sins have not been resolved, it may result in Pitra Dosh in the individual's birth chart, which can cause negative effects in various aspects of life.
+
                   </p>
                   <p>
-                    Talking about future predictions, the kundali catered by
-                    AstroGyata to you is such that it considers the movement of all
-                    the planets in the native's life from the beginning of his or
-                    her life till as far as 100 years. Doing so helps you
-                    understand the reasons behind not only the ongoing
-                    circumstances but also what's to come for you in the future.
-                    So if in any way you are confused about life, the online
-                    kundli can be your saviour. Having said that, make sure you
-                    try the fre online kunldi, and let us know what you feel about
-                    it.
+                    According to Vedic astrology, Pitra Dosh is caused by the position of the Sun, Moon, and Mars in
+                    specific houses of an individual's birth chart. It is believed that the presence of this condition may
+                    cause problems in financial matters, health issues, delays in marriage, and difficulties in having children.
                   </p>
                   <div className="match-bx">
                     <Row>
@@ -652,6 +634,7 @@ class PitraDosh extends React.Component {
                               <Col md="4">
                                 <label>Country</label>
                                 <Select
+                                  styles={customStyles}
                                   options={Country.getAllCountries()}
                                   getOptionLabel={options => {
                                     return options["name"];
@@ -670,6 +653,7 @@ class PitraDosh extends React.Component {
                               <Col md="4">
                                 <label>State</label>
                                 <Select
+                                  styles={customStyles}
                                   options={State?.getStatesOfCountry(
                                     this.state.selectedCountry?.isoCode
                                   )}
@@ -690,6 +674,7 @@ class PitraDosh extends React.Component {
                               <Col md="4">
                                 <label>City</label>
                                 <Select
+                                  styles={customStyles}
                                   options={City.getCitiesOfState(
                                     this.state.selectedState?.countryCode,
                                     this.state.selectedState?.isoCode
