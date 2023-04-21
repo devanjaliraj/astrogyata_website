@@ -211,8 +211,8 @@ class AstrologerDetail extends React.Component {
                           </Link>
                         </Col>
                         <Col md="3" className="mt-30">
-                          {/* <Link to="/VideoCall"> */}
-                          <Link to="/UserRequestFormVideoCall">
+                          <Link to="/VideoCall">
+                            {/* <Link to="/UserRequestFormVideoCall"> */}
                             <Button className="btn-as st" onClick={this.toggle}>
                               <i
                                 class="fa fa-video-camera"

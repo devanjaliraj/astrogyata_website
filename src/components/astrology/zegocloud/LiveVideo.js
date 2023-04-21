@@ -58,11 +58,11 @@ export default function LiveVideo() {
       "&role=Audience",
   });
   // generate Kit Token
-  const appID = 117315587;
+  const appID = 1011009319;
   const response = getUserID();
   // const response1 = getUser1ID();
 
-  const serverSecret = "7d73c3ebbc300b3863c13e2711a69195";
+  const serverSecret = "0b7c5477f07346c1a906c99d3f171f2e";
   const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
     appID,
     serverSecret,

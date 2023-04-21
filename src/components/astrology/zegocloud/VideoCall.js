@@ -27,33 +27,33 @@ export default function App() {
   const roomID = getUrlParams().get('roomID') || randomID(5);
   let myMeeting = async (element: HTMLDivElement) => {
 
- // generate Kit Token
- const appID = 117315587;
- const response =  getUserID();
- const serverSecret = "7d73c3ebbc300b3863c13e2711a69195";
-//  console.log(window.location.pathname)
- const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  randomID(5), response);
+    // generate Kit Token
+    const appID = 1011009319;
+    const response = getUserID();
+    const serverSecret = "0b7c5477f07346c1a906c99d3f171f2e";
+    //  console.log(window.location.pathname)
+    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, randomID(5), response);
 
- // Create instance object from Kit Token.
- const zp = ZegoUIKitPrebuilt.create(kitToken);
- // start the call
- zp.joinRoom({
-        container: element,
-        sharedLinks: [
-          {
-            name: 'Personal link',
-            url:
-             window.location.protocol + '//' + 
-             window.location.host +  '/#/VideoCall' + window.location.pathname +
-              '?roomID=' +
-              roomID,
-          },
-          
-        ],
-        scenario: {
-         mode: ZegoUIKitPrebuilt.VideoConference,
+    // Create instance object from Kit Token.
+    const zp = ZegoUIKitPrebuilt.create(kitToken);
+    // start the call
+    zp.joinRoom({
+      container: element,
+      sharedLinks: [
+        {
+          name: 'Personal link',
+          url:
+            window.location.protocol + '//' +
+            window.location.host + '/#/VideoCall' + window.location.pathname +
+            '?roomID=' +
+            roomID,
         },
-   });
+
+      ],
+      scenario: {
+        mode: ZegoUIKitPrebuilt.VideoConference,
+      },
+    });
   };
 
   return (
