@@ -75,7 +75,7 @@ class KundaliForm extends React.Component {
     this.setState({ selectedCountryM: itemM });
 
     axiosConfig
-      .post(`http://13.234.48.35:8000/user/time_zone`, {
+      .post(`/user/time_zone`, {
         country_codeM: itemM?.timezonems[0].zoneNameM,
       })
       .then(response => {
@@ -93,7 +93,7 @@ class KundaliForm extends React.Component {
     });
 
     axiosConfig
-      .post(`http://13.234.48.35:8000/user/geo_detail`, {
+      .post(`/user/geo_detail`, {
         place: itemM?.name,
       })
       .then(response => {
@@ -163,7 +163,7 @@ class KundaliForm extends React.Component {
     this.setState({ selectedCountryF: itemF });
 
     axiosConfig
-      .post(`http://13.234.48.35:8000/user/time_zone`, {
+      .post(`/user/time_zone`, {
         country_codeF: itemF?.timezonefs[0].zoneNameF,
       })
       .then(response => {
@@ -180,7 +180,7 @@ class KundaliForm extends React.Component {
     });
 
     axiosConfig
-      .post(`http://13.234.48.35:8000/user/geo_detail`, {
+      .post(`/user/geo_detail`, {
         place: itemF?.name,
       })
       .then(response => {

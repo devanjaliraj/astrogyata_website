@@ -9,6 +9,8 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
+import axiosConfig from "../../axiosConfig";
+
 export default class LoginRegister extends Component {
   constructor(props) {
     super(props);
@@ -39,8 +41,8 @@ export default class LoginRegister extends Component {
   otpHandler = e => {
     e.preventDefault();
     console.log("dddddhh", this.state);
-    axios
-      .post(`http://13.234.48.35:8000/user/userVryfyotp`, {
+    axiosConfig
+      .post(`/user/userVryfyotp`, {
         mobile: parseInt(this.state.mobile),
         otp: parseInt(this.state.otp),
       })
@@ -69,8 +71,8 @@ export default class LoginRegister extends Component {
     e.preventDefault();
     if (this.state.mobile !== "") {
       let obj = { mobile: parseInt(this.state.mobile) };
-      axios
-        .post(`http://13.234.48.35:8000/user/userlogin`, obj)
+      axiosConfig
+        .post(`/user/userlogin`, obj)
         .then(response => {
           console.log("@@@####", response.data);
           this.setState({ otpMsg: response.data.msg });
@@ -116,8 +118,8 @@ export default class LoginRegister extends Component {
       console.log(key);
     }
     // this.setState({ otp: false });
-    axios
-      .post(`http://13.234.48.35:8000/user/usersignup`, data)
+    axiosConfig
+      .post(`/user/usersignup`, data)
       .then(response => {
         console.log(response.data.msg);
         localStorage.setItem("auth-token", response.data.token);

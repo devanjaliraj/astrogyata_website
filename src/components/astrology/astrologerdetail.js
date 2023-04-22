@@ -246,10 +246,190 @@ class AstrologerDetail extends React.Component {
                   </Row>
                   <div>
                     <AstroProfileVideo />
+
                   </div>
+                  <div className="text-center">
+                    <h3>About Information</h3>
+                  </div>
+                  <div className="product-anotherinfo-wrapper">
+                    <h5>{this.state.long_bio}</h5>
+                  </div>
+
                 </section>
                 <section className="mt-50 mb-30">
-                  <div className="description-review-wrapper">
+                  <div className="description-review-wrapper text-center">
+                    <div className="text-left">
+                      <h3>Reviews</h3>
+                    </div>
+                    <div className="description-review-wrapper">
+                      <h3>RATINGS <i class="fa fa-star"></i></h3>
+                    </div>
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <div className="row">
+                          <div className="col-md-4">
+                            <p></p>
+                          </div>
+                          <div className="col-md-6">
+                            <LinearProgress
+                              className="m-1 mb-3 "
+                              style={{ color: "#14958f" }}
+                              variant="determinate"
+                              value={70}
+                            />
+                            <LinearProgress
+                              className="m-1 mb-3 "
+                              style={{ color: "#ff" }}
+                              variant="determinate"
+                              value={30}
+                            />
+                            <LinearProgress
+                              className="m-1 mb-3 "
+                              style={{ color: "#14958f" }}
+                              variant="determinate"
+                              value={30}
+                            />
+                            <LinearProgress
+                              className="m-1 mb-3 "
+                              style={{ color: "#14958f" }}
+                              variant="determinate"
+                              value={30}
+                            />
+                            <LinearProgress
+                              className="m-1 mb-3 "
+                              style={{ color: "#14958f" }}
+                              variant="determinate"
+                              value={10}
+                            />
+                          </div>
+                        </div>
+                        <hr />
+                        <div className="review-wrapper">
+                          <div className="single-review">
+                            *{" "}
+                            <div className="review-img">
+                              <img
+                                src={
+                                  process.env.PUBLIC_URL +
+                                  "/assets/img/testimonial/1.jpg"
+                                }
+                                alt=""
+                              />
+                            </div>
+                            <div className="review-content">
+                              <div className="review-top-wrap">
+                                <div className="review-left">
+                                  <div className="review-name">
+                                    <h4
+                                      style={{
+                                        textTransform: "capitalize",
+                                        margin: 5,
+                                      }}
+                                    >
+                                      lorem ipsum
+                                    </h4>
+                                  </div>
+                                  <div className="review-rating">
+                                    <i className="fa fa-star" />
+                                    <i className="fa fa-star" />
+                                    <i className="fa fa-star" />
+                                    <i className="fa fa-star" />
+                                    <i className="fa fa-star" />
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="review-bottom">
+                                <p
+                                  style={{
+                                    display: "inline",
+                                    textTransform: "capitalize",
+                                  }}
+                                >
+                                  Vestibulum ante ipsum primis aucibus
+                                  orci luctustrices posuere cubilia Curae
+                                  Suspendisse viverra ed viverra. Mauris
+                                  ullarper euismod vehicula. Phasellus
+                                  quam nisi, congue id nulla.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* avai */}
+                      <div className="col-md-6">
+                        <div className="avai-box text-center">
+                          <h3>Availability</h3>
+                          <div className="tab-bxx p-1">
+                            <Tab.Container defaultActiveKey="">
+                              <Nav variant="pills" className="rt_tab">
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_one">
+                                    Monday
+                                  </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_two">
+                                    Tuesday
+                                  </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_three">
+                                    Wednesday
+                                  </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_four">
+                                    Thursday
+                                  </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_five">
+                                    Friday
+                                  </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_six">
+                                    Saturday
+
+                                  </Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item className="rt_tab">
+                                  <Nav.Link eventKey="tab_six">
+                                    Sunday
+                                  </Nav.Link>
+                                </Nav.Item>
+                              </Nav>
+                              <Tab.Content className="description-review-bottom">
+                                <Tab.Pane eventKey="tab_one">
+                                  {this.state.monday}
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="tab_two">
+                                  {this.state.tuesday}
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="tab_three">
+                                  {this.state.wednesday}
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="tab_four">
+                                  {this.state.thursday}
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="tab_five">
+                                  {this.state.friday}
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="tab_six">
+                                  {this.state.saturday}
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="tab_six">
+                                  {this.state.sunday}
+                                </Tab.Pane>
+                              </Tab.Content>
+                            </Tab.Container>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
                     <Tab.Container defaultActiveKey="productDescription">
                       <Nav
                         variant="pills"
@@ -533,7 +713,11 @@ class AstrologerDetail extends React.Component {
 export default AstrologerDetail;
 export function getUserID() {
   const name = JSON.parse(localStorage.getItem("userData"));
+
+  console.log("first", name)
+
   const names = name.fullname;
+  console.log("first", names)
   return names;
 }
 

@@ -92,3 +92,33 @@ export default function AstroProfileVideo() {
         </Slider>
     );
 }
+
+
+// import React from "react";
+// import ImageGallery from 'react-image-gallery';
+// import "react-image-gallery/styles/scss/image-gallery.scss";
+
+// class AstroProfileVideo extends React.Component {
+//     render() {
+
+//         const images = [
+//             {
+//                 original: 'https://www.youtube.com/watch?v=w30S6J25ZYo&list=RDw30S6J25ZYo&start_radio=1',
+//                 thumbnail: 'https://i.redd.it/ox5jy15956r51.jpg',
+//             },
+//             {
+//                 original: 'https://i.redd.it/ox5jy15956r51.jpg',
+//                 thumbnail: 'https://www.youtube.com/watch?v=w30S6J25ZYo&list=RDw30S6J25ZYo&start_radio=1'
+//             },
+//             {
+//                 original: 'https://i.redd.it/ox5jy15956r51.jpg',
+//                 thumbnail: 'https://i.redd.it/ox5jy15956r51.jpg'
+//             }
+//         ]
+
+//         return (
+//             <ImageGallery items={images} />
+//         );
+//     }
+
+// } export default AstroProfileVideo;

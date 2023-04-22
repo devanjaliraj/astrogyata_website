@@ -4,12 +4,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { multilanguage } from "redux-multilanguage";
+import axiosConfig from "../../axiosConfig";
 
 const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
   const [setCategoryList] = useState([]);
 
   const getCategory = () => {
-    Axios.get(`http://13.234.48.35:8000/admin/getallCategory`)
+    axiosConfig.get(`/admin/getallCategory`)
       .then((response) => {
         console.log("5555555", response.data.data);
         setCategoryList(response.data.data);

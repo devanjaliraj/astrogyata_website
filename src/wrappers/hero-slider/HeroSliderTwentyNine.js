@@ -64,7 +64,7 @@ export default HeroSliderTwentyNine;
 //   const [banner, setBanner] = useState([])
 //   useEffect(() => {
 //     axios
-//       .get("http://13.234.48.35:8000/admin/getbanner")
+//       .get("/admin/getbanner")
 //       .then((response) => {
 //         console.log(response.data.data);
 //         setBanner(response.data.data);

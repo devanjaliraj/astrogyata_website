@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Input, InputGroup, Form, Button } from "reactstrap";
 import LayoutOne from "../../../layouts/LayoutOne";
 import "../../../assets/scss/astroteam.scss";
-import axios from "axios";
+import axiosConfig from "../../../axiosConfig";
 import swal from "sweetalert";
 
 
@@ -64,7 +64,7 @@ class OtpVerify extends React.Component {
     //     status: this.state.status,
     //   };
 
-    axios.post("http://13.234.48.35:8000/user/verifyotp", this.state)
+    axiosConfig.post("/user/verifyotp", this.state)
 
       .then(res => {
         console.log(res);

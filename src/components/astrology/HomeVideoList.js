@@ -3,8 +3,8 @@ import Swiper from "react-id-swiper";
 import { Col, Container, Row } from "reactstrap";
 import ReactPlayer from "react-player";
 import textbottom from "../../assets/img/textbottom.png";
-import { render } from "react-dom";
-import axios from "axios"
+
+import axiosConfig from "../../axiosConfig";
 
 class HomeVideoList extends React.Component {
     // constructor(props) {
@@ -14,8 +14,8 @@ class HomeVideoList extends React.Component {
     };
 
     componentDidMount() {
-        axios
-            .get(`http://13.234.48.35:8000/admin/video_list`)
+        axiosConfig
+            .get(`/admin/video_list`)
             .then((res) => {
                 console.log(res);
                 this.setState({ productList: res.data.data });
@@ -62,7 +62,7 @@ class HomeVideoList extends React.Component {
         // const [data, setData] = useState([]);
         // useEffect(() => {
         //     async function fetchData() {
-        //         const response = await fetch('http://13.234.48.35:8000/admin/video_list');
+        //         const response = await fetch('/admin/video_list');
         //         const json = await response.json();
         //         setData(json);
         //     }

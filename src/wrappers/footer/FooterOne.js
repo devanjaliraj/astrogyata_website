@@ -5,7 +5,7 @@ import { animateScroll } from "react-scroll";
 import FooterCopyright from "../../components/footer/FooterCopyright";
 import FooterNewsletter from "../../components/footer/FooterNewsletter";
 import logoastro from "../../assets/img/logoastro.png";
-import Axios from "axios";
+import axiosConfig from "../../axiosConfig";
 
 const FooterOne = ({
   backgroundColorClass,
@@ -21,7 +21,7 @@ const FooterOne = ({
   const [top, setTop] = useState(0);
   const [setCategoryList] = useState([]);
   const getCategory = () => {
-    Axios.get(`http://13.234.48.35:8000/admin/getallCategory`)
+    axiosConfig.get(`/admin/getallCategory`)
       .then(response => {
         console.log("5555555", response.data.data);
         setCategoryList(response.data.data);

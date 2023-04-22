@@ -4,7 +4,8 @@ import { Container, Row, Col, Input, InputGroup, Form, Button } from "reactstrap
 import LayoutOne from "../../../layouts/LayoutOne";
 import "../../../assets/scss/astroteam.scss";
 import swal from "sweetalert";
-import axios from "axios";
+
+import axiosConfig from "../../../axiosConfig";
 
 class RegisterAstro extends React.Component {
 
@@ -35,8 +36,8 @@ class RegisterAstro extends React.Component {
   submitHandler = (e) => {
     e.preventDefault();
     // this.setState({ otp: false });
-    axios
-      .post("http://13.234.48.35:8000/user/signup", this.state)
+    axiosConfig
+      .post("/user/signup", this.state)
       .then((response) => {
         console.log(response);
         localStorage.setItem("auth-token", response.data.token);

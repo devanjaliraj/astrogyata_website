@@ -166,9 +166,7 @@ const FreeKundli = lazy(() =>
 const PitraDosh = lazy(() => import("./components/astrology/PitraDosh"));
 const KalsharpDosh = lazy(() => import("./components/astrology/KalsharpDosh"));
 const ManglikDosh = lazy(() => import("./components/astrology/ManglikDosh"));
-const ManglikDoshDetail = lazy(() => import("./components/astrology/ManglikDoshDetail"));
-const KalsharpDoshDetail = lazy(() => import("./components/astrology/KalsharpDoshDetail"));
-const PitraDoshDetail = lazy(() => import("./components/astrology/PitraDoshDetail"));
+
 
 const bannerSection = lazy(() =>
   import("./components/astrology/bannerSection")
@@ -631,18 +629,7 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/manglikdosh"}
                     component={ManglikDosh}
                   />
-                  <Route
-                    path={process.env.PUBLIC_URL + "/manglikDoshDetail"}
-                    component={ManglikDoshDetail}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + "/kalsharpDoshDetail"}
-                    component={KalsharpDoshDetail}
-                  />
-                  <Route
-                    path={process.env.PUBLIC_URL + "/pitraDoshDetail"}
-                    component={PitraDoshDetail}
-                  />
+
                   <Route
                     path={process.env.PUBLIC_URL + "/kalsharpdosh"}
                     component={KalsharpDosh}

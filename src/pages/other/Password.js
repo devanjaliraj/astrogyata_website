@@ -2,7 +2,7 @@ import React, { Fragment, Component } from "react";
 import MetaTags from "react-meta-tags";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
-import axios from "axios";
+import axiosConfig from "../../axiosConfig";
 import LayoutOne from "../../layouts/LayoutOne";
 import { Input, Form } from "reactstrap";
 import swal from "sweetalert";
@@ -23,9 +23,9 @@ export default class Password extends Component {
     e.preventDefault();
     console.log("dddddhh", this.state);
 
-    axios
+    axiosConfig
       .post(
-        `http://13.234.48.35:8000/user/loginWithPassword`,
+        `/user/loginWithPassword`,
 
         {
           mobile: parseInt(this.state.mobile),

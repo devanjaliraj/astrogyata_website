@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import MetaTags from "react-meta-tags";
 import OtpInput from "react-otp-input";
-import axios from "axios";
+import axiosConfig from "../../axiosConfig";
 // import { Link } from "react-router-dom";
 // import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Tab from "react-bootstrap/Tab";
@@ -66,8 +66,8 @@ export default class Verify_otp extends React.Component {
     //     status: this.state.status,
     //   };
 
-    axios
-      .post("http://13.234.48.35:8000/user/verifyotp", this.state)
+    axiosConfig
+      .post("/user/verifyotp", this.state)
 
       .then(res => {
         console.log(res);

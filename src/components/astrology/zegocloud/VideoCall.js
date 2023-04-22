@@ -32,7 +32,12 @@ export default function App() {
     const response = getUserID();
     const serverSecret = "0b7c5477f07346c1a906c99d3f171f2e";
     //  console.log(window.location.pathname)
-    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, randomID(5), response);
+    const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
+      appID,
+      serverSecret,
+      roomID,
+      randomID(5).toString(),
+      response);
 
     // Create instance object from Kit Token.
     const zp = ZegoUIKitPrebuilt.create(kitToken);
@@ -53,6 +58,7 @@ export default function App() {
       scenario: {
         mode: ZegoUIKitPrebuilt.VideoConference,
       },
+      showScreenSharingButton: false,
     });
   };
 

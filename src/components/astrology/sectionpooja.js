@@ -4,6 +4,7 @@ import { Container, Row, Col, Input, InputGroup, Form, Button } from "reactstrap
 import textbottom from "../../assets/img/textbottom.png";
 import astro2 from "../../assets/img/team/astro2.jpg";
 import axios from "axios"
+import axiosConfig from "../../axiosConfig";
 
 class SectionPooja extends React.Component {
     state = {
@@ -15,8 +16,8 @@ class SectionPooja extends React.Component {
 
 
 
-        axios
-            .get(`http://13.234.48.35:8000/admin/getProduct`)
+        axiosConfig
+            .get(`/admin/getProduct`)
             .then((res) => {
                 console.log(res);
                 this.setState({ productList: res.data.data });
