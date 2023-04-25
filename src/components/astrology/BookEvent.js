@@ -22,23 +22,7 @@ class BookEvent extends React.Component {
       address: "",
     };
   }
-  // componentDidMount() {
 
-  //     let userId = JSON.parse(localStorage.getItem('user_id'))
-
-  //     axiosConfig
-  //         .get(`/user/viewone_address/${userId}`)
-  //         .then((response) => {
-  //             //localStorage.setItem('shipping_id', response?.data?.data[0]?._id)
-  //             console.log('viewone_address', response.data.data)
-  //             this.setState({
-  //                 viewoneAddressData: response.data.data,
-  //             })
-  //         })
-  //         .catch((error) => {
-  //             console.log(error)
-  //         })
-  // }
   changeHandler1 = e => {
     this.setState({ status: e.target.value });
   };

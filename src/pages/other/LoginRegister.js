@@ -72,7 +72,7 @@ export default class LoginRegister extends Component {
     if (this.state.mobile !== "") {
       let obj = { mobile: parseInt(this.state.mobile) };
       axiosConfig
-        .post(`/user/userlogin`, obj)
+        .post(`http://43.205.241.133:4000/user/userlogin`, obj)
         .then(response => {
           console.log("@@@####", response.data);
           this.setState({ otpMsg: response.data.msg });
@@ -119,7 +119,7 @@ export default class LoginRegister extends Component {
     }
     // this.setState({ otp: false });
     axiosConfig
-      .post(`/user/usersignup`, data)
+      .post(`http://43.205.241.133:4000/user/usersignup`, data)
       .then(response => {
         console.log(response.data.msg);
         localStorage.setItem("auth-token", response.data.token);
@@ -312,7 +312,7 @@ export default class LoginRegister extends Component {
                                       className="form-controller"
                                     />
                                   </Col>
-                                  <Col md="6">
+                                  {/* <Col md="6">
                                     <Input
                                       type="time"
                                       name="dob"
@@ -329,12 +329,12 @@ export default class LoginRegister extends Component {
                                       name="dob"
                                       required
                                       placeholder="Place of birth "
-                                      // value={this.state.dob}
-                                      // onChange={this.changeHandler}
+                                      value={this.state.dob}
+                                      onChange={this.changeHandler}
                                       className="form-controller"
                                     />
-                                  </Col>
-                                  <Col md="6">
+                                  </Col> */}
+                                  {/* <Col md="6">
                                     <Input
                                       type="text"
                                       name="Country"
@@ -366,9 +366,9 @@ export default class LoginRegister extends Component {
                                       // onChange={this.changeHandler}
                                       className="form-controller"
                                     />
-                                  </Col>
-                                  <Col md="6">
-                                    {/* <label>Gender</label> */}
+                                  </Col> */}
+                                  {/* <Col md="6">
+                                 
                                     <select
                                       type="select"
                                       className="form-control"
@@ -379,7 +379,7 @@ export default class LoginRegister extends Component {
                                       <option value="Male">Male</option>
                                       <option value="Female">Female</option>
                                     </select>
-                                  </Col>
+                                  </Col> */}
 
                                 </Row>
                                 <div className="button-box">

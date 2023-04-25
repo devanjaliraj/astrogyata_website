@@ -248,14 +248,10 @@ class AstrologerDetail extends React.Component {
                     <AstroProfileVideo />
 
                   </div>
-                  <div className="text-center">
-                    <h3>About Information</h3>
-                  </div>
-                  <div className="product-anotherinfo-wrapper">
-                    <h5>{this.state.long_bio}</h5>
-                  </div>
+
 
                 </section>
+
                 <section className="mt-50 mb-30">
                   <div className="description-review-wrapper text-center">
                     <div className="text-left">

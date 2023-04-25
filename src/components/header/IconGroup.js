@@ -103,29 +103,9 @@ const IconGroup = ({
     <div
       className={`header-right-wrap ${iconWhiteClass ? iconWhiteClass : ""}`}
     >
-      {/* <div className="same-style header-search d-none d-lg-block">
-        <button className="search-active" onClick={(e) => handleClick(e)}>
-          <i className="pe-7s-search" />
-        </button>
-        <div className="search-content">
-          <form action="#">
-            <input type="text" placeholder="Search" />
-            <button className="button-search">
-              <i className="pe-7s-search" />
-            </button>
-          </form>
-        </div>
-      </div> */}
 
-      {/* <div className="dropdown">
-        <button className="dropbtn">Dropdown</button>
-        <div className="dropdown-content">
-          <a href="#home">Link1</a>
-          <a href="#home">Link2</a>
-          <a href="#home">Link3</a>
-          <a href="#home">Link4</a>
-        </div>
-      </div> */}
+
+
 
       <div className="dropdown">
         <button className="dropbtn">
@@ -230,7 +210,7 @@ const IconGroup = ({
                     //   //localStorage.removeItem("auth-token","userInfo")
                     // )}
                     onClick={e => handleLogout()}
-                    //}
+                  //}
                   >
                     Logout
                   </Link>

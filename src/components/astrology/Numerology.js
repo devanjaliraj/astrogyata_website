@@ -60,7 +60,7 @@ class Numerology extends React.Component {
         this.setState({ selectedCountry: item });
 
         axiosConfig
-            .post(`http://43.204.237.7:4000/user/time_zone`, {
+            .post(`http://43.205.241.133:4000/user/time_zone`, {
                 country_code: item?.timezones[0].zoneName,
             })
             .then(response => {
