@@ -1,6 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col, ModalHeader, ModalBody, Modal } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  ModalHeader,
+  ModalBody,
+  Modal,
+  FormGroup,
+  Input,
+  Label,
+} from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import "../../assets/scss/astroteam.scss";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -143,84 +153,94 @@ class AllAstrologerList extends React.Component {
                   </h3>
                   <form>
                     <ul>
-                      <li>
+                      {/* <li>
                         <span>
-                          <Form.Check
+                          <Form.Check type="radio" aria-label="radio 1" />
+                        </span>
+                        Popularity
+                      </li> */}
+                      <li>
+                        <FormGroup check>
+                          <Input
                             type="radio"
-                            aria-label="radio 1"
-                            name="exp_high_to_low"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("exp_high_to_low")
                             }
                           />
-                        </span>
-                        Experience : High to Low
+                          <Label check>Experience : High to Low</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
                             type="radio"
-                            aria-label="radio 2"
-                            name="exp_low_to_high"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("exp_low_to_high")
                             }
                           />
-                        </span>
-                        Experience : Low to High
+                          <Label check>Experience : Low to High</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 3"
-                            name="price_high_to_low"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("price_high_to_low")
                             }
                           />
-                        </span>
-                        Price : High to Low
+                          <Label check>Price : High to Low</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 4"
-                            name="price_low_to_high"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("price_low_to_high")
                             }
                           />
-                        </span>
-                        Price : Low to High
+                          <Label check>Price : Low to High</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 5"
-                            name="rating_high_to_low"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("rating_high_to_low")
                             }
                           />
-                        </span>
-                        Rating : High to Low
+                          <Label check>Rating : High to Low</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 6"
-                            name="rating_low_to_high"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("rating_low_to_high")
                             }
                           />
-                        </span>
-                        Rating : Low to High
+                          <Label check> Rating : Low to High</Label>
+                        </FormGroup>
                       </li>
+                      {/* <li>
+                        <span>
+                          <Form.Check type="radio" aria-label="radio 7" name="exp_low_to_high" onChange={() => this.filterMethod("exp_low_to_high")}/>
+                        </span>
+                        Rating : High to Low
+                      </li> */}
                     </ul>
                   </form>
                 </div>
@@ -229,80 +249,80 @@ class AllAstrologerList extends React.Component {
                 <Row>
                   {astrologerList.length
                     ? astrologerList.map((astrologer, index) => {
-                      return (
-                        <Col md="4" key={index}>
-                          <div className="image-flip">
-                            <div className="mainflip flip-0">
-                              <div className="frontside">
-                                <Link className="">
-                                  <div className="card">
-                                    <div className="card-body text-center">
-                                      <p>
-                                        <img src={astrologer?.img} alt="" />
-                                      </p>
-                                      <h4 className="card-title">
-                                        {astrologer?.fullname}
-                                      </h4>
-                                      <ul className="mb-3">
-                                        <li>
-                                          Experience:{" "}
-                                          <span>
-                                            {astrologer?.exp_in_years}
-                                          </span>
-                                        </li>
-                                        <li>
-                                          Call Rate:{" "}
-                                          <span>
-                                            {astrologer?.callCharge}/
-                                            {astrologer?.conrubute_hrs}
-                                          </span>
-                                        </li>
-                                      </ul>
-                                      {astrologer.waiting_queue === 0 ? (
-                                        <>
-                                          <Link
-                                            className="btn btn-primary btn-sm sc"
-                                            to={
-                                              "/astrologerdetail/" +
-                                              astrologer._id
-                                            }
-                                          >
-                                            <span
-                                              className="sr-btn"
-                                              onClick={e =>
-                                                this.submitHandler(
-                                                  e,
-                                                  astrologer?._id,
-                                                  astrologer?.mobile
-                                                )
+                        return (
+                          <Col md="4" key={index}>
+                            <div className="image-flip">
+                              <div className="mainflip flip-0">
+                                <div className="frontside">
+                                  <Link className="">
+                                    <div className="card">
+                                      <div className="card-body text-center">
+                                        <p>
+                                          <img src={astrologer?.img} alt="" />
+                                        </p>
+                                        <h4 className="card-title">
+                                          {astrologer?.fullname}
+                                        </h4>
+                                        <ul className="mb-3">
+                                          <li>
+                                            Experience:{" "}
+                                            <span>
+                                              {astrologer?.exp_in_years}
+                                            </span>
+                                          </li>
+                                          <li>
+                                            Call Rate:{" "}
+                                            <span>
+                                              {astrologer?.callCharge}/
+                                              {astrologer?.conrubute_hrs}
+                                            </span>
+                                          </li>
+                                        </ul>
+                                        {astrologer.waiting_queue === 0 ? (
+                                          <>
+                                            <Link
+                                              className="btn btn-primary btn-sm sc"
+                                              to={
+                                                "/astrologerdetail/" +
+                                                astrologer._id
                                               }
                                             >
-                                              <i class="fa fa-phone"> Call</i>
-                                            </span>
-                                          </Link>
-                                        </>
-                                      ) : (
-                                        <>
-                                          <button className="btn btn-denger wr">
-                                            <i class="fa fa-phone">Wait</i>
-                                          </button>
-                                        </>
-                                      )}
+                                              <span
+                                                className="sr-btn"
+                                                onClick={e =>
+                                                  this.submitHandler(
+                                                    e,
+                                                    astrologer?._id,
+                                                    astrologer?.mobile
+                                                  )
+                                                }
+                                              >
+                                                <i class="fa fa-phone"> Call</i>
+                                              </span>
+                                            </Link>
+                                          </>
+                                        ) : (
+                                          <>
+                                            <button className="btn btn-denger wr">
+                                              <i class="fa fa-phone">Wait</i>
+                                            </button>
+                                          </>
+                                        )}
 
-                                      <br />
-                                      <span value={this.state.waiting_queue}>
-                                        {" "}
-                                        Wait ~ {astrologer.waiting_queue}Min
-                                      </span>
+                                        <br />
+                                        <span value={this.state.waiting_queue}>
+                                          {" "}
+                                          Wait ~ {astrologer.waiting_queue}Min
+                                        </span>
+                                      </div>
                                     </div>
-                                  </div>
-                                </Link>
+                                  </Link>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </Col>
-                      );
-                    })
+                          </Col>
+                        );
+                      })
                     : null}
                 </Row>
               </Col>

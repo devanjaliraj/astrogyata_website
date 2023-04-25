@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, FormGroup, Input, Label } from "reactstrap";
 // import textbottom from '../../assets/img/textbottom.png'
 // import astro3 from '../../assets/img/team/astro3.jpg'
 import "../../assets/scss/astroteam.scss";
@@ -155,82 +155,80 @@ class allastrochatlist extends React.Component {
                         Popularity
                       </li> */}
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
                             type="radio"
-                            aria-label="radio 1"
-                            name="exp_high_to_low"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("exp_high_to_low")
                             }
                           />
-                        </span>
-                        Experience : High to Low
+                          <Label check>Experience : High to Low</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
                             type="radio"
-                            aria-label="radio 2"
-                            name="exp_low_to_high"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("exp_low_to_high")
                             }
                           />
-                        </span>
-                        Experience : Low to High
+                          <Label check>Experience : Low to High</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 3"
-                            name="price_high_to_low"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("price_high_to_low")
                             }
                           />
-                        </span>
-                        Price : High to Low
+                          <Label check>Price : High to Low</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 4"
-                            name="price_low_to_high"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("price_low_to_high")
                             }
                           />
-                        </span>
-                        Price : Low to High
+                          <Label check>Price : Low to High</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 5"
-                            name="rating_high_to_low"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("rating_high_to_low")
                             }
                           />
-                        </span>
-                        Rating : High to Low
+                          <Label check>Rating : High to Low</Label>
+                        </FormGroup>
                       </li>
                       <li>
-                        <span>
-                          <Form.Check
+                        <FormGroup check>
+                          <Input
+                            // name="radio1"
                             type="radio"
-                            aria-label="radio 6"
-                            name="rating_low_to_high"
+                            name="id"
                             onChange={() =>
                               this.filterMethod("rating_low_to_high")
                             }
                           />
-                        </span>
-                        Rating : Low to High
+                          <Label check> Rating : Low to High</Label>
+                        </FormGroup>
                       </li>
                       {/* <li>
                         <span>

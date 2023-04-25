@@ -51,10 +51,19 @@ export default class LoginRegister extends Component {
         // let id = response.data.user;
         if (response.data.status === true) {
           this.setState({ otpMsg: response.data.msg });
-          localStorage.setItem("userData", JSON.stringify(response?.data?.data));
+          localStorage.setItem(
+            "userData",
+            JSON.stringify(response?.data?.data)
+          );
           localStorage.setItem("token", JSON.stringify(response?.data?.token));
-          localStorage.setItem("user_id", JSON.stringify(response?.data?.data?._id));
-          localStorage.setItem("user_mobile_no", JSON.stringify(response?.data?.data?.mobile));
+          localStorage.setItem(
+            "user_id",
+            JSON.stringify(response?.data?.data?._id)
+          );
+          localStorage.setItem(
+            "user_mobile_no",
+            JSON.stringify(response?.data?.data?.mobile)
+          );
           if (response.data.msg === "otp verified") {
             // swal("OTP verified");
             // window.location.replace('/')
@@ -72,7 +81,7 @@ export default class LoginRegister extends Component {
     if (this.state.mobile !== "") {
       let obj = { mobile: parseInt(this.state.mobile) };
       axiosConfig
-        .post(`http://43.205.241.133:4000/user/userlogin`, obj)
+        .post(`http://13.234.48.35:8000/user/userlogin`, obj)
         .then(response => {
           console.log("@@@####", response.data);
           this.setState({ otpMsg: response.data.msg });
@@ -119,7 +128,7 @@ export default class LoginRegister extends Component {
     }
     // this.setState({ otp: false });
     axiosConfig
-      .post(`http://43.205.241.133:4000/user/usersignup`, data)
+      .post(`http://13.234.48.35:8000/user/usersignup`, data)
       .then(response => {
         console.log(response.data.msg);
         localStorage.setItem("auth-token", response.data.token);
@@ -129,7 +138,6 @@ export default class LoginRegister extends Component {
         });
         swal("Success!", " Register Successful Done!", "success");
         this.props.history.push("/");
-
       })
       .catch(error => {
         console.log(error.response);
@@ -178,10 +186,15 @@ export default class LoginRegister extends Component {
                                     required
                                     placeholder="Enter OTP"
                                     value={this.state.otp}
-                                    onChange={this.changeHandler} />
+                                    onChange={this.changeHandler}
+                                  />
                                   <div className="button-box">
                                     <div className="login-toggle-btn">
-                                      <Link to={process.env.PUBLIC_URL + "/password"}>
+                                      <Link
+                                        to={
+                                          process.env.PUBLIC_URL + "/password"
+                                        }
+                                      >
                                         Login with password
                                       </Link>
                                     </div>
@@ -197,11 +210,15 @@ export default class LoginRegister extends Component {
                                 <Form onSubmit={this.loginHandler}>
                                   <Row>
                                     <Col md="12">
-                                      <PhoneInput className="mob-int"
+                                      <PhoneInput
+                                        className="mob-int"
                                         country={"in"}
                                         value={this.state.mobile}
-                                        onChange={mobile => this.setState({ mobile })}
-                                        width="100%" />
+                                        onChange={mobile =>
+                                          this.setState({ mobile })
+                                        }
+                                        width="100%"
+                                      />
                                       {this.state.mobileError !== "" ? (
                                         <span style={{ color: "red" }}>
                                           {this.state.mobileError}
@@ -212,7 +229,11 @@ export default class LoginRegister extends Component {
                                   <div className="button-box">
                                     <div className="login-toggle-btn">
                                       <Link
-                                        to={process.env.PUBLIC_URL + "/ForgotPassword"}>
+                                        to={
+                                          process.env.PUBLIC_URL +
+                                          "/ForgotPassword"
+                                        }
+                                      >
                                         Forgot Password?
                                       </Link>
                                     </div>
@@ -271,7 +292,9 @@ export default class LoginRegister extends Component {
                                     <PhoneInput
                                       country={"in"}
                                       value={this.state.mobile}
-                                      onChange={mobile => this.setState({ mobile })}
+                                      onChange={mobile =>
+                                        this.setState({ mobile })
+                                      }
                                       width="80%"
                                       className="form-controller"
                                     />
@@ -380,7 +403,6 @@ export default class LoginRegister extends Component {
                                       <option value="Female">Female</option>
                                     </select>
                                   </Col> */}
-
                                 </Row>
                                 <div className="button-box">
                                   <Button type="submit">

@@ -1,6 +1,15 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import { Container, Row, Col, Card, Input, Form, Button, Table } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Input,
+  Form,
+  Button,
+  Table,
+} from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import "../../assets/scss/astropooja.css";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -10,326 +19,331 @@ import swal from "sweetalert";
 import Select from "react-select";
 import { Country, State, City } from "country-state-city";
 class TodayPanchang extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data1: false,
-            day: "",
-            month: "",
-            year: "",
-            hour: "",
-            min: "",
-            lat: "",
-            lon: "",
-            tzone: "",
-            data: {},
-            state: [],
-            city: [],
-            country: [],
-            selectedCountry: null,
-            selectedState: null,
-            selectedCity: null,
-            timezone: null,
-            latitude: "",
-            longitude: "",
-        };
-    }
-    changeHandler = e => {
-        this.setState({ [e.target.name]: e.target.value });
+  constructor(props) {
+    super(props);
+    this.state = {
+      data1: false,
+      day: "",
+      month: "",
+      year: "",
+      hour: "",
+      min: "",
+      lat: "",
+      lon: "",
+      tzone: "",
+      data: {},
+      state: [],
+      city: [],
+      country: [],
+      selectedCountry: null,
+      selectedState: null,
+      selectedCity: null,
+      timezone: null,
+      latitude: "",
+      longitude: "",
     };
+  }
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    handleInputChanged(event) {
+  handleInputChanged(event) {
+    this.setState({
+      searchQuery: event.target.value,
+    });
+    axiosConfig
+      .post(`/user/geo_detail`, {
+        place: this.state.searchQuery,
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    console.log(this.state.searchQuery);
+  }
+
+  changeCountry = item => {
+    this.setState({ selectedCountry: item });
+
+    axiosConfig
+      .post(`/user/time_zone`, {
+        country_code: item?.timezones[0].zoneName,
+      })
+      .then(response => {
+        this.setState({ timezone: response?.data?.data?.timezone });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  changeCity = item => {
+    console.log("item", item);
+    this.setState({
+      submitPlaceHandler: item,
+    });
+
+    axiosConfig
+      .post(`/user/geo_detail`, {
+        place: item?.name,
+      })
+      .then(response => {
         this.setState({
-            searchQuery: event.target.value,
+          latitude: response?.data?.data?.geonames[0].latitude,
+          longitude: response?.data?.data?.geonames[0].longitude,
         });
-        axiosConfig
-            .post(`/user/geo_detail`, {
-                place: this.state.searchQuery,
-            })
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        console.log(this.state.searchQuery);
-    }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-    changeCountry = item => {
-        this.setState({ selectedCountry: item });
+  submitCountryHandler = e => {
+    e.preventDefault();
 
-        axiosConfig
-            .post(`/user/time_zone`, {
-                country_code: item?.timezones[0].zoneName,
-            })
-            .then(response => {
-                this.setState({ timezone: response?.data?.data?.timezone });
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    let payload = {
+      country_code: this.state.country_code,
     };
-
-    changeCity = item => {
-        console.log("item", item);
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/time_zone`, payload)
+      .then(response => {
+        this.setState({ data: response.data });
+        console.log("country_code", response.data.timezone);
+        swal("Success!", "Submitted SuccessFull!", "success");
+      })
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
+  submitPlaceHandler = e => {
+    e.preventDefault();
+    let payload = {
+      // data: this.state.data
+      place: this.state.place,
+    };
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/geo_detail`, payload)
+      .then(response => {
+        this.setState({ data: response.data });
+        console.log("place", response.data.geonames?.place_name);
+        swal("Success!", "Submitted SuccessFull!", "success");
+      })
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
+  submitHandler = e => {
+    e.preventDefault();
+    let payload = {
+      // day: this.state.day,
+      // month: this.state.month,
+      // year: this.state.year,
+      // hour: this.state.hour,
+      // min: this.state.min,
+      lat: this.state.latitude,
+      lon: this.state.longitude,
+      tzone: this.state.timezone,
+    };
+    console.log("shgdjhg", payload);
+    axiosConfig
+      .post(`/user/todayPanchang`, payload)
+      .then(response => {
+        this.setState({ data1: true });
+        console.log("data1", response.data.data);
         this.setState({
-            submitPlaceHandler: item,
+          data: response.data.data,
         });
+        console.log("data11", response.data.data);
+        // swal("Success!", "Submitted SuccessFull!", "success");
+        // this.props.history.push("/lalKitabPage");
+        // window.location.reload("/lalKitab");
+      })
+      .catch(error => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error);
+      });
+  };
 
-        axiosConfig
-            .post(`/user/geo_detail`, {
-                place: item?.name,
-            })
-            .then(response => {
-                this.setState({
-                    latitude: response?.data?.data?.geonames[0].latitude,
-                    longitude: response?.data?.data?.geonames[0].longitude,
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+  render() {
+    const { data } = this.state;
+    console.log("firstResponse", data);
+    if (this.state.data1 === true) {
+      console.log("first", this.state.data1);
+      // const { data2 } = this.state;
+      return (
+        <LayoutOne headerTop="visible">
+          <section className="pt-0 pb-0">
+            <div
+              className=""
+              style={{
+                float: "left",
+                width: "100%",
+                backgroundColor: "#272727",
+                position: "relative",
+                backgroundAttachment: "fixed",
+                backgroundSize: "cover",
+                color: "#ffffff",
+                padding: " 50px 0px 50px 0px",
+                backgroundImage: `url(${astrologinbg})`,
+                backgroundPosition: "center center",
+                backgroundRepeat: " no-repeat",
+                textAlign: "center",
+              }}
+            >
+              <Container>
+                <Row>
+                  <Col md="12">
+                    <div className="leftcont text-left">
+                      <h1>Panchang</h1>
+                      <h3>Get instant & accurate, Panchang</h3>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </section>
+          <Container>
+            <Row>
+              <Col md="12">
+                <Card className="mb-50 pt-d">
+                  <h3>Today Panchang</h3>
+                  <p>
+                    Panchang is a remarkable branch of Vedic astrology.
+                    Collection of the 5 books, written during the period of
+                    1939-1952 is called Panchang. Written in ancient Urdu
+                    language, first time in the history of astrology, Panchang
+                    introduced a new style of horoscope analysis with quick and
+                    affordable remedies. Authorship of the books seems to be
+                    disputed. However, finding by our research community shows
+                    that the books were written by Pt. Roop Chand Joshi.
+                  </p>
 
-    submitCountryHandler = e => {
-        e.preventDefault();
+                  <div className="match-bx">
+                    <Row>
+                      <Col md="12">
+                        <h3> Panchang </h3>
+                        {/* <div className="form-m"> */}
+                        <Table striped className="">
+                          <thead>
+                            <tr>
+                              <th>Name </th>
+                              <th>Value </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th>Day</th>
+                              <td>{data.day}</td>
+                            </tr>
+                            <tr>
+                              <th>Tithi</th>
+                              <td>{data.tithi}</td>
+                            </tr>
 
-        let payload = {
-            country_code: this.state.country_code,
-        };
-        console.log("shgdjhg", payload);
-        axiosConfig
-            .post(`/user/time_zone`, payload)
-            .then(response => {
-                this.setState({ data: response.data });
-                console.log("country_code", response.data.timezone);
-                swal("Success!", "Submitted SuccessFull!", "success");
-            })
-            .catch(error => {
-                swal("Error!", "You clicked the button!", "error");
-                console.log(error);
-            });
-    };
-    submitPlaceHandler = e => {
-        e.preventDefault();
-        let payload = {
-            // data: this.state.data
-            place: this.state.place,
-        };
-        console.log("shgdjhg", payload);
-        axiosConfig
-            .post(`/user/geo_detail`, payload)
-            .then(response => {
-                this.setState({ data: response.data });
-                console.log("place", response.data.geonames?.place_name);
-                swal("Success!", "Submitted SuccessFull!", "success");
-            })
-            .catch(error => {
-                swal("Error!", "You clicked the button!", "error");
-                console.log(error);
-            });
-    };
-    submitHandler = e => {
-        e.preventDefault();
-        let payload = {
-            // day: this.state.day,
-            // month: this.state.month,
-            // year: this.state.year,
-            // hour: this.state.hour,
-            // min: this.state.min,
-            lat: this.state.latitude,
-            lon: this.state.longitude,
-            // tzone: this.state.timezone,
-        };
-        console.log("shgdjhg", payload);
-        axiosConfig
-            .post(`/user/todayPanchang`, payload)
-            .then(response => {
-                this.setState({ data1: true })
-                console.log("data1", response.data.data);
-                this.setState({
-                    data: response.data.data,
-                });
-                console.log("data11", response.data.data);
-                // swal("Success!", "Submitted SuccessFull!", "success");
-                // this.props.history.push("/lalKitabPage");
-                // window.location.reload("/lalKitab");
-            })
-            .catch(error => {
-                swal("Error!", "You clicked the button!", "error");
-                console.log(error);
-            });
-    };
+                            <tr>
+                              <th>Nakshatra</th>
+                              <td>{data.nakshatra} </td>
+                            </tr>
+                            <tr>
+                              <th>Yog</th>
+                              <td>{data.yog}</td>
+                            </tr>
+                            <tr>
+                              <th>Karan</th>
+                              <td>{data.karan}</td>
+                            </tr>
 
-    render() {
-        const { data } = this.state;
-        console.log("firstResponse", data)
-        if (this.state.data1 === true) {
-            console.log("first", this.state.data1)
-            // const { data2 } = this.state;
-            return (
+                            <tr>
+                              <th>Sunrise</th>
+                              <td>{data.sunrise}</td>
+                            </tr>
+                            <tr>
+                              <th>Sunset</th>
+                              <td>{data.sunset}</td>
+                            </tr>
 
-                <LayoutOne headerTop="visible">
-                    <section className="pt-0 pb-0">
-                        <div
-                            className=""
-                            style={{
-                                float: "left",
-                                width: "100%",
-                                backgroundColor: "#272727",
-                                position: "relative",
-                                backgroundAttachment: "fixed",
-                                backgroundSize: "cover",
-                                color: "#ffffff",
-                                padding: " 50px 0px 50px 0px",
-                                backgroundImage: `url(${astrologinbg})`,
-                                backgroundPosition: "center center",
-                                backgroundRepeat: " no-repeat",
-                                textAlign: "center",
-                            }}
-                        >
-                            <Container>
-                                <Row>
-                                    <Col md="12">
-                                        <div className="leftcont text-left">
-                                            <h1>Panchang</h1>
-                                            <h3>Get instant & accurate, Panchang</h3>
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </div>
-                    </section>
-                    <Container>
-                        <Row>
-                            <Col md="12">
-                                <Card className="mb-50 pt-d">
-                                    <h3>
-                                        Panchang  Online - Get Your Detailed Birth Chart with
-                                        Predictions
-                                    </h3>
-                                    <p>
-                                        Panchang  is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Panchang. Written in ancient Urdu language, first time in the history of astrology,  Panchang introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
-                                    </p>
+                            <tr>
+                              <th>Vedic Sunrise</th>
+                              <td>{data.vedic_sunrise}</td>
+                            </tr>
+                            <tr>
+                              <th>Vedic Sunset</th>
+                              <td>{data.vedic_sunset}</td>
+                            </tr>
+                          </tbody>
+                        </Table>
+                        {/* </div> */}
+                      </Col>
+                    </Row>
+                  </div>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </LayoutOne>
+      );
+    } else {
+      return (
+        <LayoutOne headerTop="visible">
+          <section className="pt-0 pb-0">
+            <div
+              className=""
+              style={{
+                float: "left",
+                width: "100%",
+                backgroundColor: "#272727",
+                position: "relative",
+                backgroundAttachment: "fixed",
+                backgroundSize: "cover",
+                color: "#ffffff",
+                padding: " 50px 0px 50px 0px",
+                backgroundImage: `url(${astrologinbg})`,
+                backgroundPosition: "center center",
+                backgroundRepeat: " no-repeat",
+                textAlign: "center",
+              }}
+            >
+              <Container>
+                <Row>
+                  <Col md="12">
+                    <div className="leftcont text-left">
+                      <h1>Panchang</h1>
+                      {/* <h3>Get instant & accurate, Panchang</h3> */}
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </section>
+          <Container>
+            <Row>
+              <Col md="12">
+                <Card className="mb-50 pt-d">
+                  <h3>Today Panchang</h3>
+                  <p>
+                    Panchang is a remarkable branch of Vedic astrology.
+                    Collection of the 5 books, written during the period of
+                    1939-1952 is called Panchang. Written in ancient Urdu
+                    language, first time in the history of astrology, Panchang
+                    introduced a new style of horoscope analysis with quick and
+                    affordable remedies. Authorship of the books seems to be
+                    disputed. However, finding by our research community shows
+                    that the books were written by Pt. Roop Chand Joshi.
+                  </p>
 
-                                    <div className="match-bx">
-                                        <Row>
-
-                                            <Col md="12">
-                                                <h3> Panchang </h3>
-                                                {/* <div className="form-m"> */}
-                                                <Table striped className="">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Name </th>
-                                                            <th>Value </th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-                                                        <tr>
-                                                            <th>Day</th>
-                                                            <td>{data.day}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Tithi</th>
-                                                            <td>{data.tithi}</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Nakshatra</th>
-                                                            <td>{data.nakshatra} </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Yog</th>
-                                                            <td>{data.yog}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Karan</th>
-                                                            <td>{data.karan}</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Sunrise</th>
-                                                            <td>{data.sunrise}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Sunset</th>
-                                                            <td>{data.sunset}</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Vedic Sunrise</th>
-                                                            <td>{data.vedic_sunrise}</td>
-                                                        </tr>
-                                                        <tr><th>Vedic Sunset</th>
-                                                            <td>{data.vedic_sunset}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </Table>
-                                                {/* </div> */}
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Container>
-                </LayoutOne >
-            );
-        } else {
-            return (
-                <LayoutOne headerTop="visible">
-                    <section className="pt-0 pb-0">
-                        <div
-                            className=""
-                            style={{
-                                float: "left",
-                                width: "100%",
-                                backgroundColor: "#272727",
-                                position: "relative",
-                                backgroundAttachment: "fixed",
-                                backgroundSize: "cover",
-                                color: "#ffffff",
-                                padding: " 50px 0px 50px 0px",
-                                backgroundImage: `url(${astrologinbg})`,
-                                backgroundPosition: "center center",
-                                backgroundRepeat: " no-repeat",
-                                textAlign: "center",
-                            }}
-                        >
-                            <Container>
-                                <Row>
-                                    <Col md="12">
-                                        <div className="leftcont text-left">
-                                            <h1>Panchang</h1>
-                                            <h3>Get instant & accurate, Panchang</h3>
-                                        </div>
-                                    </Col>
-                                </Row>
-                            </Container>
-                        </div>
-                    </section>
-                    <Container>
-                        <Row>
-                            <Col md="12">
-                                <Card className="mb-50 pt-d">
-                                    <h3>
-                                        Panchang  Online - Get Your Detailed Birth Chart with
-                                        Predictions
-                                    </h3>
-                                    <p>
-                                        Panchang  is a remarkable branch of Vedic astrology. Collection of the 5 books, written during the period of 1939-1952 is called Panchang. Written in ancient Urdu language, first time in the history of astrology,  Panchang introduced a new style of horoscope analysis with quick and affordable remedies. Authorship of the books seems to be disputed. However, finding by our research community shows that the books were written by Pt. Roop Chand Joshi.
-                                    </p>
-
-                                    <div className="match-bx">
-                                        <Row>
-                                            <Col md="12">
-                                                <h3>Panchang</h3>
-                                                <Form onSubmit={this.submitHandler}>
-                                                    <div className="form-m">
-                                                        {/* <Row>
+                  <div className="match-bx">
+                    <Row>
+                      <Col md="12">
+                        <h3>Panchang</h3>
+                        <Form onSubmit={this.submitHandler}>
+                          <div className="form-m">
+                            {/* <Row>
                                                             <Col md="2">
                                                                 <label>Day</label>
                                                                 <Input
@@ -607,120 +621,113 @@ class TodayPanchang extends React.Component {
                                                                 </Input>
                                                             </Col>
                                                         </Row> */}
-                                                        <Row>
-                                                            <Col md="4">
-                                                                <label>Country</label>
-                                                                <Select
+                            <Row>
+                              <Col md="4">
+                                <label>Country</label>
+                                <Select
+                                  options={Country.getAllCountries()}
+                                  getOptionLabel={options => {
+                                    return options["name"];
+                                  }}
+                                  getOptionValue={options => {
+                                    return options["name"];
+                                  }}
+                                  value={this.state.selectedCountry}
+                                  onChange={item => {
+                                    this.changeCountry(item);
+                                  }}
+                                />
+                              </Col>
 
-                                                                    options={Country.getAllCountries()}
-                                                                    getOptionLabel={options => {
-                                                                        return options["name"];
-                                                                    }}
-                                                                    getOptionValue={options => {
-                                                                        return options["name"];
-                                                                    }}
-                                                                    value={this.state.selectedCountry}
-                                                                    onChange={item => {
-                                                                        this.changeCountry(item);
-                                                                    }}
-                                                                />
-                                                            </Col>
+                              <Col md="4">
+                                <label>State</label>
+                                <Select
+                                  options={State?.getStatesOfCountry(
+                                    this.state.selectedCountry?.isoCode
+                                  )}
+                                  getOptionLabel={options => {
+                                    return options["name"];
+                                  }}
+                                  getOptionValue={options => {
+                                    return options["name"];
+                                  }}
+                                  value={this.state.selectedState}
+                                  onChange={item => {
+                                    this.setState({ selectedState: item });
+                                  }}
+                                />
+                              </Col>
 
-                                                            <Col md="4">
-                                                                <label>State</label>
-                                                                <Select
-                                                                    options={State?.getStatesOfCountry(
-                                                                        this.state.selectedCountry?.isoCode
-                                                                    )}
-                                                                    getOptionLabel={options => {
-                                                                        return options["name"];
-                                                                    }}
-                                                                    getOptionValue={options => {
-                                                                        return options["name"];
-                                                                    }}
-                                                                    value={this.state.selectedState}
-                                                                    onChange={item => {
-                                                                        this.setState({ selectedState: item });
-                                                                    }}
-                                                                />
-                                                            </Col>
+                              <Col md="4">
+                                <label>City</label>
+                                <Select
+                                  options={City.getCitiesOfState(
+                                    this.state.selectedState?.countryCode,
+                                    this.state.selectedState?.isoCode
+                                  )}
+                                  getOptionLabel={options => {
+                                    return options["name"];
+                                  }}
+                                  getOptionValue={options => {
+                                    return options["name"];
+                                  }}
+                                  value={this.state.submitPlaceHandler}
+                                  onChange={item => {
+                                    this.changeCity(item);
+                                  }}
+                                />
+                              </Col>
 
-                                                            <Col md="4">
-                                                                <label>City</label>
-                                                                <Select
-                                                                    options={City.getCitiesOfState(
-                                                                        this.state.selectedState?.countryCode,
-                                                                        this.state.selectedState?.isoCode
-                                                                    )}
-                                                                    getOptionLabel={options => {
-                                                                        return options["name"];
-                                                                    }}
-                                                                    getOptionValue={options => {
-                                                                        return options["name"];
-                                                                    }}
-                                                                    value={this.state.submitPlaceHandler}
-                                                                    onChange={item => {
-                                                                        this.changeCity(item);
-                                                                    }}
-                                                                />
-                                                            </Col>
-
-                                                            <Col md="4">
-                                                                <label>Birth Place Latitude</label>
-                                                                <Input
-                                                                    className="form-control"
-                                                                    placeholder="00.00"
-                                                                    maxLength={7}
-                                                                    type="text"
-                                                                    name="latitude"
-                                                                    value={this.state.latitude}
-                                                                    onChange={this.changeHandler}
-                                                                />
-                                                            </Col>
-                                                            <Col md="4">
-                                                                <label>Birth Place Longitude</label>
-                                                                <Input
-                                                                    className="form-control"
-                                                                    placeholder="00.000"
-                                                                    maxLength={7}
-                                                                    type="text"
-                                                                    name="longitude"
-                                                                    value={this.state.longitude}
-                                                                    onChange={this.changeHandler}
-                                                                />
-                                                            </Col>
-                                                            {/* <Col md="4">
-                                                                <label>Birth Place Time Zone</label>
-                                                                <input
-                                                                    className="form-control"
-                                                                    type="text"
-                                                                    placeholder="00.00"
-                                                                    maxLength={5}
-                                                                    name="timezone"
-                                                                    value={this.state.timezone}
-                                                                    onChange={this.changeHandler}
-                                                                />
-                                                            </Col> */}
-                                                        </Row>
-                                                        <Button className="btn btn-primary">submit</Button>
-                                                    </div>
-                                                </Form>
-                                            </Col>
-
-                                        </Row>
-
-
-
-
-
-                                    </div>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Container>
-                </LayoutOne>
-            );
-        }
+                              <Col md="4">
+                                <label>Birth Place Latitude</label>
+                                <Input
+                                  className="form-control"
+                                  placeholder="00.00"
+                                  maxLength={7}
+                                  type="text"
+                                  name="latitude"
+                                  value={this.state.latitude}
+                                  onChange={this.changeHandler}
+                                />
+                              </Col>
+                              <Col md="4">
+                                <label>Birth Place Longitude</label>
+                                <Input
+                                  className="form-control"
+                                  placeholder="00.000"
+                                  maxLength={7}
+                                  type="text"
+                                  name="longitude"
+                                  value={this.state.longitude}
+                                  onChange={this.changeHandler}
+                                />
+                              </Col>
+                              <Col md="4">
+                                <label>Birth Place Time Zone</label>
+                                <input
+                                  className="form-control"
+                                  type="text"
+                                  placeholder="00.00"
+                                  maxLength={5}
+                                  name="timezone"
+                                  value={this.state.timezone}
+                                  onChange={this.changeHandler}
+                                />
+                              </Col>
+                            </Row>
+                            <Button className="btn btn-primary">submit</Button>
+                          </div>
+                        </Form>
+                      </Col>
+                    </Row>
+                  </div>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </LayoutOne>
+      );
     }
+  }
 }
 export default TodayPanchang;

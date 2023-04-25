@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axiosConfig from "../../axiosConfig";
-
+import ReactHtmlParser from "react-html-parser";
 const BlogPosts = ({ data }) => {
   const [latestBlog, setLatestBlog] = useState(data);
 
@@ -42,7 +42,8 @@ const BlogPosts = ({ data }) => {
                 {data?.blog_title}
               </Link>
             </h4>
-            <p>{data?.desc}</p>
+
+            <p> {ReactHtmlParser(data?.desc)}</p>
             <div className="blog-share-comment">
               <div className="blog-btn-2">
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
