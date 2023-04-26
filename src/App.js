@@ -13,7 +13,7 @@ import { multilanguage, loadLanguages } from "redux-multilanguage";
 import { connect } from "react-redux";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
 import TermsOfUse from "./wrappers/myPage/TermsOfUse";
-import { } from "react";
+import {} from "react";
 import { history } from "./history";
 
 const HomeFurnitureTwo = lazy(() => import("./pages/home/HomeFurnitureTwo"));
@@ -123,20 +123,32 @@ const LiveAstrologer = lazy(() =>
   import("./components/astrology/LiveAstrologer")
 );
 const LalKitab = lazy(() => import("./components/astrology/LalKitab"));
-const LalkitabPlanets = lazy(() => import("./components/astrology/LalkitabPlanets"));
+const LalkitabPlanets = lazy(() =>
+  import("./components/astrology/LalkitabPlanets")
+);
 // const LalKitab = lazy(() => import("./components/astrology/LalKitab"));
 
 const LalKitabPage = lazy(() => import("./components/astrology/LalKitabPage"));
 const Numerology = lazy(() => import("./components/astrology/Numerology"));
 const Tarot = lazy(() => import("./components/astrology/Tarot"));
-const LuckyGemstone = lazy(() => import("./components/astrology/LuckyGemstone"));
+const LuckyGemstone = lazy(() =>
+  import("./components/astrology/LuckyGemstone")
+);
 const ShubhMuhurat = lazy(() => import("./components/astrology/ShubhMuhurat"));
-const TodayFestival = lazy(() => import("./components/astrology/TodayFestival"));
+const TodayFestival = lazy(() =>
+  import("./components/astrology/TodayFestival")
+);
 
-const LoveAstrologer = lazy(() => import("./components/astrology/LoveAstrologer"));
+const LoveAstrologer = lazy(() =>
+  import("./components/astrology/LoveAstrologer")
+);
 const PanchangPage = lazy(() => import("./components/astrology/PanchangPage"));
-const TodayPanchang = lazy(() => import("./components/astrology/TodayPanchang"));
-const BasicPanchang = lazy(() => import("./components/astrology/BasicPanchang"));
+const TodayPanchang = lazy(() =>
+  import("./components/astrology/TodayPanchang")
+);
+const BasicPanchang = lazy(() =>
+  import("./components/astrology/BasicPanchang")
+);
 
 const BookEvent = lazy(() => import("./components/astrology/BookEvent"));
 const AstroRating = lazy(() => import("./components/astrology/AstroRating"));
@@ -166,7 +178,6 @@ const FreeKundli = lazy(() =>
 const PitraDosh = lazy(() => import("./components/astrology/PitraDosh"));
 const KalsharpDosh = lazy(() => import("./components/astrology/KalsharpDosh"));
 const ManglikDosh = lazy(() => import("./components/astrology/ManglikDosh"));
-
 
 const bannerSection = lazy(() =>
   import("./components/astrology/bannerSection")
@@ -223,11 +234,12 @@ const HoroscopeDetail2 = lazy(() =>
 const HoroscopeDetail3 = lazy(() =>
   import("./components/astrology/HoroscopeDetail3")
 );
-const ZodicPage = lazy(() =>
-  import("./components/astrology/ZodicPage")
-);
+const ZodicPage = lazy(() => import("./components/astrology/ZodicPage"));
 const AstromallList = lazy(() =>
   import("./components/astrology/astromallList")
+);
+const PoojaProductList = lazy(() =>
+  import("./components/astrology/PoojaProductList")
 );
 const ProductList = lazy(() => import("./components/astrology/ProductList"));
 const ConsultantList = lazy(() =>
@@ -478,7 +490,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/astrorating"}
                     component={AstroRating}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/lalKitab"}
                     component={LalKitab}
@@ -487,7 +498,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/lalkitabPlanets"}
                     component={LalkitabPlanets}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/lalKitabPage"}
                     component={LalKitabPage}
@@ -500,7 +510,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/tarot"}
                     component={Tarot}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/loveAstrologer"}
                     component={LoveAstrologer}
@@ -513,7 +522,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/todayFestival"}
                     component={TodayFestival}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/luckyGemstone"}
                     component={LuckyGemstone}
@@ -530,8 +538,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/basicPanchang"}
                     component={BasicPanchang}
                   />
-
-
                   <Route
                     path={process.env.PUBLIC_URL + "/bookEvent"}
                     component={BookEvent}
@@ -568,7 +574,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/askquestionList"}
                     component={AskQuestionList}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/orderHistory"}
                     component={OrderHistory}
@@ -629,7 +634,6 @@ const App = props => {
                     path={process.env.PUBLIC_URL + "/manglikdosh"}
                     component={ManglikDosh}
                   />
-
                   <Route
                     path={process.env.PUBLIC_URL + "/kalsharpdosh"}
                     component={KalsharpDosh}
@@ -711,6 +715,10 @@ const App = props => {
                     component={ZodicPage}
                   />
 
+                  <Route
+                    path={process.env.PUBLIC_URL + "/poojaProductList"}
+                    component={PoojaProductList}
+                  />
                   <Route
                     path={process.env.PUBLIC_URL + "/astromallList"}
                     component={AstromallList}

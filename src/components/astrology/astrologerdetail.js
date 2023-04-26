@@ -6,7 +6,7 @@ import axiosConfig from "../../axiosConfig";
 import PrettyRating from "pretty-rating-react";
 import LayoutOne from "../../layouts/LayoutOne";
 import AstroProfileVideo from "./AstroProfileVideo";
-import { Container, Row, Col, Button, } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import LinearProgress from "@mui/material/LinearProgress";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
 import astrologinbg from "../../assets/img/astrologin-bg.jpg";
@@ -81,7 +81,6 @@ class AstrologerDetail extends React.Component {
           callCharge: response.data.data.callCharge,
           exp_in_years: response.data.data.exp_in_years,
           // availability: response.data.data.availability,
-
         });
       })
       .catch(error => {
@@ -193,13 +192,13 @@ class AstrologerDetail extends React.Component {
                             <Button
                               className="btn-as st"
                               onClick={this.toggle}
-                            // onClick={(e) =>
-                            //   this.submitHandler(
-                            //     e,
-                            //     this.state.astroId,
-                            //     this.state.astroMobile
-                            //   )
-                            // }
+                              // onClick={(e) =>
+                              //   this.submitHandler(
+                              //     e,
+                              //     this.state.astroId,
+                              //     this.state.astroMobile
+                              //   )
+                              // }
                             >
                               <i className="fa fa-phone" aria-hidden="true"></i>
                               Start Call
@@ -246,377 +245,318 @@ class AstrologerDetail extends React.Component {
                   </Row>
                   <div>
                     <AstroProfileVideo />
-
                   </div>
-
-
                 </section>
-
-                <section className="mt-50 mb-30">
-                  <div className="description-review-wrapper text-center">
-                    <div className="text-left">
-                      <h3>Reviews</h3>
-                    </div>
-                    <div className="description-review-wrapper">
-                      <h3>RATINGS <i class="fa fa-star"></i></h3>
-                    </div>
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="row">
-                          <div className="col-md-4">
-                            <p></p>
-                          </div>
-                          <div className="col-md-6">
-                            <LinearProgress
-                              className="m-1 mb-3 "
-                              style={{ color: "#14958f" }}
-                              variant="determinate"
-                              value={70}
-                            />
-                            <LinearProgress
-                              className="m-1 mb-3 "
-                              style={{ color: "#ff" }}
-                              variant="determinate"
-                              value={30}
-                            />
-                            <LinearProgress
-                              className="m-1 mb-3 "
-                              style={{ color: "#14958f" }}
-                              variant="determinate"
-                              value={30}
-                            />
-                            <LinearProgress
-                              className="m-1 mb-3 "
-                              style={{ color: "#14958f" }}
-                              variant="determinate"
-                              value={30}
-                            />
-                            <LinearProgress
-                              className="m-1 mb-3 "
-                              style={{ color: "#14958f" }}
-                              variant="determinate"
-                              value={10}
-                            />
-                          </div>
+                {/* {/ about us start /} */}
+                <div
+                  className="product-anotherinfo-wrapper mt-4"
+                  style={{ border: "1px solid#ccc", padding: "20px 10px" }}
+                >
+                  <h3>AboutUs</h3>
+                  <p>
+                    {this.state.long_bio}
+                    {/* Sree Sanjib ji is KP astrologer from Kolkata,
+                              India. He has 15 years of experience in KP
+                              astrology and Vedic Astrology. You can consult him
+                              in Hindi, English and Bengali Language. He has Won
+                              Jyotish Gyan Ratna, Jyotish Gyan Bharti and
+                              Jyotish Shiromani awards from Word Astrologers
+                              Society. He is expert in Nadi Astrology, KP
+                              astrology, Numerology, Palmistry and Vastu. You
+                              can consult him for business related issues,
+                              marriage, financial issues, property or legal
+                              issues and much more. */}
+                  </p>
+                </div>
+                {/* {/ about us close  /} */}
+                {/* {/ review section start /} */}
+                <div
+                  className="product-anotherinfo-wrapper mt-5"
+                  style={{ border: "1px solid#ccc", padding: "20px 10px" }}
+                >
+                  <h3>
+                    RATINGS <i class="fa fa-star"></i>
+                  </h3>
+                  <div className="row">
+                    <div className="col-lg-6">
+                      <div className="row">
+                        <div className="col-md-4">
+                          {/* <h1
+                                    style={{
+                                      fontSize: 96,
+                                      marginTop: 39,
+                                      marginRight: 15,
+                                      marginBottom: 20,
+                                      marginLeft: 0,
+                                    }}
+                                  ></h1> */}
+                          <p></p>
                         </div>
-                        <hr />
-                        <div className="review-wrapper">
-                          <div className="single-review">
-                            *{" "}
-                            <div className="review-img">
-                              <img
-                                src={
-                                  process.env.PUBLIC_URL +
-                                  "/assets/img/testimonial/1.jpg"
-                                }
-                                alt=""
-                              />
-                            </div>
-                            <div className="review-content">
-                              <div className="review-top-wrap">
-                                <div className="review-left">
-                                  <div className="review-name">
-                                    <h4
-                                      style={{
-                                        textTransform: "capitalize",
-                                        margin: 5,
-                                      }}
-                                    >
-                                      lorem ipsum
-                                    </h4>
-                                  </div>
-                                  <div className="review-rating">
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                  </div>
+                        <div className="col-md-6">
+                          <LinearProgress
+                            className="m-1 mb-3 "
+                            style={{ color: "#14958f" }}
+                            variant="determinate"
+                            value={70}
+                          />
+                          <LinearProgress
+                            className="m-1 mb-3 "
+                            style={{ color: "#ff" }}
+                            variant="determinate"
+                            value={30}
+                          />
+                          <LinearProgress
+                            className="m-1 mb-3 "
+                            style={{ color: "#14958f" }}
+                            variant="determinate"
+                            value={30}
+                          />
+                          <LinearProgress
+                            className="m-1 mb-3 "
+                            style={{ color: "#14958f" }}
+                            variant="determinate"
+                            value={30}
+                          />
+                          <LinearProgress
+                            className="m-1 mb-3 "
+                            style={{ color: "#14958f" }}
+                            variant="determinate"
+                            value={10}
+                          />
+                        </div>
+                      </div>
+                      <hr />
+                      <div className="review-wrapper">
+                        <div className="single-review">
+                          {" "}
+                          <div className="review-img">
+                            <img
+                              src={
+                                process.env.PUBLIC_URL +
+                                "/assets/img/testimonial/1.jpg"
+                              }
+                              alt=""
+                            />
+                          </div>
+                          <div className="review-content">
+                            <div className="review-top-wrap">
+                              <div className="review-left">
+                                <div className="review-name">
+                                  <h4
+                                    style={{
+                                      textTransform: "capitalize",
+                                      margin: 5,
+                                    }}
+                                  >
+                                    lorem ipsum
+                                  </h4>
+                                </div>
+                                <div className="review-rating">
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  {/* <Rating
+                                    name="disabled"
+                                    style={{ opacity: 1 }}
+                                    disabled
+                                  /> */}
                                 </div>
                               </div>
-                              <div className="review-bottom">
-                                <p
-                                  style={{
-                                    display: "inline",
-                                    textTransform: "capitalize",
-                                  }}
-                                >
-                                  Vestibulum ante ipsum primis aucibus
-                                  orci luctustrices posuere cubilia Curae
-                                  Suspendisse viverra ed viverra. Mauris
-                                  ullarper euismod vehicula. Phasellus
-                                  quam nisi, congue id nulla.
-                                </p>
-                              </div>
+                            </div>
+                            <div className="review-bottom">
+                              <p
+                                style={{
+                                  display: "inline",
+                                  textTransform: "capitalize",
+                                }}
+                              >
+                                Vestibulum ante ipsum primis aucibus orci
+                                luctustrices posuere cubilia Curae Suspendisse
+                                viverra ed viverra. Mauris ullarper euismod
+                                vehicula. Phasellus quam nisi, congue id nulla.
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
-                      {/* avai */}
-                      <div className="col-md-6">
-                        <div className="avai-box text-center">
-                          <h3>Availability</h3>
-                          <div className="tab-bxx p-1">
-                            <Tab.Container defaultActiveKey="">
-                              <Nav variant="pills" className="rt_tab">
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_one">
-                                    Monday
-                                  </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_two">
-                                    Tuesday
-                                  </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_three">
-                                    Wednesday
-                                  </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_four">
-                                    Thursday
-                                  </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_five">
-                                    Friday
-                                  </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_six">
-                                    Saturday
+                    </div>
+                    {/* {/ avai /} */}
+                    <div className="col-md-6">
+                      <div className="avai-box text-center">
+                        <h3>Availability</h3>
+                        <div className="tab-bxx p-1">
+                          <Tab.Container defaultActiveKey="">
+                            <Nav variant="pills" className="rt_tab">
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link eventKey="tab_one">Monday</Nav.Link>
+                              </Nav.Item>
 
-                                  </Nav.Link>
-                                </Nav.Item>
-                                <Nav.Item className="rt_tab">
-                                  <Nav.Link eventKey="tab_six">
-                                    Sunday
-                                  </Nav.Link>
-                                </Nav.Item>
-                              </Nav>
-                              <Tab.Content className="description-review-bottom">
-                                <Tab.Pane eventKey="tab_one">
-                                  {this.state.monday}
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="tab_two">
-                                  {this.state.tuesday}
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="tab_three">
-                                  {this.state.wednesday}
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="tab_four">
-                                  {this.state.thursday}
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="tab_five">
-                                  {this.state.friday}
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="tab_six">
-                                  {this.state.saturday}
-                                </Tab.Pane>
-                                <Tab.Pane eventKey="tab_six">
-                                  {this.state.sunday}
-                                </Tab.Pane>
-                              </Tab.Content>
-                            </Tab.Container>
-                          </div>
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link eventKey="tab_two">Tuesday</Nav.Link>
+                              </Nav.Item>
+
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link eventKey="tab_three">Monday</Nav.Link>
+                              </Nav.Item>
+
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link eventKey="tab_four">Tuesday</Nav.Link>
+                              </Nav.Item>
+
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link eventKey="tab_five">Monday</Nav.Link>
+                              </Nav.Item>
+
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link eventKey="tab_six">Tuesday</Nav.Link>
+                              </Nav.Item>
+                            </Nav>
+
+                            <Tab.Content className="description-review-bottom">
+                              <Tab.Pane eventKey="tab_one">Hello</Tab.Pane>
+
+                              <Tab.Pane eventKey="tab_two">World</Tab.Pane>
+
+                              <Tab.Pane eventKey="tab_three">World</Tab.Pane>
+
+                              <Tab.Pane eventKey="tab_four">World</Tab.Pane>
+
+                              <Tab.Pane eventKey="tab_five">World</Tab.Pane>
+
+                              <Tab.Pane eventKey="tab_six">World</Tab.Pane>
+                            </Tab.Content>
+                          </Tab.Container>
                         </div>
                       </div>
                     </div>
-
-
-                    <Tab.Container defaultActiveKey="productDescription">
-                      <Nav
-                        variant="pills"
-                        className="description-review-topbar"
-                      >
-                        <Nav.Item>
-                          <Nav.Link eventKey="additionalInfo">
-                            About Information
-                          </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                          <Nav.Link eventKey="productReviews">Reviews</Nav.Link>
-                        </Nav.Item>
-                      </Nav>
-                      <Tab.Content className="description-review-bottom">
-                        <Tab.Pane eventKey="additionalInfo">
-                          <div className="product-anotherinfo-wrapper">
-                            <p>{this.state.long_bio}</p>
-                          </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="productReviews">
-                          <h3>RATINGS <i class="fa fa-star"></i></h3>
-                          <div className="row">
-                            <div className="col-lg-6">
-                              <div className="row">
-                                <div className="col-md-4">
-                                  <p></p>
-                                </div>
-                                <div className="col-md-6">
-                                  <LinearProgress
-                                    className="m-1 mb-3 "
-                                    style={{ color: "#14958f" }}
-                                    variant="determinate"
-                                    value={70}
-                                  />
-                                  <LinearProgress
-                                    className="m-1 mb-3 "
-                                    style={{ color: "#ff" }}
-                                    variant="determinate"
-                                    value={30}
-                                  />
-                                  <LinearProgress
-                                    className="m-1 mb-3 "
-                                    style={{ color: "#14958f" }}
-                                    variant="determinate"
-                                    value={30}
-                                  />
-                                  <LinearProgress
-                                    className="m-1 mb-3 "
-                                    style={{ color: "#14958f" }}
-                                    variant="determinate"
-                                    value={30}
-                                  />
-                                  <LinearProgress
-                                    className="m-1 mb-3 "
-                                    style={{ color: "#14958f" }}
-                                    variant="determinate"
-                                    value={10}
-                                  />
-                                </div>
-                              </div>
-                              <hr />
-                              <div className="review-wrapper">
-                                <div className="single-review">
-                                  *{" "}
-                                  <div className="review-img">
-                                    <img
-                                      src={
-                                        process.env.PUBLIC_URL +
-                                        "/assets/img/testimonial/1.jpg"
-                                      }
-                                      alt=""
-                                    />
-                                  </div>
-                                  <div className="review-content">
-                                    <div className="review-top-wrap">
-                                      <div className="review-left">
-                                        <div className="review-name">
-                                          <h4
-                                            style={{
-                                              textTransform: "capitalize",
-                                              margin: 5,
-                                            }}
-                                          >
-                                            lorem ipsum
-                                          </h4>
+                    {/* <div className="col-lg-5">
+                              <div className="ratting-form-wrapper pl-50">
+                                <h3>Write a Review</h3>
+                                <div className="ratting-form">
+                                  <form action="#">
+                                    <div className="star-box">
+                                       <span>Your rating:</span> 
+                                     <div className="ratting-star">
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                            </div> 
+                                    </div>
+                                    <div className="row">
+                                      <div className="rating-form-style mb-10">
+                                        <Rating
+                                          name="simple-controlled"
+                                          onChange={(event, newValue) => { }}
+                                        />
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="rating-form-style mb-10">
+                                          <input
+                                            placeholder="Name"
+                                            type="text"
+                                          />
                                         </div>
-                                        <div className="review-rating">
-                                          <i className="fa fa-star" />
-                                          <i className="fa fa-star" />
-                                          <i className="fa fa-star" />
-                                          <i className="fa fa-star" />
-                                          <i className="fa fa-star" />
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="rating-form-style mb-10">
+                                          <input
+                                            placeholder="Email"
+                                            type="email"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="col-md-12">
+                                        <div className="rating-form-style form-submit">
+                                          <textarea
+                                            name="comment"
+                                            placeholder="Comment"
+                                            defaultValue={""}
+                                            style={{ height: "auto" }}
+                                            rows={3}
+                                          />
+                                          <input
+                                            type="submit"
+                                            defaultValue="Submit"
+                                          />
+                                          <>
+                                          </>
                                         </div>
                                       </div>
                                     </div>
-                                    <div className="review-bottom">
-                                      <p
-                                        style={{
-                                          display: "inline",
-                                          textTransform: "capitalize",
-                                        }}
-                                      >
-                                        Vestibulum ante ipsum primis aucibus
-                                        orci luctustrices posuere cubilia Curae
-                                        Suspendisse viverra ed viverra. Mauris
-                                        ullarper euismod vehicula. Phasellus
-                                        quam nisi, congue id nulla.
-                                      </p>
-                                    </div>
-                                  </div>
+                                  </form>
                                 </div>
                               </div>
                             </div>
-                            {/* avai */}
-                            <div className="col-md-6">
-                              <div className="avai-box text-center">
-                                <h3>Availability</h3>
-                                <div className="tab-bxx p-1">
-                                  <Tab.Container defaultActiveKey="">
-                                    <Nav variant="pills" className="rt_tab">
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_one">
-                                          Monday
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_two">
-                                          Tuesday
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_three">
-                                          Wednesday
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_four">
-                                          Thursday
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_five">
-                                          Friday
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_six">
-                                          Saturday
+                            <div className="col-lg-5"></div>
 
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                      <Nav.Item className="rt_tab">
-                                        <Nav.Link eventKey="tab_six">
-                                          Sunday
-                                        </Nav.Link>
-                                      </Nav.Item>
-                                    </Nav>
-                                    <Tab.Content className="description-review-bottom">
-                                      <Tab.Pane eventKey="tab_one">
-                                        {this.state.monday}
-                                      </Tab.Pane>
-                                      <Tab.Pane eventKey="tab_two">
-                                        {this.state.tuesday}
-                                      </Tab.Pane>
-                                      <Tab.Pane eventKey="tab_three">
-                                        {this.state.wednesday}
-                                      </Tab.Pane>
-                                      <Tab.Pane eventKey="tab_four">
-                                        {this.state.thursday}
-                                      </Tab.Pane>
-                                      <Tab.Pane eventKey="tab_five">
-                                        {this.state.friday}
-                                      </Tab.Pane>
-                                      <Tab.Pane eventKey="tab_six">
-                                        {this.state.saturday}
-                                      </Tab.Pane>
-                                      <Tab.Pane eventKey="tab_six">
-                                        {this.state.sunday}
-                                      </Tab.Pane>
-                                    </Tab.Content>
-                                  </Tab.Container>
+                            <div className="col-lg-5">
+                              <div className="ratting-form-wrapper pl-50">
+                                <h3>Write a Review</h3>
+                                <div className="ratting-form">
+                                  <form action="#">
+                                    <div className="star-box">
+                                       <span>Your rating:</span> 
+                                     <div className="ratting-star">
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                              <i className="fa fa-star" />
+                            </div> 
+                                    </div>
+                                    <div className="row">
+                                      <div className="rating-form-style mb-10">
+                                        <Rating
+                                          name="simple-controlled"
+                                          onChange={(event, newValue) => { }}
+                                        />
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="rating-form-style mb-10">
+                                          <input
+                                            placeholder="Name"
+                                            type="text"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <div class="rating-form-style mb-10">
+                                          <input
+                                            placeholder="Email"
+                                            type="email"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="col-md-12">
+                                        <div className="rating-form-style form-submit">
+                                          <textarea
+                                            name="comment"
+                                            placeholder="Comment"
+                                            defaultValue={""}
+                                            style={{ height: "auto" }}
+                                            rows={3}
+                                          />
+                                          <input
+                                            type="submit"
+                                            defaultValue="Submit"
+                                          />
+
+                                          <>
+                                          </>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </Tab.Pane>
-                      </Tab.Content>
-                    </Tab.Container>
+                            </div> */}
                   </div>
-                </section>
+                </div>
+                {/* {/ review section close /} */}
               </Container>
             </section>
           </div>
@@ -710,10 +650,10 @@ export default AstrologerDetail;
 export function getUserID() {
   const name = JSON.parse(localStorage.getItem("userData"));
 
-  console.log("first", name)
+  console.log("first", name);
 
   const names = name.fullname;
-  console.log("first", names)
+  console.log("first", names);
   return names;
 }
 
