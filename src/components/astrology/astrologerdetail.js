@@ -390,42 +390,250 @@ class AstrologerDetail extends React.Component {
                           <Tab.Container defaultActiveKey="">
                             <Nav variant="pills" className="rt_tab">
                               <Nav.Item className="rt_tab">
-                                <Nav.Link eventKey="tab_one">Monday</Nav.Link>
+                                <Nav.Link
+                                  eventKey="tab_one"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Monday
+                                </Nav.Link>
                               </Nav.Item>
 
                               <Nav.Item className="rt_tab">
-                                <Nav.Link eventKey="tab_two">Tuesday</Nav.Link>
+                                <Nav.Link
+                                  eventKey="tab_two"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Tuesday
+                                </Nav.Link>
                               </Nav.Item>
 
                               <Nav.Item className="rt_tab">
-                                <Nav.Link eventKey="tab_three">Monday</Nav.Link>
+                                <Nav.Link
+                                  eventKey="tab_three"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Wednesday
+                                </Nav.Link>
                               </Nav.Item>
 
                               <Nav.Item className="rt_tab">
-                                <Nav.Link eventKey="tab_four">Tuesday</Nav.Link>
+                                <Nav.Link
+                                  eventKey="tab_four"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Thursday
+                                </Nav.Link>
                               </Nav.Item>
 
                               <Nav.Item className="rt_tab">
-                                <Nav.Link eventKey="tab_five">Monday</Nav.Link>
+                                <Nav.Link
+                                  eventKey="tab_five"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Friday
+                                </Nav.Link>
                               </Nav.Item>
 
                               <Nav.Item className="rt_tab">
-                                <Nav.Link eventKey="tab_six">Tuesday</Nav.Link>
+                                <Nav.Link
+                                  eventKey="tab_six"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Saturday
+                                </Nav.Link>
+                              </Nav.Item>
+                              <Nav.Item className="rt_tab">
+                                <Nav.Link
+                                  eventKey="tab_sev"
+                                  style={{ padding: "3px 9px" }}
+                                >
+                                  Sunday
+                                </Nav.Link>
                               </Nav.Item>
                             </Nav>
 
                             <Tab.Content className="description-review-bottom">
-                              <Tab.Pane eventKey="tab_one">Hello</Tab.Pane>
+                              <Tab.Pane eventKey="tab_one">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    {this.state.monday}
+                                  </p>
+                                </div>
+                              </Tab.Pane>
 
-                              <Tab.Pane eventKey="tab_two">World</Tab.Pane>
+                              <Tab.Pane eventKey="tab_two">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    10:00 AM to 5:00 PM
+                                  </p>
+                                </div>
+                              </Tab.Pane>
 
-                              <Tab.Pane eventKey="tab_three">World</Tab.Pane>
+                              <Tab.Pane eventKey="tab_three">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    10:00 AM to 5:00 PM
+                                  </p>
+                                </div>
+                              </Tab.Pane>
 
-                              <Tab.Pane eventKey="tab_four">World</Tab.Pane>
+                              <Tab.Pane eventKey="tab_four">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    10:00 AM to 5:00 PM
+                                  </p>
+                                </div>
+                              </Tab.Pane>
 
-                              <Tab.Pane eventKey="tab_five">World</Tab.Pane>
+                              <Tab.Pane eventKey="tab_five">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    10:00 AM to 5:00 PM
+                                  </p>
+                                </div>
+                              </Tab.Pane>
 
-                              <Tab.Pane eventKey="tab_six">World</Tab.Pane>
+                              <Tab.Pane eventKey="tab_six">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    10:00 AM to 5:00 PM
+                                  </p>
+                                </div>
+                              </Tab.Pane>
+
+                              <Tab.Pane eventKey="tab_sev">
+                                <div
+                                  className=""
+                                  style={{
+                                    width: "100%",
+                                    paddingBottom: "30px",
+                                    paddingTop: "10px",
+                                  }}
+                                >
+                                  <p
+                                    style={{
+                                      backgroundColor: "rgb(25 120 4)",
+                                      color: "#fff",
+                                      padding: "10px",
+                                      borderRadius: "50px",
+                                      fontSize: "16px",
+                                      fontWeight: "600",
+                                      width: "400px",
+                                      margin: "0  auto",
+                                    }}
+                                  >
+                                    10:00 AM to 5:00 PM
+                                  </p>
+                                </div>
+                              </Tab.Pane>
                             </Tab.Content>
                           </Tab.Container>
                         </div>

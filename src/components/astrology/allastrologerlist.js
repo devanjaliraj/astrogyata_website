@@ -15,7 +15,6 @@ import astrologinbg from "../../assets/img/astrologin-bg.jpg";
 import "../../assets/scss/astroteam.scss";
 import LayoutOne from "../../layouts/LayoutOne";
 import axiosConfig from "../../axiosConfig";
-import Form from "react-bootstrap/Form";
 
 class AllAstrologerList extends React.Component {
   constructor(props) {
@@ -25,6 +24,9 @@ class AllAstrologerList extends React.Component {
       From: "",
       To: "",
       astroid: "",
+      callingmode: false,
+      indexnow: null,
+
       userid: "",
       modal: false,
       price_high_to_low: [],
@@ -68,7 +70,9 @@ class AllAstrologerList extends React.Component {
       });
   };
 
-  submitHandler = (e, astroid, mobile) => {
+  submitHandler = (e, astroid, mobile, index) => {
+    this.setState({ indexnow: index });
+
     e.preventDefault();
     let mobileNo = localStorage.getItem("user_mobile_no");
     let userId = JSON.parse(localStorage.getItem("user_id"));
@@ -83,6 +87,7 @@ class AllAstrologerList extends React.Component {
       .post(`/user/make_call`, obj)
 
       .then(response => {
+        this.setState({ callingmode: true });
         console.log("rhsagdhgshgdjhgj", response.data.data);
       })
 
@@ -281,7 +286,7 @@ class AllAstrologerList extends React.Component {
                                         {astrologer.waiting_queue === 0 ? (
                                           <>
                                             <Link
-                                              className="btn btn-primary btn-sm sc"
+                                              // className="btn btn-primary btn-sm sc"
                                               to={
                                                 "/astrologerdetail/" +
                                                 astrologer._id
@@ -293,11 +298,36 @@ class AllAstrologerList extends React.Component {
                                                   this.submitHandler(
                                                     e,
                                                     astrologer?._id,
-                                                    astrologer?.mobile
+                                                    astrologer?.mobile,
+                                                    index
                                                   )
                                                 }
                                               >
-                                                <i class="fa fa-phone"> Call</i>
+                                                {/* Anujesh, 3:37 PM */}
+                                                {this.state.callingmode ===
+                                                  true &&
+                                                this.state.indexnow ===
+                                                  index ? (
+                                                  <>
+                                                    <span>
+                                                      <div className="btn btn-primary btn-sm sc">
+                                                        <i class="fa fa-phone">
+                                                          -Calling...
+                                                        </i>
+                                                      </div>
+                                                    </span>
+                                                  </>
+                                                ) : (
+                                                  <>
+                                                    <span>
+                                                      <div className="btn btn-success btn-sm sc">
+                                                        <i class="fa fa-phone">
+                                                          -Call
+                                                        </i>
+                                                      </div>
+                                                    </span>
+                                                  </>
+                                                )}
                                               </span>
                                             </Link>
                                           </>
